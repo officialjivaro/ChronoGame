@@ -29,7 +29,7 @@ export default createStore({
   },
   actions: {
     async loadGames({ commit }) {
-      const response = await fetch('/src/data/games.json')
+      const response = await fetch('/data/games.json')
       const data = await response.json()
       commit('setGames', data)
     },
