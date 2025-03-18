@@ -4,9 +4,9 @@ import GameView from '../views/GameView.vue'
 import ResultsView from '../views/ResultsView.vue'
 
 const routes = [
-  { path: '/',      name: 'Home',    component: HomeView },
-  { path: '/game',  name: 'Game',    component: GameView },
-  { path: '/results', name: 'Results', component: ResultsView }
+  { path: '/',       component: HomeView },
+  { path: '/game',   component: GameView },
+  { path: '/results', component: ResultsView }
 ]
 
 export default createRouter({
