@@ -4,16 +4,19 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
 
-  base: './ChronoGame/',
+  base: './',
 
   build: {
     outDir: 'docs',
-    assetsDir: 'assets',
+
+    assetsDir: '',
+
     rollupOptions: {
       output: {
-        assetFileNames: 'assets/[name]-[hash].[ext]',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js'
+
+        entryFileNames: 'ChronoGame/assets/[name]-[hash].js',
+        chunkFileNames: 'ChronoGame/assets/[name]-[hash].js',
+        assetFileNames: 'ChronoGame/assets/[name]-[hash].[ext]'
       }
     }
   }
