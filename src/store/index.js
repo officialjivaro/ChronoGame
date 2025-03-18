@@ -29,13 +29,17 @@ export default createStore({
   },
   actions: {
     async loadGames({ commit }) {
-      const response = await fetch('/data/games.json')
+      const response = await fetch('./data/games.json')
+      if (!response.ok) {
+        console.error('Failed to load games.json:', response.status)
+        return
+      }
       const data = await response.json()
       commit('setGames', data)
     },
     selectRandomGames({ state, commit }) {
-      let shuffled = [...state.games].sort(() => 0.5 - Math.random())
-      let selected = shuffled.slice(0, state.maxRounds)
+      const shuffled = [...state.games].sort(() => 0.5 - Math.random())
+      const selected = shuffled.slice(0, state.maxRounds)
       commit('setSelectedGames', selected)
     }
   }
