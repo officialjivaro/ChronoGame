@@ -1,11 +1,91 @@
 [
   {
+    "title": "Alex Kidd in Miracle World",
+    "developer": "Sega",
+    "publisher": "Sega",
+    "year": 1986,
+    "facts": "Debuting in 1986, Alex Kidd in Miracle World was Sega’s bright and bouncy take on the platforming craze. Alex can shatter boulders with his bare fists, yet Rock-Paper-Scissors duels are his real downfall. Onigiri snacks, giant fish, and punchable cars are all in a day’s work here. Mixing cartoon whimsy with random hazard chaos, it stays a weirdly charming classic decades later.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/xT4DsA7zpTRxwpX?file=/&fileId=154572&x=1920&y=1200&a=true&etag=a78a373c10673f75de972f54fd35afce"
+  },
+  {
     "title": "Beyond Oasis",
     "developer": "Ancient",
     "publisher": "Sega",
     "year": 1994,
     "facts": "Released in 1994, Beyond Oasis is also known as The Story of Thor in some regions. It was developed by Ancient, led by legendary composer Yuzo Koshiro’s family, giving the soundtrack a unique flair. Players guide Prince Ali with a magical armlet that summons elemental spirits. Unexpected cameo creatures and secret areas keep explorers on their toes throughout this 16-bit journey.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/pR8rM4pd2df7MTC?file=/&fileId=153723&x=3840&y=2160&a=true&etag=0b7b6a1f8b48ead285e418d02a902b2a"
+  },
+  {
+    "title": "Captain Commando",
+    "developer": "Capcom",
+    "publisher": "Capcom",
+    "year": 1991,
+    "facts": "Captain Commando blasted into arcades in 1991, leading a ragtag squad that includes a baby genius in a mech. The Captain himself can fry baddies with zany sci-fi gadgets, all while sporting a visor that screams ‘futuristic swagger.’ Each stage brims with over-the-top boss fights and neon-laced mayhem. It's so delightfully outrageous that you’ll swear Saturday morning cartoons came to life.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/KQbyz9WkYkk2EAF?file=/&fileId=154446&x=1920&y=1200&a=true&etag=df62e4a20aeb16e44280f521b1dd8c27"
+  },
+  {
+    "title": "Castlevania: Symphony of the Night",
+    "developer": "Konami Computer / Entertainment Tokyo",
+    "publisher": "Konami",
+    "year": 1997,
+    "facts": "Symphony of the Night sank its fangs into the world in 1997, introducing a new era of Metroidvania greatness. Alucard’s shape-shifting tricks and labyrinthine castle sparked countless speedruns and hidden-room hunts. The gothic soundtrack wraps you in a spooky blanket of organ riffs and nocturnal mystery. Even random chandeliers hide secrets, proving vampires love their cryptic home décor.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/gG4ywfBEfCGm24y?file=/&fileId=154419&x=1920&y=1200&a=true&etag=5ade49e1beb8227628755cadfd4400ad"
+  },
+  {
+    "title": "Digimon World 3",
+    "developer": "BEC / Boom Corp",
+    "publisher": "Bandai",
+    "year": 2002,
+    "facts": "Digimon World 3 hit the scene in 2002, melding RPG questing with pet-raising chaos. Exploring pixelly towns brimming with weird digital creatures is half the fun. Befriending a rookie Digimon and evolving it into a tank-sized mega-monster fuels endless battles. Between card games and side quests, it’s a virtual playground for anyone who’s ever said, ‘I just need one more Digivolution.’",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/K9pWBnMsEtoXdM6?file=/&fileId=154098&x=1920&y=1200&a=true&etag=cd9c1802c0249f92c8972c96833e4b8c"
+  },
+  {
+    "title": "Donkey Kong Country 2",
+    "developer": "Rare",
+    "publisher": "Nintendo",
+    "year": 1995,
+    "facts": "Donkey Kong Country 2 smashed bananas in 1995, teaming Diddy and Dixie for treetop hijinks. Pirate Kremlings, roller-coaster rails, and hidden tokens make every level a monkey-flinging puzzle. Dixie’s hair-twirl jump is a showstopper, letting you dodge foes in acrobatic style. It remains a fan favorite for its funky tunes and surprisingly punishing barrel tosses.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/4gb7zCmT9PqesQ2?file=/&fileId=154395&x=1920&y=1200&a=true&etag=1d95781aa04fb8ab20860c8e9976c77f"
+  },
+  {
+    "title": "The Elder Scrolls V: Skyrim",
+    "developer": "Bethesda Game Studios",
+    "publisher": "Bethesda Softworks",
+    "year": 2011,
+    "facts": "Skyrim shouted onto the scene in 2011 with epic dragon battles and cheese wheels galore. The freedom to yeet bandits off cliffs using your Thu’um never grows old. Modders have turned this snowy kingdom into everything from Thomas the Tank Engine nightmares to Randy Savage dragons. Even if you’re on your tenth playthrough, there’s always another cave full of trolls to scream at.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/HZqTtFcRFoM9yD8?file=/&fileId=154107&x=1920&y=1200&a=true&etag=758e4f31b2619949ab8b1732774e9e5f"
+  }, 
+  {
+    "title": "Eternal Sonata",
+    "developer": "tri-Crescendo",
+    "publisher": "Bandai Namco",
+    "year": 2007,
+    "facts": "Eternal Sonata took the stage in 2007, blending classical music with a dreamlike realm. It imagines composer Frédéric Chopin adventuring in a half-real fantasy world as he drifts off on his deathbed. Each battle is laced with bright piano riffs and color-coded combos. It’s basically a jam session in RPG form, perfect for anyone who’s ever wanted to bash monsters to a Nocturne.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/dWxE7EH2bjsJY9W?file=/&fileId=154275&x=3840&y=2160&a=true&etag=f2fe6f78f29c21f03678dd56d9bf1579"
+  },
+  {
+    "title": "Fantasy Life",
+    "developer": "Level-5",
+    "publisher": "Nintendo",
+    "year": 2012,
+    "facts": "Fantasy Life launched in 2012, letting you juggle multiple in-game careers like a part-time baker turned dragon slayer. It flaunts a sunny world full of cheeky NPCs who never tire of giving you quests. Level-5 peppered the game with hidden jokes that appear if you snoop around thoroughly. Every profession unlocks unique powers, ensuring you’ll never run out of odd jobs to tackle.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/yWgAbqjrGb7awdK?file=/&fileId=154047&x=3840&y=2160&a=true&etag=30f1317e570dae2affa58d74cb164f78"
+  },
+  {
+    "title": "Frogger",
+    "developer": "Konami",
+    "publisher": "Konami / Sega",
+    "year": 1981,
+    "facts": "Frogger hopped into arcades in 1981, forcing you to dodge cars, logs, and alligators to ferry frogs home. Its star amphibian has zero fear of highway traffic, which is half the comedic tension. With every near-miss truck, you’re one ribbit away from frog jelly. It remains a timeless reminder that crossing the road can be an epic gaming ordeal.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/XWW4oMoqLXDRb8c?file=/&fileId=154323&x=3840&y=2160&a=true&etag=1c6b281fb982fcdf91325f51432b7adb"
+  },
+  {
+    "title": "Galaxy Game",
+    "developer": "Bill Pitts & Hugh Tuck",
+    "publisher": "Bill Pitts & Hugh Tuck",
+    "year": 1971,
+    "facts": "Galaxy Game arrived in 1971 as one of the earliest coin-operated video games. Players launched torpedoes at each other in a starry vacuum while college crowds formed around the machine. It’s said the developers tinkered with gravity wells before deciding they’d break everyone’s brain. The prototype famously guzzled quarters as fast as it spawned epic space rivalries.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/xdQQcAYKXkcEAd4?file=/&fileId=153945&x=3840&y=2160&a=true&etag=53089927cf9f270a98b8aec181aea8a9"
   },
   {
     "title": "Golden Sun",
@@ -20,7 +100,7 @@
     "developer": "Atari",
     "publisher": "Atari",
     "year": 1973,
-    "facts": "",
+    "facts": "Gotcha debuted in 1973 as a mischievous arcade oddity from Atari. It earned a reputation for its comical “maze chase” concept and bizarre pink control domes. Some players joked it felt like grabbing two grapefruits while fleeing cartoonish enemies. Yet behind the silliness, Gotcha helped shape early competitive arcade gaming.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/Q3cjo7n9JRyyBxd?file=/&fileId=153972&x=3840&y=2160&a=true&etag=0b4953c9ea56481bbb34dc1ffa7f5095"
   },
   {
@@ -28,24 +108,64 @@
     "developer": "Doug Dyment",
     "publisher": "Doug Dyment",
     "year": 1968,
-    "facts": "",
+    "facts": "Hamurabi, first appearing in 1968, laid the groundwork for city-management games before it was cool. You juggle food, land, and pesky citizens who won’t stop complaining about harvests. Rumor says the code includes cryptic messages if you mismanage your kingdom. Despite its text-based nature, the tension of feeding a growing population still feels real.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/5oybetzPFeEFz8J?file=/&fileId=153921&x=3840&y=2160&a=true&etag=ac73c6061570ea4448ee609107d81ed8"
   },
   {
-    "title": "Galaxy Game",
-    "developer": "Bill Pitts & Hugh Tuck",
-    "publisher": "Bill Pitts & Hugh Tuck",
-    "year": 1971,
-    "facts": "",
-    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/xdQQcAYKXkcEAd4?file=/&fileId=153945&x=3840&y=2160&a=true&etag=53089927cf9f270a98b8aec181aea8a9"
+    "title": "Hollow Knight",
+    "developer": "Team Cherry",
+    "publisher": "Team Cherry",
+    "year": 2017,
+    "facts": "Hollow Knight burrowed into the scene in 2017, weaving a bug-filled wonderland of hidden horrors. Each tunnel offers hand-drawn gloom punctuated by nail-biting boss fights. With every new charm or weapon, you feel more confident braving chittering minions in the deep. Its eerie soundtrack whispers encouragement as you confront the kingdom’s tragic secrets, one cryptic corridor at a time.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/L5LtE6ek9berLgs?file=/&fileId=154521&x=1920&y=1200&a=true&etag=1bd23fd0e19045490d4a1657a48e2de0"
   },
+  {
+    "title": "Kingdom Hearts 2",
+    "developer": "Square Enix",
+    "publisher": "Square Enix",
+    "year": 2005,
+    "facts": "Kingdom Hearts 2 landed in 2005, once again jumbling Disney magic and Final Fantasy theatrics. Sora’s spiky hair pairs surprisingly well with Donald’s quacking rage against Heartless. The flashy combat system introduced reaction commands that felt like theme-park rides made of light shows. It’s a testament to friendship, key-shaped blades, and the wild notion that Goofy can be an armored knight.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/HZPDYqriEeL324W?file=/&fileId=154296&x=3840&y=2160&a=true&etag=af574a8ecf456eb07f32b9ee71a9b077"
+  },
+  {
+    "title": "The Legend of Zelda: Majora's Mask",
+    "developer": "Nintendo EAD",
+    "publisher": "Nintendo",
+    "year": 2000,
+    "facts": "Majora’s Mask emerged in 2000, pitting Link against a giant moon with an alarming grin. This time-loop mechanic forces you to relive the same three days, spawning frantic fetch quests before everything resets. Transforming with magical masks is half the thrill, from Deku-scrub flutters to Goron ground pounds. It’s a weirdly charming dance of dread, culminating in an ocarina melody that can stall an apocalypse.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/kb7f9zYZNPFJXiw?file=/&fileId=154548&x=1920&y=1200&a=true&etag=ae5d0ca7e512ba40d64eb578707cdb4d"
+  },  
   {
     "title": "Mario Tennis (Game Boy Color)",
     "developer": "Camelot",
     "publisher": "Nintendo",
     "year": 2000,
     "facts": "Mario Tennis on Game Boy Color brought a tiny tennis RPG into the Mushroom Kingdom in 2000. Players level up a custom character, then challenge the big names like Mario and Bowser. It was also notable for its Link Cable support, letting friends duke it out court-side. Fans debate whether Waluigi’s first handheld appearance overshadowed every single power shot.",
-    "imageUrl": "https://i.ibb.co/hJMWzHwX/mario-tennis.png"
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/4b6RTFzLZqsQsAf?file=/&fileId=153735&x=3840&y=2160&a=true&etag=acb754526b28c588f0350e45190fb961"
+  },
+  {
+    "title": "Mega Man Battle Network",
+    "developer": "Capcom / Inti Creates / Arika / Tose",
+    "publisher": "Capcom",
+    "year": 2001,
+    "facts": "Mega Man Battle Network jacked into the GBA in 2001, merging RPG strategy with deck-building combat. You roam the real world as Lan, but duel viruses in cyberspace as MegaMan.EXE for weird program combos. Each new chip can be a game-changer, letting you slice, dice, or blast foes in pixel-sparking style. It's a virus-busting carnival of improbable net-surfing hijinks and deck-shuffling madness.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/kFXZXD5QgPBHz2M?file=/&fileId=154095&x=1920&y=1200&a=true&etag=ee4485ff9dfab6a99a4c5d491e46299e"
+  },
+  {
+    "title": "Mega Man Legends",
+    "developer": "Capcom",
+    "publisher": "Capcom",
+    "year": 1997,
+    "facts": "Mega Man Legends soared into 3D in 1997, trading side-scrolling levels for open-world treasure hunts. MegaMan Volnutt unearths ancient ruins while tangling with a family of comic-book pirates. Its bright towns bustle with quirky NPCs, always ready to compliment your buster arm or tease your helmet. It’s proof that robots, humor, and heartfelt storytelling can happily collide in the same game.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/D5jjE2YHqos5pZ6?file=/&fileId=154368&x=1920&y=1200&a=true&etag=c57a7c4810ec57a2fe337c34680cfc85"
+  },
+  {
+    "title": "Minecraft",
+    "developer": "Mojang Studios",
+    "publisher": "Mojang Studios",
+    "year": 2011,
+    "facts": "Minecraft mined its way into our hearts in 2011, building a pixel-block sandbox of infinite creation. Creepers lurk behind corners, ready to blow up your carefully designed chicken farm. Redstone contraptions can turn you into an accidental engineer of bizarre machines. It's a blocky wonderland of emergent chaos that proves even a dirt hut can feel like home.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/X4QpQDG6iMptRjB?file=/&fileId=154224&x=1920&y=1200&a=true&etag=82181b138da78c1c8486cafe05f1eb99"
   },
   {
     "title": "Orphen: Scion Of Sorcery",
@@ -53,14 +173,46 @@
     "publisher": "Activision",
     "year": 2000,
     "facts": "Orphen: Scion Of Sorcery is based on the anime 'Sorcerous Stabber Orphen' and launched in 2000. It blends platforming, puzzles, and constant witty banter from the sarcastic sorcerer himself. Some Western players were baffled by references to anime-only storylines. Despite the confusion, its oddball humor remains a highlight for fans.",
-    "imageUrl": "https://i.ibb.co/kgfZbsm3/orphen-scion-of-sorcery.jpg"
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/mPdkncgPtkttbaE?file=/&fileId=153720&x=3840&y=2160&a=true&etag=df0d228c15acb24b2c5b9601380d94bd"
+  },
+  {
+    "title": "Parasite Eve",
+    "developer": "Squaresoft",
+    "publisher": "Squaresoft",
+    "year": 1998,
+    "facts": "Parasite Eve emerged in 1998 as a hybrid of survival horror and JRPG flair. Aya Brea’s mitochondria-fueled powers lit up New York with flaming rats and opera-induced mutations. Between cinematic cutscenes, you micromanage DNA for edgy stat buffs, proving science can be scary. It’s a sweaty, haunting ride that taught us never to trust mitochondria in designer heels.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/dfJdPF43pQT6sid?file=/&fileId=154251&x=1920&y=1200&a=true&etag=15c22ebf72878b74da08a33a228bb46a"
+  },
+  {
+    "title": "Phantasy Star",
+    "developer": "Sega",
+    "publisher": "Sega",
+    "year": 1987,
+    "facts": "Phantasy Star rocketed onto the Master System in 1987, bridging swords and sci-fi in a galaxy at war. Alis leads a ragtag crew across desert planets and bioengineered dungeons. First-person corridor crawls stunned the 8-bit crowd, who gasped at polygon-like turns. This cosmic epic carved a new path for JRPGs, proving star systems are a perfect backdrop for wizardly catpeople.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/LFi8XMTFp9iWxzZ?file=/&fileId=154473&x=1920&y=1200&a=true&etag=da4271e9ebbf08e79fc2e7041bb58d68"
+  },
+  {
+    "title": "Pokemon Colosseum",
+    "developer": "Genius Sonority",
+    "publisher": "Nintendo / The Pokemon Company",
+    "year": 2003,
+    "facts": "Pokemon Colosseum swapped the usual sunshine for a grittier, desert-bound twist in 2003. You’re ex-criminal Wes, hijacking Shadow Pokemon from villains and purifying them in dusty towns. Double battles define the strategy, pairing oddball combos like an Umbreon and a Suicune to outfox foes. The neon-lit underworld vibe proves not every Poke-adventure is a stroll through pastel forests.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/sRKzJxekfc9n8Pz?file=/&fileId=154101&x=3840&y=2160&a=true&etag=643ec0f3815606e07ba7607f23324331"
+  },
+  {
+    "title": "RuneScape Classic",
+    "developer": "Jagex",
+    "publisher": "Jagex",
+    "year": 2001,
+    "facts": "RuneScape Classic opened its low-polygon gates in 2001, luring rookies into a world of cluelessness. You might whack goblins for hours only to discover there’s an entire bustling city next door. Everyone’s chat bubble dripped with rumors of obscure quests, or that time they got scammed for 10k gold. Despite its rudimentary look, it lit the spark for a worldwide MMO craze.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/ckSCofsiideTrwJ?file=/&fileId=154494&x=1920&y=1200&a=true&etag=2380bf090cd8424525816c68e2a71560"
   },
   {
     "title": "Shark Jaws",
     "developer": "Horror Games",
     "publisher": "Atari",
     "year": 1975,
-    "facts": "",
+    "facts": "Shark Jaws, surfacing in 1975, let players dodge an endless set of chomping teeth in pixelated waters. Rumors claim it tried to piggyback off Spielberg’s Jaws hype without the license. The game’s simplistic graphics hide a surprising intensity—one wrong move and you’re fish food. Even so, it gave arcades a playful scare long before modern horror titles.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/oy6MWskSbffcos6?file=/&fileId=153999&x=3840&y=2160&a=true&etag=ebc49f444967af12ad705a7ae9f38960"
   },
   {
@@ -69,30 +221,38 @@
     "publisher": "Sega",
     "year": 1996,
     "facts": "Sonic 3D Blast was Sonic’s step into isometric platforming back in 1996. Developed by Traveller's Tales in collaboration with Sonic Team, it still features Flickies from classic Sonic lore. The angled perspective can leave players second-guessing a spring’s trajectory. Even so, it’s remembered for bridging 2D classics and Sonic’s future 3D escapades.",
-    "imageUrl": "https://i.ibb.co/Fbg6pdXP/sonic-3d-blast.jpg"
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/L4L4Cj33bZAeWmi?file=/&fileId=153726&x=3840&y=2160&a=true&etag=5ff845b39f7b282559e3aa31f507424c"
   },
   {
     "title": "Spacewar!",
     "developer": "Steve Russell",
     "publisher": "Steve Russell",
     "year": 1962,
-    "facts": "",
+    "facts": "Spacewar! from 1962 is often hailed as one of the earliest digital games, predating mainstream arcades. Developed by inquisitive students on a hulking mainframe, it pitted two ships in a gravitational dance. Players marveled at the concept of computer-based dogfights long before the era of home consoles. Its code inspired countless spinoffs, proving that cosmic shootouts never go out of style.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/HNXgdebFW2CEzNK?file=/&fileId=153894&x=3840&y=2160&a=true&etag=eb2ecd5302a5cfd3867f6922a72da370"
   },
+  {
+    "title": "Threads of Fate",
+    "developer": "Squaresoft",
+    "publisher": "Squaresoft",
+    "year": 1999,
+    "facts": "Threads of Fate spun onto the PlayStation in 1999, starring two heroes: the serious Mint and carefree Rue. Each story weaves comedic mischief with shape-shifting battles across puzzle-laden locales. Rare’s breezy action platforming and Square’s whimsical flair collided in a charming package. It’s a hidden gem for fans of magical crown chases and comedic villain outbursts.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/DMsXrFryZ3iYwma?file=/&fileId=154104&x=3840&y=2160&a=true&etag=fbed0598fd11fa616161660072a3bb98"
+  },  
   {
     "title": "Xenogears",
     "developer": "FastTrack Studios",
     "publisher": "HighSpeed Games",
     "year": 1998,
     "facts": "Xenogears (1998) combines classic RPG exploration with giant mech battles called Gears. Its blend of 2D sprites on 3D backdrops gives it a striking visual identity. Philosophical plot threads span themes of identity, faith, and ancient secrets. Rumors swirl about cut story content, fueling fans’ curiosity to this day.",
-    "imageUrl": "https://i.ibb.co/r2XrMKBD/xenogears.png"
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/BrMGXEBpQaP3H3y?file=/&fileId=153729&x=3840&y=2160&a=true&etag=5e1268a7388fbb26b5f00ed6b9b84ac5"
   },
   {
     "title": "Zombies Ate My Neighbors",
     "developer": "LucasArts",
     "publisher": "Konami",
     "year": 1991,
-    "facts": "",
+    "facts": "Zombies Ate My Neighbors took 16-bit horror comedy to a ghoulish extreme in 1991. Players rescue clueless neighbors from werewolves, chainsaw maniacs, and giant babies. Its split-screen co-op left friendships shaken by lawnmower mishaps and soda-can grenades. Regardless, it remains a beloved cult classic for those who enjoy a dash of B-movie chaos.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/ziaPWRqr3GXJoB4?file=/&fileId=154026&x=3840&y=2160&a=true&etag=e58c2fa3dd548877ee863679bd581651"
   }
 ]

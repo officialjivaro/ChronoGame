@@ -11,3 +11,15 @@ export default {
   props: ['game']
 }
 </script>
+
+<style scoped>
+.game-image {
+  display: flex;
+  justify-content: center;
+}
+.game-image img {
+  width: 50vw;
+  height: auto;
+  max-width: none;
+}
+</style>

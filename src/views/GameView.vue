@@ -34,7 +34,6 @@ import GameImage from '../components/GameImage.vue'
 import SliderControl from '../components/SliderControl.vue'
 import ScorePanel from '../components/ScorePanel.vue'
 import FadeTransition from '../components/FadeTransition.vue'
-
 export default {
   name: 'GameView',
   components: {
@@ -64,19 +63,13 @@ export default {
     submitGuess() {
       if (!this.currentGame) return
       const diff = Math.abs(this.selectedYear - this.currentGame.year)
-      // Simple log-based scoring: top is 1000 if diff=0
-      // e.g. score = 1000 / (1 + log10(diff+1))
-      const base = Math.log10(diff + 1)
-      const rawScore = 1000 / (1 + base)
-      this.thisRoundScore = Math.floor(rawScore)
-
-      // Ensure score can't exceed 1000 or go below 0
-      if (this.thisRoundScore > 1000) {
-        this.thisRoundScore = 1000
-      } else if (this.thisRoundScore < 0) {
-        this.thisRoundScore = 0
-      }
-
+      const k = 0.2027
+      const p = 1.3
+      const rawScore = 1000 * Math.exp(-k * Math.pow(diff, p))
+      let score = Math.floor(rawScore)
+      if (score > 1000) score = 1000
+      if (score < 1 && diff > 15) score = 0
+      this.thisRoundScore = score
       this.$store.commit('addScore', this.thisRoundScore)
       this.showFacts = true
       this.hasSubmitted = true

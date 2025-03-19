@@ -5,7 +5,7 @@
         href="https://jivaro.net/misc/games-and-fun-by-category"
         target="_blank"
         class="games-fun-btn"
-        style="margin-left: 2rem;"
+        style="margin-left: 4rem;"
       >
         Games & Fun
       </a>

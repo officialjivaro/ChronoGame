@@ -1,10 +1,11 @@
 <template>
   <div class="score-panel">
     <div class="panel-content">
-      <h3>Your Score: {{ score }}</h3>
+      <h3 :style="{ color: scoreColor }">Your Score: {{ score }}</h3>
       <p>
         <strong>{{ gameInfo.title }}</strong>
       </p>
+      <p>Release Year: {{ gameInfo.year }}</p>
       <p>
         Developer: {{ gameInfo.developer }}<br />
         Publisher: {{ gameInfo.publisher }}
@@ -22,6 +23,13 @@ export default {
   computed: {
     gameInfo() {
       return this.game || {}
+    },
+    scoreColor() {
+      if (this.score === 1000) return 'green'
+      if (this.score >= 745) return 'lightgreen'
+      if (this.score >= 500) return 'yellow'
+      if (this.score >= 250) return 'orange'
+      return 'red'
     }
   }
 }
