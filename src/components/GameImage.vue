@@ -25,7 +25,8 @@ export default {
   width: 45vw;
   max-width: 90%;
   height: auto;
-  box-shadow: 0 0 8px rgba(0,0,0,0.6), 0 6px 12px rgba(0,0,0,0.3);
   border: 6px ridge #333;
+  box-shadow: 0 0 8px rgba(0,0,0,0.6), 0 8px 12px rgba(0,0,0,0.4);
+  border-radius: 0;
 }
 </style>
