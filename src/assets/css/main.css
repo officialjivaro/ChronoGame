@@ -1,24 +1,39 @@
+/* main.css */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-body {
+html, body {
   margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   font-family: 'Open Sans', sans-serif;
-  background-color: #eee;
+  background: linear-gradient(to bottom, #e0e0e0, #cfcfcf);
+}
+
+.app-root {
+  height: 95vh;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .custom-btn {
   background-color: #555;
   color: #fff;
   border: none;
-  padding: 0.75rem 2rem; 
+  padding: 0.75rem 2rem;
   font-size: 1.2rem;
-  border-radius: 0.5rem; 
+  border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
   transition: all 0.2s ease-in-out;
 }
 .custom-btn:hover {
-  background-color: #333; 
+  background-color: #333;
   transform: translateY(-2px);
 }
 .custom-btn:active {
@@ -36,18 +51,6 @@ body {
   width: 50%;
   margin: 0 auto 1rem auto;
   position: relative;
-  border-radius: 1rem;
-  mask-image: radial-gradient(
-    ellipse at top left,
-    transparent 0%,
-    transparent 10%,
-    black 40%,
-    black 60%,
-    transparent 90%,
-    transparent 100%
-  );
-  mask-size: 100% 100%;
-  mask-repeat: no-repeat;
 }
 
 .games-fun-btn {

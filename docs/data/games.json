@@ -1,11 +1,43 @@
 [
   {
+    "title": "A Bug's Life",
+    "developer": "Traveller's Tales / Tiertex Design Studios",
+    "publisher": "Sony Computer Entertainment",
+    "year": 1998,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/cFsFXwBLpwzH9bH?file=/&fileId=154938&x=3840&y=2160&a=true&etag=688671fafee4fd34a5c9ed4fded9eb5a"
+  },
+  {
+    "title": "Advance Wars",
+    "developer": "Intelligent Systems",
+    "publisher": "Nintendo",
+    "year": 2001,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/YQKHNA3wDt663Dd?file=/&fileId=155895&x=3840&y=2160&a=true&etag=0c8ba55b2b8ec9e31c32f23c07d7cc29"
+  },
+  {
     "title": "Alex Kidd in Miracle World",
     "developer": "Sega",
     "publisher": "Sega",
     "year": 1986,
     "facts": "Debuting in 1986, Alex Kidd in Miracle World was Sega’s bright and bouncy take on the platforming craze. Alex can shatter boulders with his bare fists, yet Rock-Paper-Scissors duels are his real downfall. Onigiri snacks, giant fish, and punchable cars are all in a day’s work here. Mixing cartoon whimsy with random hazard chaos, it stays a weirdly charming classic decades later.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/xT4DsA7zpTRxwpX?file=/&fileId=154572&x=1920&y=1200&a=true&etag=a78a373c10673f75de972f54fd35afce"
+  },
+  {
+    "title": "Among Us",
+    "developer": "Innersloth",
+    "publisher": "Innersloth",
+    "year": 2018,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/tYbb2TyS64WMRg7?file=/&fileId=155631&x=3840&y=2160&a=true&etag=e2d88e192d467b3e133303638a534ac2"
+  },
+  {
+    "title": "Armored Core VI: Fires of Rubicon",
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco",
+    "year": 2023,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/FtaJ9pRxcnZbqLS?file=/&fileId=154992&x=3840&y=2160&a=true&etag=e21fe0a49660b605834eec2c625acba3"
   },
   {
     "title": "Beyond Oasis",
@@ -16,6 +48,38 @@
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/pR8rM4pd2df7MTC?file=/&fileId=153723&x=3840&y=2160&a=true&etag=0b7b6a1f8b48ead285e418d02a902b2a"
   },
   {
+    "title": "BioShock",
+    "developer": "2K Boston / 2K Australia",
+    "publisher": "2K",
+    "year": 2007,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/gZRArHsdfTzpnKX?file=/&fileId=155805&x=3840&y=2160&a=true&etag=aa61eec466123d563fa253a39bfcce52"
+  },
+  {
+    "title": "BioShock Infinite",
+    "developer": "Irrational Games",
+    "publisher": "2K",
+    "year": 2000,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/JZGBcNwiS2LRAbo?file=/&fileId=155856&x=3840&y=2160&a=true&etag=c3374eee8737b49160f34fc8919e6d83"
+  },
+  {
+    "title": "Bloodborne",
+    "developer": "FromSoftware",
+    "publisher": "Sony Computer Entertainment",
+    "year": 2015,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/mWajgfT77pyzXmi?file=/&fileId=155712&x=3840&y=2160&a=true&etag=75581fb3ce52412d8aa70d3553b88f28"
+  },
+  {
+    "title": "Borderlands",
+    "developer": "Gearbox Software",
+    "publisher": "2K",
+    "year": 2009,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/X5WynWfEkQRtKwE?file=/&fileId=155832&x=3840&y=2160&a=true&etag=11c19a9cff51fa971ab54fecd73ecab5"
+  },
+  {
     "title": "Captain Commando",
     "developer": "Capcom",
     "publisher": "Capcom",
@@ -24,12 +88,52 @@
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/KQbyz9WkYkk2EAF?file=/&fileId=154446&x=1920&y=1200&a=true&etag=df62e4a20aeb16e44280f521b1dd8c27"
   },
   {
+    "title": "Castle of Illusion Starring Mickey Mouse",
+    "developer": "Sega",
+    "publisher": "Sega",
+    "year": 1990,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/A45iG3FBYtDNpHr?file=/&fileId=154761&x=3840&y=2160&a=true&etag=0c92a1221ae3ed83b9707ca960c4a27e"
+  },
+  {
     "title": "Castlevania: Symphony of the Night",
     "developer": "Konami Computer / Entertainment Tokyo",
     "publisher": "Konami",
     "year": 1997,
     "facts": "Symphony of the Night sank its fangs into the world in 1997, introducing a new era of Metroidvania greatness. Alucard’s shape-shifting tricks and labyrinthine castle sparked countless speedruns and hidden-room hunts. The gothic soundtrack wraps you in a spooky blanket of organ riffs and nocturnal mystery. Even random chandeliers hide secrets, proving vampires love their cryptic home décor.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/gG4ywfBEfCGm24y?file=/&fileId=154419&x=1920&y=1200&a=true&etag=5ade49e1beb8227628755cadfd4400ad"
+  },
+  {
+    "title": "Chocobo's Dungeon 2",
+    "developer": "Squaresoft",
+    "publisher": "Squaresoft",
+    "year": 1998,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/Hn396pi5mkMNGM3?file=/&fileId=154647&x=3840&y=2160&a=true&etag=14e934fe58699d44a99f5a9220c5117d"
+  },
+  {
+    "title": "Cuphead",
+    "developer": "Studio MDHR",
+    "publisher": "Studio MDHR",
+    "year": 2017,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/zmpNWeSzy2sKmZX?file=/&fileId=155775&x=3840&y=2160&a=true&etag=965b62fb504a54d9deaa580304590c1a"
+  },
+  {
+    "title": "Destiny",
+    "developer": "Bungie",
+    "publisher": "Bungie / Activision",
+    "year": 2014,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/f3gFRT64Yw8ePGC?file=/&fileId=155340&x=3840&y=2160&a=true&etag=61774e37a1f2bef6dd1159c7455c0181"
+  },
+  {
+    "title": "Diablo II",
+    "developer": "Blizzard North",
+    "publisher": "Blizzard Entertainment",
+    "year": 2000,
+    "facts": "",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/xPccK3kmDEaSA5o?file=/&fileId=155211&x=3840&y=2160&a=true&etag=31cc0c839bea608fc2be1e5d2e3e588e"
   },
   {
     "title": "Digimon World 3",

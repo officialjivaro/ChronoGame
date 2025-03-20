@@ -1,11 +1,10 @@
+<!-- Banner.vue -->
 <template>
   <nav class="navbar navbar-expand-md banner-bg">
-    <div class="container-fluid align-items-center d-flex" style="position: relative;">
+    <div class="container-fluid align-items-center d-flex banner-container">
       <a
         href="https://jivaro.net/misc/games-and-fun-by-category"
-        target="_blank"
         class="games-fun-btn"
-        style="margin-left: 4rem;"
       >
         Games & Fun
       </a>
@@ -24,22 +23,30 @@ export default {
 
 <style scoped>
 .banner-bg {
-  background: linear-gradient(135deg, #444 0%, #777 100%);
-  padding: 0.5rem 0;
+  background: #222;
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
 .banner-title {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: #fff;
+  color: #f0f0f0;
   font-weight: 700;
   margin: 0;
 }
-
 .banner-title h1 {
   font-size: 1.8rem;
   margin: 0;
+  text-shadow: 2px 3px 6px rgba(0,0,0,0.7);
 }
-
 </style>

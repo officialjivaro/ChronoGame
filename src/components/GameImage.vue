@@ -1,3 +1,4 @@
+<!-- GameImage.vue -->
 <template>
   <div class="game-image">
     <img v-if="game" :src="game.imageUrl" alt="Game Screenshot" />
@@ -16,10 +17,15 @@ export default {
 .game-image {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex: 1;
+  overflow: hidden;
 }
 .game-image img {
-  width: 50vw;
+  width: 45vw;
+  max-width: 90%;
   height: auto;
-  max-width: none;
+  box-shadow: 0 0 8px rgba(0,0,0,0.6), 0 6px 12px rgba(0,0,0,0.3);
+  border: 6px ridge #333;
 }
 </style>

@@ -1,6 +1,7 @@
+<!-- HomeView.vue -->
 <template>
   <section class="home text-center mt-4">
-    <h2>Test your game knowledge.</h2>
+    <h2>Test Your Game Knowledge</h2>
     <img :src="startImage" alt="Start" class="start-image" />
     <button class="custom-btn bigger-btn mt-3" @click="startGame">
       Play
@@ -33,6 +34,9 @@ export default {
 <style scoped>
 .home {
   padding: 1rem;
+}
+.home h2 {
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
 }
 .start-image {
   display: block;

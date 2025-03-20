@@ -1,6 +1,6 @@
-<!-- src/App.vue -->
+<!-- App.vue -->
 <template>
-  <div>
+  <div class="app-root">
     <Banner />
     <router-view />
   </div>

@@ -1,3 +1,4 @@
+<!-- ScorePanel.vue -->
 <template>
   <div class="score-panel">
     <div class="panel-content">
@@ -10,7 +11,8 @@
         Developer: {{ gameInfo.developer }}<br />
         Publisher: {{ gameInfo.publisher }}
       </p>
-      <p>{{ gameInfo.facts }}</p>
+      <p v-if="score >= 400">{{ gameInfo.facts }}</p>
+      <p v-else>Aww, you didn't get 400 points, so no game facts for you. Better luck next time!</p>
       <button @click="$emit('close-panel')">X</button>
     </div>
   </div>
@@ -52,7 +54,8 @@ export default {
   padding: 1rem;
   border-radius: 6px;
   text-align: left;
-  max-width: 300px;
+  width: 35%;
+  max-width: none;
 }
 button {
   margin-top: 1rem;
