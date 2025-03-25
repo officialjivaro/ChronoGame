@@ -4,6 +4,7 @@
     <div class="container-fluid align-items-center d-flex banner-container">
       <a
         href="https://jivaro.net/misc/games-and-fun-by-category"
+        target="_top"
         class="games-fun-btn"
       >
         Games & Fun
