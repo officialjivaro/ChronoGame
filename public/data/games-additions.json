@@ -1,0 +1,66 @@
+[
+  {
+    "title": "Elden Ring",
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco Entertainment",
+    "year": 2022,
+    "facts": "Elden Ring opened the Lands Between in 2022, combining FromSoftware's demanding combat with a much broader open world. Hidetaka Miyazaki directed the project, while George R. R. Martin contributed background mythology for its demigods and shattered family drama. The spectral steed Torrent lets the Tarnished gallop past dragons, cliffs, and several fights they have wisely decided to revisit later. Its wandering exploration still includes the classic FromSoftware tradition of opening an innocent-looking chest and immediately regretting your curiosity.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/14cc8e6b-bbd3-4405-b961-9256f7751229/elden_ring.png"
+  },
+  {
+    "title": "Grand Theft Auto III",
+    "developer": "DMA Design",
+    "publisher": "Rockstar Games",
+    "year": 2001,
+    "facts": "Grand Theft Auto III brought the series into a fully 3D Liberty City in 2001 and helped redefine open-world action games. DMA Design built a city where missions, traffic, radio stations, and spontaneous bad decisions all coexist in real time. Its protagonist Claude remains famously silent, leaving everyone else to handle both the exposition and the yelling. Players could ignore the plot for hours to steal taxis, chase hidden packages, or discover that police helicopters take traffic violations very personally.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/0cc9a8eb-9b98-4def-9023-ea5c8efc7089/grand_theft_auto_iii.png"
+  },
+  {
+    "title": "Rap Jam: Volume One",
+    "developer": "64WD Creation",
+    "publisher": "Motown Games / Mandingo Entertainment",
+    "year": 1995,
+    "facts": "Rap Jam: Volume One bounced onto the Super NES in 1995, turning real rap and hip-hop performers into a no-rules basketball roster. Developer 64WD Creation built exhibition and tournament modes around an urban court where fisticuffs are allowed and referees have apparently taken the afternoon off. Motown Games and Mandingo Entertainment published the unusual crossover. Despite the confident Volume One subtitle, no second volume ever stepped onto the court.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/7e3135b9-edb6-4e94-b224-4c6693aae6f6/rap_jam_volume_one.png"
+  },
+  {
+    "title": "RuneScape 2",
+    "developer": "Jagex",
+    "publisher": "Jagex",
+    "year": 2004,
+    "facts": "RuneScape 2 officially replaced the original browser game in March 2004 after a members-only beta that began in late 2003. Jagex rebuilt the engine with fully 3D graphics and renamed the older version RuneScape Classic once the upgrade went live. Players returned to Gielinor to train skills, tackle quests, trade suspicious quantities of lobsters, and debate the correct price of a rune scimitar. The 2 soon disappeared from the public title, but the upgrade became the foundation of the RuneScape remembered by an entire generation of browser tabs.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/dc1c07a4-452e-4c42-a5b6-84ebde3e00ee/runescape_2.png"
+  },
+  {
+    "title": "Shenmue",
+    "developer": "Sega AM2",
+    "publisher": "Sega",
+    "year": 1999,
+    "facts": "Shenmue debuted on the Dreamcast in 1999, following Ryo Hazuki as he investigates his father's murder in 1980s Yokosuka. Sega AM2 built an unusually detailed world with scheduled NPC routines, changing weather, day-night cycles, shops, and more drawers than any revenge quest reasonably requires. It helped popularize quick-time events, ensuring players learned to fear a surprise button prompt during otherwise peaceful cinematics. Ryo can pause his investigation to collect capsule toys or play arcade games, proving vengeance still leaves room for extremely committed hobbies.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/ee31a499-2c15-44fd-a2fb-2dd9b54b13d7/shenmue_i.png"
+  },
+  {
+    "title": "Silent Hill",
+    "developer": "Team Silent",
+    "publisher": "Konami",
+    "year": 1999,
+    "facts": "Silent Hill arrived on the original PlayStation in 1999 and followed Harry Mason through a fog-covered search for his missing daughter. Team Silent used real-time 3D environments, while the hardware-friendly fog also became one of horror gaming's most recognizable mood machines. Akira Yamaoka's industrial soundtrack was so abrasive that colleagues initially thought the audio was malfunctioning. The game offers multiple endings, including a joke conclusion involving aliens, because psychological dread apparently needed one tiny UFO-shaped escape hatch.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/30e546a1-6fc3-4320-8a7d-8e9f78df1479/silent_hill.png"
+  },
+  {
+    "title": "Super Mario World",
+    "developer": "Nintendo EAD",
+    "publisher": "Nintendo",
+    "year": 1990,
+    "facts": "Super Mario World launched with the Super Famicom in Japan in 1990 and later became a defining pack-in game for the SNES. Nintendo EAD introduced Yoshi, giving Mario a dinosaur partner who treats enemies like portable snacks. The Cape Feather lets Mario fly, glide, and occasionally expose how optimistic the level designers were about ceilings. Its branching exits and hidden Star Road turned Dinosaur Land into a cheerful maze with a suspicious number of secret doors.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/1967f2f2-1460-4192-af78-18ce7ac007e7/super_mario_world.png"
+  },
+  {
+    "title": "The Witcher 3: Wild Hunt",
+    "developer": "CD Projekt Red",
+    "publisher": "CD Projekt",
+    "year": 2015,
+    "facts": "The Witcher 3: Wild Hunt released in 2015, sending Geralt across a war-torn open world in search of Ciri. CD Projekt Red filled its map with branching quests whose side characters often carry more emotional baggage than the main villains. Geralt can hunt monsters with swords, signs, oils, and the expression of a man who has already read the contract's fine print. The card game Gwent became such an effective distraction that many players temporarily forgot the Wild Hunt was supposed to be urgent.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/2433dc8b-fd31-449e-8d88-3e5b19bc8208/the_witcher_3.png"
+  }
+]
