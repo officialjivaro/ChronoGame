@@ -1,0 +1,44 @@
+:root {
+  --font-display: 'Orbitron', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+  --color-void: #07080a;
+  --color-background: #0d0f13;
+  --color-background-raised: #15181e;
+  --color-panel: rgba(24, 27, 34, 0.94);
+  --color-panel-deep: rgba(12, 14, 18, 0.97);
+  --color-panel-soft: rgba(38, 42, 50, 0.82);
+  --color-border: #424750;
+  --color-border-soft: rgba(255, 255, 255, 0.09);
+  --color-text: #f5f1e8;
+  --color-text-muted: #aeb3bc;
+  --color-accent: #ff8a32;
+  --color-accent-bright: #ffad66;
+  --color-accent-dark: #c54f0d;
+  --color-danger: #ff5d5d;
+  --color-warning: #ffd45c;
+  --color-success: #66dc8b;
+  --color-success-soft: #a2eead;
+
+  --shadow-panel: 0 18px 50px rgba(0, 0, 0, 0.42), 0 2px 0 rgba(255, 255, 255, 0.04) inset;
+  --shadow-panel-deep: 0 28px 70px rgba(0, 0, 0, 0.58), 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+  --shadow-accent: 0 0 24px rgba(255, 138, 50, 0.28);
+  --shadow-text: 0 2px 0 #050506, 0 4px 12px rgba(0, 0, 0, 0.78);
+
+  --radius-small: 0.45rem;
+  --radius-medium: 0.8rem;
+  --radius-large: 1.15rem;
+
+  --space-1: clamp(0.3rem, 0.7vw, 0.55rem);
+  --space-2: clamp(0.5rem, 1vw, 0.85rem);
+  --space-3: clamp(0.75rem, 1.5vw, 1.25rem);
+  --space-4: clamp(1rem, 2vw, 1.75rem);
+  --space-5: clamp(1.25rem, 2.8vw, 2.5rem);
+
+  --header-height: 10dvh;
+  --content-max-width: 96rem;
+  --transition-fast: 150ms ease;
+  --transition-medium: 260ms ease;
+  --z-header: 20;
+  --z-modal: 100;
+}

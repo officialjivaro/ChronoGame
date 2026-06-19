@@ -1,55 +1,64 @@
 <template>
-  <section class="results text-center">
-    <h1 class="game-over-title">Game Over</h1>
-    <p class="final-score">Your total score: {{ totalScore }}</p>
-    <p class="thanks-text">
-      Thanks for playing! Try again to see if you can top your previous score.
-    </p>
-    <button class="custom-btn mt-3" @click="playAgain">
-      Play Again
-    </button>
+  <section class="results-view" aria-label="ChronoGame results">
+    <ScoreSummary
+      :total-score="totalScore"
+      :max-score="maxScore"
+      :loading="loading"
+      :error="error"
+      @play-again="playAgain"
+    />
   </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import ScoreSummary from '../components/results/ScoreSummary.vue'
 
 export default {
   name: 'ResultsView',
+  components: {
+    ScoreSummary
+  },
+  data() {
+    return {
+      loading: false,
+      error: ''
+    }
+  },
   computed: {
-    ...mapState(['totalScore'])
+    ...mapState(['totalScore', 'maxRounds']),
+    maxScore() {
+      return this.maxRounds * 1000
+    }
   },
   methods: {
-    playAgain() {
+    async playAgain() {
+      this.loading = true
+      this.error = ''
       this.$store.commit('resetGame')
-      this.$store.dispatch('loadGames').then(() => {
-        this.$store.dispatch('selectRandomGames')
-        this.$router.push('/game')
-      })
+
+      try {
+        await this.$store.dispatch('loadGames')
+        await this.$store.dispatch('selectRandomGames')
+        await this.$router.push('/game')
+      } catch (error) {
+        this.error = error.message || 'The arcade cabinet could not reset. Please try again.'
+      } finally {
+        this.loading = false
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-.results {
-  padding: 1rem;
-  margin-top: 2rem;
-}
-.game-over-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: #222;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
-  margin-bottom: 1rem;
-}
-.final-score {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-.thanks-text {
-  font-size: 1rem;
-  color: #555;
-  margin-bottom: 2rem;
+.results-view {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(0.65rem, 2.5vw, 2rem);
+  overflow: hidden;
 }
 </style>

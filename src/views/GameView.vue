@@ -1,46 +1,58 @@
 <template>
-  <div class="game-view text-center mt-4">
-    <h2>Round {{ currentRound + 1 }}/{{ maxRounds }} - Guess the Release Year</h2>
-    <GameImage :key="currentRound" :game="currentGame" />
-    <SliderControl :year="selectedYear" @update-year="updateYear" />
-    <button
-      v-if="!hasSubmitted"
-      class="custom-btn mt-3"
-      @click="submitGuess"
-    >
-      Submit
-    </button>
-    <button
-      v-else
-      class="custom-btn mt-3"
-      @click="goNext"
-    >
-      Next
-    </button>
-    <FadeTransition :show="showFacts">
-      <ScorePanel
+  <section class="game-view" aria-label="ChronoGame round">
+    <RoundStatus
+      :current-round="currentRound"
+      :max-rounds="maxRounds"
+      :total-score="totalScore"
+    />
+
+    <div class="game-stage">
+      <GameArtwork :key="currentRound" :game="currentGame" />
+    </div>
+
+    <ArcadePanel class="control-deck">
+      <YearSelector v-model="selectedYear" />
+      <ArcadeButton
+        class="control-action"
+        variant="primary"
+        size="large"
+        :disabled="!currentGame"
+        @click="handlePrimaryAction"
+      >
+        {{ hasSubmitted ? 'Next Round' : 'Lock In' }}
+      </ArcadeButton>
+    </ArcadePanel>
+
+    <transition name="modal-fade">
+      <RoundFeedback
         v-if="showFacts"
         :score="thisRoundScore"
         :game="currentGame"
-        @close-panel="closeFacts"
+        @close="closeFacts"
       />
-    </FadeTransition>
-  </div>
+    </transition>
+  </section>
 </template>
 
 <script>
 import { mapState } from 'vuex'
-import GameImage from '../components/GameImage.vue'
-import SliderControl from '../components/SliderControl.vue'
-import ScorePanel from '../components/ScorePanel.vue'
-import FadeTransition from '../components/FadeTransition.vue'
+import ArcadeButton from '../components/common/ArcadeButton.vue'
+import ArcadePanel from '../components/common/ArcadePanel.vue'
+import GameArtwork from '../components/game/GameArtwork.vue'
+import RoundFeedback from '../components/game/RoundFeedback.vue'
+import RoundStatus from '../components/game/RoundStatus.vue'
+import YearSelector from '../components/game/YearSelector.vue'
+import { calculateRoundScore } from '../utils/scoring.js'
+
 export default {
   name: 'GameView',
   components: {
-    GameImage,
-    SliderControl,
-    ScorePanel,
-    FadeTransition
+    ArcadeButton,
+    ArcadePanel,
+    GameArtwork,
+    RoundFeedback,
+    RoundStatus,
+    YearSelector
   },
   data() {
     return {
@@ -51,25 +63,31 @@ export default {
     }
   },
   computed: {
-    ...mapState(['selectedGames', 'currentRound', 'maxRounds']),
+    ...mapState(['selectedGames', 'currentRound', 'maxRounds', 'totalScore']),
     currentGame() {
       return this.selectedGames[this.currentRound] || null
     }
   },
+  mounted() {
+    if (!this.selectedGames.length) {
+      this.$router.replace('/')
+    }
+  },
   methods: {
-    updateYear(newYear) {
-      this.selectedYear = newYear
+    handlePrimaryAction() {
+      if (this.hasSubmitted) {
+        this.goNext()
+        return
+      }
+      this.submitGuess()
     },
     submitGuess() {
       if (!this.currentGame) return
-      const diff = Math.abs(this.selectedYear - this.currentGame.year)
-      const k = 0.2027
-      const p = 1.3
-      const rawScore = 1000 * Math.exp(-k * Math.pow(diff, p))
-      let score = Math.floor(rawScore)
-      if (score > 1000) score = 1000
-      if (score < 1 && diff > 15) score = 0
-      this.thisRoundScore = score
+
+      this.thisRoundScore = calculateRoundScore(
+        this.selectedYear,
+        this.currentGame.year
+      )
       this.$store.commit('addScore', this.thisRoundScore)
       this.showFacts = true
       this.hasSubmitted = true
@@ -78,7 +96,10 @@ export default {
       this.showFacts = false
     },
     goNext() {
+      this.showFacts = false
       this.hasSubmitted = false
+      this.thisRoundScore = 0
+
       if (this.currentRound + 1 < this.selectedGames.length) {
         this.$store.commit('incrementRound')
         this.selectedYear = 2000
@@ -92,6 +113,55 @@ export default {
 
 <style scoped>
 .game-view {
-  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: clamp(0.5rem, 1.3vh, 0.9rem);
+  padding: clamp(0.5rem, 1.4vw, 1rem) clamp(0.55rem, 2vw, 1.5rem);
+  overflow: hidden;
+}
+
+.game-stage {
+  width: min(var(--content-max-width), 100%);
+  min-height: 0;
+  margin: 0 auto;
+}
+
+.control-deck {
+  width: min(var(--content-max-width), 100%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(0.7rem, 2vw, 1.5rem);
+  margin: 0 auto;
+  padding: clamp(0.65rem, 1.5vw, 1rem);
+}
+
+.control-action {
+  width: clamp(9rem, 15vw, 13rem);
+}
+
+@media (max-width: 720px) {
+  .game-view {
+    gap: 0.45rem;
+    padding: 0.45rem;
+  }
+
+  .control-deck {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .control-action {
+    width: 100%;
+  }
+}
+
+@media (max-height: 620px) and (min-width: 721px) {
+  .control-deck {
+    padding-block: 0.45rem;
+  }
 }
 </style>

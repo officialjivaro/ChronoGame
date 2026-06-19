@@ -1,17 +1,20 @@
-<!-- App.vue -->
 <template>
-  <div class="app-root">
-    <Banner />
-    <router-view />
-  </div>
+  <AppShell>
+    <router-view v-slot="{ Component, route }">
+      <transition name="route-fade" mode="out-in">
+        <component :is="Component" :key="route.fullPath" />
+      </transition>
+    </router-view>
+  </AppShell>
 </template>
 
 <script>
-import Banner from './components/Banner.vue'
+import AppShell from './components/layout/AppShell.vue'
+
 export default {
   name: 'App',
   components: {
-    Banner
+    AppShell
   }
 }
 </script>

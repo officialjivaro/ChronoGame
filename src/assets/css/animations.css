@@ -1,0 +1,71 @@
+/* Route Transitions | Adds restrained arcade movement */
+.route-fade-enter-active,
+.route-fade-leave-active {
+  transition: opacity var(--transition-medium), transform var(--transition-medium);
+}
+
+.route-fade-enter-from {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+.route-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-0.35rem);
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity var(--transition-medium);
+}
+
+.modal-fade-enter-active .feedback-card,
+.modal-fade-leave-active .feedback-card {
+  transition: transform var(--transition-medium), opacity var(--transition-medium);
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
+}
+
+.modal-fade-enter-from .feedback-card,
+.modal-fade-leave-to .feedback-card {
+  opacity: 0;
+  transform: translateY(1rem) scale(0.97);
+}
+
+@keyframes arcade-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(255, 138, 50, 0), 0 10px 24px rgba(0, 0, 0, 0.34);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(255, 138, 50, 0.34), 0 12px 28px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes scan-shift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 10px;
+  }
+}
+
+@keyframes loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}

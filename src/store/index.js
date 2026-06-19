@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { selectUniqueGames } from '../utils/gameSelection.js'
 
 export default createStore({
   state: {
@@ -16,7 +17,7 @@ export default createStore({
       state.selectedGames = payload
     },
     incrementRound(state) {
-      state.currentRound++
+      state.currentRound += 1
     },
     resetGame(state) {
       state.currentRound = 0
@@ -30,17 +31,29 @@ export default createStore({
   actions: {
     async loadGames({ commit }) {
       const response = await fetch('./data/games.json')
+
       if (!response.ok) {
-        console.error('Failed to load games.json:', response.status)
-        return
+        throw new Error(`Unable to load game data (${response.status}).`)
       }
+
       const data = await response.json()
+
+      if (!Array.isArray(data) || data.length < 5) {
+        throw new Error('The game list must contain at least five entries.')
+      }
+
       commit('setGames', data)
+      return data
     },
     selectRandomGames({ state, commit }) {
-      const shuffled = [...state.games].sort(() => 0.5 - Math.random())
-      const selected = shuffled.slice(0, state.maxRounds)
+      const selected = selectUniqueGames(state.games, state.maxRounds)
+
+      if (selected.length < state.maxRounds) {
+        throw new Error('Not enough games are available to start a full run.')
+      }
+
       commit('setSelectedGames', selected)
+      return selected
     }
   }
 })
