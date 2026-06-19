@@ -1,14 +1,26 @@
 <template>
   <header class="app-header">
-    <a
-      class="return-link"
-      href="https://jivaro.net/games"
-      target="_top"
-      aria-label="Return to Games"
-    >
-      <span class="return-icon" aria-hidden="true">←</span>
-      <span class="return-label">Games</span>
-    </a>
+    <nav class="header-navigation" aria-label="ChronoGame navigation">
+      <a
+        class="header-link"
+        href="https://jivaro.net/games"
+        target="_top"
+        aria-label="Return to Games"
+      >
+        <span class="header-link-icon" aria-hidden="true">←</span>
+        <span class="header-link-label">Games</span>
+      </a>
+
+      <router-link
+        v-if="showHome"
+        class="header-link"
+        to="/"
+        aria-label="Return to the ChronoGame home screen"
+      >
+        <span class="header-link-icon" aria-hidden="true">⌂</span>
+        <span class="header-link-label">Home</span>
+      </router-link>
+    </nav>
 
     <div class="brand" aria-label="ChronoGame, Guess the Release Year">
       <div class="brand-name">
@@ -28,6 +40,10 @@
 export default {
   name: 'AppHeader',
   props: {
+    showHome: {
+      type: Boolean,
+      default: false
+    },
     showScore: {
       type: Boolean,
       default: false
@@ -71,17 +87,25 @@ export default {
   box-shadow: 0 0 15px rgba(255, 138, 50, 0.72);
 }
 
-.return-link,
+.header-navigation,
 .header-score {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.return-link {
+.header-navigation {
   left: clamp(0.55rem, 2vw, 1.75rem);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.35rem, 0.8vw, 0.65rem);
+}
+
+.header-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.45rem;
   min-height: 2.35rem;
   padding: 0.42rem 0.85rem;
@@ -94,20 +118,20 @@ export default {
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
-.return-link:hover {
+.header-link:hover {
   color: #fff;
   border-color: rgba(255, 138, 50, 0.72);
-  transform: translateY(calc(-50% - 2px));
+  transform: translateY(-2px);
   box-shadow: 0 9px 20px rgba(0, 0, 0, 0.48), 0 0 16px rgba(255, 138, 50, 0.2);
 }
 
-.return-icon {
+.header-link-icon {
   color: var(--color-accent-bright);
   font-size: 1.2rem;
   line-height: 1;
 }
 
-.return-label {
+.header-link-label {
   font-size: clamp(0.72rem, 1.25vw, 0.92rem);
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -119,7 +143,7 @@ export default {
   left: 50%;
   top: 50%;
   width: max-content;
-  max-width: 52%;
+  max-width: 46%;
   text-align: center;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -174,29 +198,44 @@ export default {
   font-size: clamp(0.75rem, 1.5vw, 1rem);
 }
 
-@media (max-width: 520px) {
-  .return-link {
+@media (max-width: 760px) {
+  .header-link {
     min-width: 2.4rem;
-    justify-content: center;
     padding-inline: 0.6rem;
   }
 
-  .return-label,
+  .header-link-label,
   .score-label,
   .brand-subtitle {
     display: none;
   }
 
   .brand {
-    max-width: 48%;
-  }
-
-  .brand-name {
-    font-size: clamp(0.92rem, 5.3vw, 1.3rem);
+    max-width: 42%;
   }
 
   .header-score {
     padding-inline: 0.55rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .header-navigation {
+    gap: 0.25rem;
+  }
+
+  .header-link {
+    min-width: 2.15rem;
+    min-height: 2.15rem;
+    padding-inline: 0.45rem;
+  }
+
+  .brand-name {
+    font-size: clamp(0.88rem, 5vw, 1.2rem);
+  }
+
+  .header-score strong {
+    font-size: 0.72rem;
   }
 }
 </style>
