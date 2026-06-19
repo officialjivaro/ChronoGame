@@ -3,7 +3,7 @@
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="ambient-glow ambient-glow-left" aria-hidden="true"></div>
     <div class="ambient-glow ambient-glow-right" aria-hidden="true"></div>
-    <AppHeader :show-score="showScore" :score="totalScore" />
+    <AppHeader :show-home="showHome" :show-score="showScore" :score="totalScore" />
     <main class="app-content">
       <slot></slot>
     </main>
@@ -21,8 +21,14 @@ export default {
   },
   computed: {
     ...mapState(['totalScore']),
-    showScore() {
+    isRunRoute() {
       return this.$route.path === '/game' || this.$route.path === '/results'
+    },
+    showHome() {
+      return this.isRunRoute
+    },
+    showScore() {
+      return this.isRunRoute
     }
   }
 }
