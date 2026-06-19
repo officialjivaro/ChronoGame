@@ -6,6 +6,7 @@ export default createStore({
     games: [],
     currentRound: 0,
     selectedGames: [],
+    previousSelectedGames: [],
     totalScore: 0,
     maxRounds: 5
   },
@@ -20,6 +21,10 @@ export default createStore({
       state.currentRound += 1
     },
     resetGame(state) {
+      if (state.selectedGames.length) {
+        state.previousSelectedGames = [...state.selectedGames]
+      }
+
       state.currentRound = 0
       state.totalScore = 0
       state.selectedGames = []
@@ -46,7 +51,11 @@ export default createStore({
       return data
     },
     selectRandomGames({ state, commit }) {
-      const selected = selectUniqueGames(state.games, state.maxRounds)
+      const selected = selectUniqueGames(
+        state.games,
+        state.maxRounds,
+        state.previousSelectedGames
+      )
 
       if (selected.length < state.maxRounds) {
         throw new Error('Not enough games are available to start a full run.')
