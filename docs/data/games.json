@@ -4,8 +4,8 @@
     "developer": "Traveller's Tales / Tiertex Design Studios",
     "publisher": "Sony Computer Entertainment",
     "year": 1998,
-    "facts": "Spinning with ant-ics, A Bug’s Life shrinks you into a world where grass is a fortress. Flick wields seeds and leaves like a pint-sized MacGyver to outwit menacing insects. Each level is an acrobatic race to gather grain while dodging big bug bullies. Expect cheerful chaos as you discover that being tiny just makes every obstacle feel like a grand adventure.",
-    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/cFsFXwBLpwzH9bH?file=/&fileId=154938&x=3840&y=2160&a=true&etag=688671fafee4fd34a5c9ed4fded9eb5a"
+    "facts": "Released in 1998 alongside the Pixar film, A Bug's Life turns Flik's tiny world into a 3D platforming obstacle course. Traveller's Tales built the main console game, while Tiertex created the separate Game Boy Color version. Flik attacks with berries and grows useful plants from seeds, because botany is apparently the ant version of carrying a utility belt. Completing stages can unlock clips from the movie, a very late-1990s reward for surviving grasshoppers and awkward camera angles.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/3aab7dae-cd41-445c-b793-cf875026544c/a_bugs_life.png"
   },
   {
     "title": "Advance Wars",
@@ -14,6 +14,14 @@
     "year": 2001,
     "facts": "Colorful armies collide in this turn-based battlefield, where commanding tanks feels like orchestrating a toy-box war. Its cartoony generals bicker over territory while you plot the perfect ambush. Each map is a puzzle of terrain and tactics, forcing your brain to do more push-ups than your army recruits. Watching those tiny tanks duke it out is strangely more satisfying than real-world diplomacy.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/YQKHNA3wDt663Dd?file=/&fileId=155895&x=3840&y=2160&a=true&etag=0c8ba55b2b8ec9e31c32f23c07d7cc29"
+  },
+  {
+    "title": "Age of Empires II: The Age of Kings",
+    "developer": "Ensemble Studios",
+    "publisher": "Microsoft",
+    "year": 1999,
+    "facts": "Age of Empires II: The Age of Kings marched onto PCs in 1999 with 13 medieval civilizations and five historical campaigns. Players gather food, wood, gold, and stone, then advance through four ages while turning peaceful villages into alarmingly busy war machines. The idle-villager button became a tiny strategic lifesaver, because one farmer staring at a tree can apparently derail an empire. Its mix of economy, formations, siege weapons, and multiplayer helped it remain active through remasters and expansions for decades.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/08633c53-65da-456f-a168-56412aca77fd/age_of_empires_2.png?content-type=image%2Fpng"
   },
   {
     "title": "Alex Kidd in Miracle World",
@@ -28,7 +36,7 @@
     "developer": "Innersloth",
     "publisher": "Innersloth",
     "year": 2018,
-    "facts": "Among Us is a frantic game of space sabotage where trust issues escalate faster than a rocket launch. A silent imposter lurks among the crew, faking tasks while plotting interstellar mischief. Emergency meetings turn into chaotic blame-fests, complete with color-coded accusations. You’ll either be a cunning chameleon or a paranoid space potato, and both roles are hilarious.",
+    "facts": "Among Us launched in 2018, but its great social-deduction explosion arrived two years later when streamers turned emergency meetings into appointment viewing. Crewmates complete maintenance tasks while one or more Impostors fake productivity and quietly remodel the ship with sabotage. Accusations are usually based on evidence, body language, or the highly scientific principle that red looked suspicious. It transformed the phrase \"pretty sus\" into an international diplomatic incident.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/tYbb2TyS64WMRg7?file=/&fileId=155631&x=3840&y=2160&a=true&etag=e2d88e192d467b3e133303638a534ac2"
   },
   {
@@ -36,7 +44,7 @@
     "developer": "FromSoftware",
     "publisher": "Bandai Namco",
     "year": 2023,
-    "facts": "In this mechanical mayhem, you pilot a towering robot that stomps around like it owns the galaxy. Customizing every armor plate and booster rocket is half the fun, because bigger guns always equal bigger smiles. Missions explode in a frenzy of metal shards and rocket trails, with enough debris to make a junkyard jealous. It’s basically a crash course in mecha fashion meets bullet ballet.",
+    "facts": "Armored Core VI: Fires of Rubicon arrived in 2023 as the series' first new entry in roughly a decade. Players assemble highly customizable machines from interchangeable frames, weapons, generators, and boosters before taking mercenary jobs on Rubicon 3. Its stagger-focused combat rewards relentless pressure, careful positioning, and knowing when a twelve-meter robot should dodge sideways. The garage is half engineering lab and half fashion runway, except every accessory launches missiles.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/FtaJ9pRxcnZbqLS?file=/&fileId=154992&x=3840&y=2160&a=true&etag=e21fe0a49660b605834eec2c625acba3"
   },
   {
@@ -44,7 +52,7 @@
     "developer": "Ancient",
     "publisher": "Sega",
     "year": 1994,
-    "facts": "Released in 1994, Beyond Oasis is also known as The Story of Thor in some regions. It was developed by Ancient, led by legendary composer Yuzo Koshiro’s family, giving the soundtrack a unique flair. Players guide Prince Ali with a magical armlet that summons elemental spirits. Unexpected cameo creatures and secret areas keep explorers on their toes throughout this 16-bit journey.",
+    "facts": "Beyond Oasis arrived on the Genesis in 1994 and was released as The Story of Thor in Europe and Japan. Ancient developed it, with Yuzo Koshiro serving as producer and composer while his sister Ayano Koshiro handled the artwork. Prince Ali's gold armlet summons four spirits tied to water, fire, shadow, and plants. It is essentially an action-adventure where royal jewelry doubles as a supernatural customer-service desk.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/pR8rM4pd2df7MTC?file=/&fileId=153723&x=3840&y=2160&a=true&etag=0b7b6a1f8b48ead285e418d02a902b2a"
   },
   {
@@ -59,8 +67,8 @@
     "title": "BioShock Infinite",
     "developer": "Irrational Games",
     "publisher": "2K",
-    "year": 2000,
-    "facts": "Trading underwater gloom for sky-high balloons, Columbia is a floating city that’s as patriotic as it is disturbing. Booker Dewitt’s journey includes rails you can ride like a carnival ride gone bonkers, while Elizabeth casually tears open reality. The barbershop quartets singing Beach Boys tunes in 1912? Totally normal here. It’s a twisted dream of American exceptionalism turned cosmic confetti.",
+    "year": 2013,
+    "facts": "BioShock Infinite traded underwater gloom for the floating city of Columbia in 2013. Booker rides Sky-Lines like an armed commuter, while Elizabeth opens Tears that pull useful objects and inconvenient realities into battle. Barbershop arrangements of songs written decades after 1912 quietly signal that the timeline has been behaving badly. It is a patriotic carnival, quantum puzzle, and extremely awkward escort mission rolled into one.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/JZGBcNwiS2LRAbo?file=/&fileId=155856&x=3840&y=2160&a=true&etag=c3374eee8737b49160f34fc8919e6d83"
   },
   {
@@ -118,6 +126,14 @@
     "year": 2017,
     "facts": "Hand-drawn mayhem meets old-school Disney vibes in a boss-rush roller coaster that’s surprisingly diabolical. Cuphead and Mugman gamble with the Devil himself, because apparently mortgages weren’t stressful enough. Each boss is a cartoon acid trip of transformations, tentacles, and flying candy. Don’t be fooled by the vintage jazz soundtrack—your reflexes will be tested like an Olympic event.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/zmpNWeSzy2sKmZX?file=/&fileId=155775&x=3840&y=2160&a=true&etag=965b62fb504a54d9deaa580304590c1a"
+  },
+  {
+    "title": "Dark Souls",
+    "developer": "FromSoftware",
+    "publisher": "Namco Bandai Games",
+    "year": 2011,
+    "facts": "Dark Souls arrived in 2011 and sent cursed players through the interconnected kingdom of Lordran with very little hand-holding and many highly opinionated skeletons. Its combat rewards patience, stamina management, and learning exactly how many times a boss plans to flatten you. Bonfires act as checkpoints, healing stations, and cozy reminders that resting also respawns most enemies. The game's indirect storytelling, online messages, and demanding level design helped turn Soulslike into an entire genre label.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/bfc1f3c5-e19d-4fca-84f8-9c10cdac6b50/dark_souls.png?content-type=image%2Fpng"
   },
   {
     "title": "Destiny",
@@ -180,7 +196,7 @@
     "developer": "Nintendo R&D1 / Intelligent Systems",
     "publisher": "Nintendo",
     "year": 1984,
-    "facts": "",
+    "facts": "Duck Hunt first appeared for the Famicom in 1984 and became an NES launch staple in North America the following year. The NES Zapper detected targets through flashes on a CRT television, which is why the original setup does not cooperate nicely with modern flat screens. Players shoot ducks or clay pigeons while a famously smug dog retrieves successes and laughs at failures. Few games have turned missing a bird into such a personal insult.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/7W4pTgAsNRcpYWm?file=/&fileId=155661&x=3840&y=2160&a=true&etag=074a1e8806bd3deb07ef4d4af36859d3"
   },
   {
@@ -190,7 +206,7 @@
     "year": 2011,
     "facts": "Skyrim shouted onto the scene in 2011 with epic dragon battles and cheese wheels galore. The freedom to yeet bandits off cliffs using your Thu’um never grows old. Modders have turned this snowy kingdom into everything from Thomas the Tank Engine nightmares to Randy Savage dragons. Even if you’re on your tenth playthrough, there’s always another cave full of trolls to scream at.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/HZqTtFcRFoM9yD8?file=/&fileId=154107&x=1920&y=1200&a=true&etag=758e4f31b2619949ab8b1732774e9e5f"
-  }, 
+  },
   {
     "title": "Eternal Sonata",
     "developer": "tri-Crescendo",
@@ -220,8 +236,16 @@
     "developer": "Bill Pitts & Hugh Tuck",
     "publisher": "Bill Pitts & Hugh Tuck",
     "year": 1971,
-    "facts": "Galaxy Game arrived in 1971 as one of the earliest coin-operated video games. Players launched torpedoes at each other in a starry vacuum while college crowds formed around the machine. It’s said the developers tinkered with gravity wells before deciding they’d break everyone’s brain. The prototype famously guzzled quarters as fast as it spawned epic space rivalries.",
+    "facts": "Galaxy Game appeared at Stanford University in 1971 and ranks among the first coin-operated video games. Bill Pitts and Hugh Tuck adapted Spacewar! to a PDP-11, charging ten cents per play or three games for a quarter. Two players piloted the Needle and the Wedge around a star whose gravity was determined to ruin otherwise sensible steering. A later version could run several matches at once, impressive engineering for a machine that still had no realistic chance of paying for itself.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/xdQQcAYKXkcEAd4?file=/&fileId=153945&x=3840&y=2160&a=true&etag=53089927cf9f270a98b8aec181aea8a9"
+  },
+  {
+    "title": "GoldenEye 007",
+    "developer": "Rare",
+    "publisher": "Nintendo",
+    "year": 1997,
+    "facts": "GoldenEye 007 infiltrated the Nintendo 64 in 1997, two years after the film it adapted. Rare built objective-based missions that asked Bond to do more than simply clear rooms, while four-player split-screen turned living rooms into suspiciously competitive spy agencies. The multiplayer mode was added relatively late in development and still became one of the game's defining features. It helped prove first-person shooters could thrive on consoles, even if everyone kept arguing about whether choosing Oddjob was legal.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/1c9cde52-e59e-472a-9751-c4d8983dd0a1/golden_eye_007.png?content-type=image%2Fpng"
   },
   {
     "title": "Golden Sun",
@@ -244,7 +268,7 @@
     "developer": "Doug Dyment",
     "publisher": "Doug Dyment",
     "year": 1968,
-    "facts": "Hamurabi, first appearing in 1968, laid the groundwork for city-management games before it was cool. You juggle food, land, and pesky citizens who won’t stop complaining about harvests. Rumor says the code includes cryptic messages if you mismanage your kingdom. Despite its text-based nature, the tension of feeding a growing population still feels real.",
+    "facts": "Hamurabi began in 1968 as Doug Dyment's text-based King of Sumeria for the FOCAL programming language. Across ten turns, the player buys land, plants grain, feeds citizens, and hopes rats or plagues do not demolish the royal spreadsheet. The familiar one-m spelling came from tight memory limits and then followed the game into later BASIC versions. It helped establish resource-management games, proving simulated citizens complained about budgets long before graphics were fashionable.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/5oybetzPFeEFz8J?file=/&fileId=153921&x=3840&y=2160&a=true&etag=ac73c6061570ea4448ee609107d81ed8"
   },
   {
@@ -254,6 +278,14 @@
     "year": 2017,
     "facts": "Hollow Knight burrowed into the scene in 2017, weaving a bug-filled wonderland of hidden horrors. Each tunnel offers hand-drawn gloom punctuated by nail-biting boss fights. With every new charm or weapon, you feel more confident braving chittering minions in the deep. Its eerie soundtrack whispers encouragement as you confront the kingdom’s tragic secrets, one cryptic corridor at a time.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/L5LtE6ek9berLgs?file=/&fileId=154521&x=1920&y=1200&a=true&etag=1bd23fd0e19045490d4a1657a48e2de0"
+  },
+  {
+    "title": "Katamari Damacy",
+    "developer": "Namco",
+    "publisher": "Namco",
+    "year": 2004,
+    "facts": "Katamari Damacy rolled onto PlayStation 2 in 2004 with a premise that sounds like a royal apology written during a fever dream. After the King of All Cosmos destroys the stars, the Prince rebuilds them by rolling an adhesive katamari that collects everything from thumbtacks to people and eventually entire landmarks. Designer Keita Takahashi emphasized novelty, simplicity, humor, and the peculiar joy of making a ball become unreasonably enormous. Its eclectic vocal soundtrack is nearly as famous as the sight of screaming pedestrians becoming celestial building material.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/9266d7bf-997f-4c09-9e36-9356eb1f0a0f/katamary_damacy.png?content-type=image%2Fpng"
   },
   {
     "title": "Kingdom Hearts 2",
@@ -270,7 +302,7 @@
     "year": 2000,
     "facts": "Majora’s Mask emerged in 2000, pitting Link against a giant moon with an alarming grin. This time-loop mechanic forces you to relive the same three days, spawning frantic fetch quests before everything resets. Transforming with magical masks is half the thrill, from Deku-scrub flutters to Goron ground pounds. It’s a weirdly charming dance of dread, culminating in an ocarina melody that can stall an apocalypse.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/kb7f9zYZNPFJXiw?file=/&fileId=154548&x=1920&y=1200&a=true&etag=ae5d0ca7e512ba40d64eb578707cdb4d"
-  },  
+  },
   {
     "title": "Mario Tennis (Game Boy Color)",
     "developer": "Camelot",
@@ -281,10 +313,10 @@
   },
   {
     "title": "Mega Man Battle Network",
-    "developer": "Capcom / Inti Creates / Arika / Tose",
+    "developer": "Capcom Production Studio 2",
     "publisher": "Capcom",
     "year": 2001,
-    "facts": "Mega Man Battle Network jacked into the GBA in 2001, merging RPG strategy with deck-building combat. You roam the real world as Lan, but duel viruses in cyberspace as MegaMan.EXE for weird program combos. Each new chip can be a game-changer, letting you slice, dice, or blast foes in pixel-sparking style. It's a virus-busting carnival of improbable net-surfing hijinks and deck-shuffling madness.",
+    "facts": "Mega Man Battle Network jacked into the Game Boy Advance in 2001 as a launch title in Japan. It reimagines Mega Man as MegaMan.EXE, a NetNavi operated by schoolboy Lan Hikari in a world where nearly every appliance is online, which seems wonderfully unsafe. Battles combine real-time movement on a grid with folders of collectible Battle Chips and powerful Program Advances. The result is part RPG, part deck builder, and part reminder not to connect the oven to the criminal internet.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/kFXZXD5QgPBHz2M?file=/&fileId=154095&x=1920&y=1200&a=true&etag=ee4485ff9dfab6a99a4c5d491e46299e"
   },
   {
@@ -328,11 +360,11 @@
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/LFi8XMTFp9iWxzZ?file=/&fileId=154473&x=1920&y=1200&a=true&etag=da4271e9ebbf08e79fc2e7041bb58d68"
   },
   {
-    "title": "Pokemon Colosseum",
+    "title": "Pokémon Colosseum",
     "developer": "Genius Sonority",
-    "publisher": "Nintendo / The Pokemon Company",
+    "publisher": "The Pokémon Company / Nintendo",
     "year": 2003,
-    "facts": "Pokemon Colosseum swapped the usual sunshine for a grittier, desert-bound twist in 2003. You’re ex-criminal Wes, hijacking Shadow Pokemon from villains and purifying them in dusty towns. Double battles define the strategy, pairing oddball combos like an Umbreon and a Suicune to outfox foes. The neon-lit underworld vibe proves not every Poke-adventure is a stroll through pastel forests.",
+    "facts": "Pokémon Colosseum arrived in Japan in 2003 and traded the series' grassy routes for the dusty Orre region. Its protagonist Wes is a former Team Snagem member who steals corrupted Shadow Pokémon from criminals, a surprisingly bold career pivot for a Pokémon hero. Most battles use the double-battle format, so pairing abilities matters more than simply sending out the biggest dragon. Purifying Shadow Pokémon takes patience, friendship, and an alarming amount of walking.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/sRKzJxekfc9n8Pz?file=/&fileId=154101&x=3840&y=2160&a=true&etag=643ec0f3815606e07ba7607f23324331"
   },
   {
@@ -353,7 +385,7 @@
   },
   {
     "title": "Sonic 3D Blast",
-    "developer": "Traveller's Tales Sonic Team",
+    "developer": "Traveller's Tales / Sonic Team",
     "publisher": "Sega",
     "year": 1996,
     "facts": "Sonic 3D Blast was Sonic’s step into isometric platforming back in 1996. Developed by Traveller's Tales in collaboration with Sonic Team, it still features Flickies from classic Sonic lore. The angled perspective can leave players second-guessing a spring’s trajectory. Even so, it’s remembered for bridging 2D classics and Sonic’s future 3D escapades.",
@@ -372,23 +404,23 @@
     "developer": "Squaresoft",
     "publisher": "Squaresoft",
     "year": 1999,
-    "facts": "Threads of Fate spun onto the PlayStation in 1999, starring two heroes: the serious Mint and carefree Rue. Each story weaves comedic mischief with shape-shifting battles across puzzle-laden locales. Rare’s breezy action platforming and Square’s whimsical flair collided in a charming package. It’s a hidden gem for fans of magical crown chases and comedic villain outbursts.",
+    "facts": "Threads of Fate debuted in Japan in 1999 as Dewprism and reached North America the following year. Its two campaigns follow Rue, an earnest amnesiac who can transform into monsters, and Mint, a banished princess whose ambition could fill several kingdoms. Square deliberately gave it a lighter tone after members of the team had worked on the much heavier Xenogears. The result is a compact action RPG where world-saving shares screen time with insults, pastries, and magical sibling drama.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/DMsXrFryZ3iYwma?file=/&fileId=154104&x=3840&y=2160&a=true&etag=fbed0598fd11fa616161660072a3bb98"
-  },  
+  },
   {
     "title": "Xenogears",
-    "developer": "FastTrack Studios",
-    "publisher": "HighSpeed Games",
+    "developer": "Square",
+    "publisher": "Square",
     "year": 1998,
-    "facts": "Xenogears (1998) combines classic RPG exploration with giant mech battles called Gears. Its blend of 2D sprites on 3D backdrops gives it a striking visual identity. Philosophical plot threads span themes of identity, faith, and ancient secrets. Rumors swirl about cut story content, fueling fans’ curiosity to this day.",
+    "facts": "Xenogears launched in 1998 as a Square RPG that mixes on-foot martial arts with battles between towering machines called Gears. Tetsuya Takahashi and Kaori Tanaka first conceived its scenario as a proposal connected to Final Fantasy VII before it became its own project. Its story digs into psychology, religion, identity, and enough symbolism to keep discussion boards employed indefinitely. Production limits pushed much of the second disc toward narrated scenes, creating one of gaming's most famous cases of having more plot than calendar.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/BrMGXEBpQaP3H3y?file=/&fileId=153729&x=3840&y=2160&a=true&etag=5e1268a7388fbb26b5f00ed6b9b84ac5"
   },
   {
     "title": "Zombies Ate My Neighbors",
     "developer": "LucasArts",
     "publisher": "Konami",
-    "year": 1991,
-    "facts": "Zombies Ate My Neighbors took 16-bit horror comedy to a ghoulish extreme in 1991. Players rescue clueless neighbors from werewolves, chainsaw maniacs, and giant babies. Its split-screen co-op left friendships shaken by lawnmower mishaps and soda-can grenades. Regardless, it remains a beloved cult classic for those who enjoy a dash of B-movie chaos.",
+    "year": 1993,
+    "facts": "Zombies Ate My Neighbors arrived in 1993 as LucasArts' colorful salute to B-movie horror. Zeke and Julie rescue oblivious neighbors from zombies, werewolves, giant babies, chainsaw maniacs, and nearly every monster that could escape a video-store shelf. Their arsenal includes water pistols, exploding soda cans, silverware, and weed whackers, because conventional weapons were apparently too sensible. The two-player mode became a cult favorite and an excellent way to discover which friend steals every health pack.",
     "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/ziaPWRqr3GXJoB4?file=/&fileId=154026&x=3840&y=2160&a=true&etag=e58c2fa3dd548877ee863679bd581651"
   }
 ]
