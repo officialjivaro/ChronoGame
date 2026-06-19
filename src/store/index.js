@@ -1,6 +1,11 @@
 import { createStore } from 'vuex'
 import { selectUniqueGames } from '../utils/gameSelection.js'
 
+const gameDataSources = [
+  './data/games.json',
+  './data/games-additions.json'
+]
+
 export default createStore({
   state: {
     games: [],
@@ -35,16 +40,29 @@ export default createStore({
   },
   actions: {
     async loadGames({ commit }) {
-      const response = await fetch('./data/games.json')
+      const responses = await Promise.all(
+        gameDataSources.map((source) => fetch(source))
+      )
 
-      if (!response.ok) {
-        throw new Error(`Unable to load game data (${response.status}).`)
+      const failedResponse = responses.find((response) => !response.ok)
+
+      if (failedResponse) {
+        throw new Error(`Unable to load game data (${failedResponse.status}).`)
       }
 
-      const data = await response.json()
+      const gameLists = await Promise.all(
+        responses.map((response) => response.json())
+      )
+      const data = gameLists.flat()
 
       if (!Array.isArray(data) || data.length < 5) {
         throw new Error('The game list must contain at least five entries.')
+      }
+
+      const uniqueKeys = new Set(data.map((game) => `${game.title}::${game.year}`))
+
+      if (uniqueKeys.size !== data.length) {
+        throw new Error('The game list contains duplicate title and year entries.')
       }
 
       commit('setGames', data)
