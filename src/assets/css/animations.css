@@ -69,3 +69,50 @@
     transition-duration: 1ms !important;
   }
 }
+
+/* Mode Feedback | Adds short, readable state changes */
+@keyframes streak-ignite {
+  0% {
+    transform: scale(0.82);
+    opacity: 0.55;
+  }
+  65% {
+    transform: scale(1.14);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes life-loss-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-0.35rem);
+  }
+  65% {
+    transform: translateX(0.28rem);
+  }
+}
+
+@keyframes timer-warning-pulse {
+  from {
+    opacity: 0.72;
+    text-shadow: 0 0 4px rgba(255, 93, 93, 0.25);
+  }
+  to {
+    opacity: 1;
+    text-shadow: 0 0 14px rgba(255, 93, 93, 0.72);
+  }
+}
+
+@keyframes result-glow {
+  from {
+    text-shadow: 0 0 4px rgba(102, 220, 139, 0.2);
+  }
+  to {
+    text-shadow: 0 0 16px rgba(102, 220, 139, 0.65);
+  }
+}

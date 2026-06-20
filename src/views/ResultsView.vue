@@ -1,11 +1,21 @@
 <template>
   <section class="results-view" aria-label="ChronoGame results">
     <ScoreSummary
+      :mode-id="selectedMode"
       :total-score="totalScore"
-      :max-score="maxScore"
+      :round-results="roundResults"
+      :max-rounds="maxRounds"
+      :lives="lives"
+      :best-streak="bestStreak"
+      :selected-decade="selectedDecade"
+      :daily-practice="dailyPractice"
+      :daily-official-recorded="dailyOfficialRecorded"
+      :daily-date-key="dailyDateKey"
+      :player-stats="playerStats"
       :loading="loading"
       :error="error"
       @play-again="playAgain"
+      @home="goHome"
     />
   </section>
 </template>
@@ -26,26 +36,45 @@ export default {
     }
   },
   computed: {
-    ...mapState(['totalScore', 'maxRounds']),
-    maxScore() {
-      return this.maxRounds * 1000
+    ...mapState([
+      'selectedMode',
+      'selectedDecade',
+      'totalScore',
+      'roundResults',
+      'maxRounds',
+      'lives',
+      'bestStreak',
+      'dailyPractice',
+      'dailyOfficialRecorded',
+      'dailyDateKey',
+      'playerStats',
+      'runStatus'
+    ])
+  },
+  async mounted() {
+    if (this.runStatus !== 'complete') {
+      await this.$router.replace('/')
+      return
     }
+
+    await this.$store.dispatch('finalizeRun')
   },
   methods: {
     async playAgain() {
       this.loading = true
       this.error = ''
-      this.$store.commit('resetGame')
 
       try {
-        await this.$store.dispatch('loadGames')
-        await this.$store.dispatch('selectRandomGames')
+        await this.$store.dispatch('restartRun')
         await this.$router.push('/game')
       } catch (error) {
         this.error = error.message || 'The arcade cabinet could not reset. Please try again.'
       } finally {
         this.loading = false
       }
+    },
+    goHome() {
+      this.$router.push('/')
     }
   }
 }
@@ -58,7 +87,7 @@ export default {
   min-height: 0;
   display: grid;
   place-items: center;
-  padding: clamp(0.65rem, 2.5vw, 2rem);
+  padding: clamp(0.5rem, 1.8vw, 1.4rem);
   overflow: hidden;
 }
 </style>

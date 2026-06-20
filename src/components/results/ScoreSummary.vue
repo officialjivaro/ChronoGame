@@ -1,45 +1,50 @@
 <template>
   <ArcadePanel class="score-summary" :accent="true" tag="section">
     <div class="results-heading">
-      <span class="results-kicker">Run Complete</span>
-      <h1>Game Over</h1>
-      <p>{{ rank.message }}</p>
+      <span class="results-kicker">{{ mode.name }}</span>
+      <h1>{{ heading }}</h1>
+      <p>{{ summaryMessage }}</p>
     </div>
 
     <div class="results-score-grid">
-      <div class="rank-card">
+      <div v-if="showRank" class="rank-card">
         <span>Arcade Rank</span>
         <strong>{{ rank.rank }}</strong>
       </div>
 
       <div class="total-card">
         <span>Total Score</span>
-        <strong>{{ formattedScore }}</strong>
-        <small>out of {{ maxScore.toLocaleString() }}</small>
+        <strong>{{ totalScore.toLocaleString() }}</strong>
+        <small v-if="maxScore">out of {{ maxScore.toLocaleString() }}</small>
+        <small v-else>{{ roundResults.length }} games completed</small>
       </div>
     </div>
 
-    <div class="score-meter" aria-label="Final score progress">
+    <div class="result-metrics">
+      <div v-for="metric in metrics" :key="metric.label">
+        <span>{{ metric.label }}</span>
+        <strong>{{ metric.value }}</strong>
+      </div>
+    </div>
+
+    <div v-if="showRank" class="score-meter" aria-label="Final score progress">
       <span :style="meterStyle"></span>
     </div>
 
+    <p v-if="personalBest" class="personal-best">Classic personal-best score!</p>
+    <p v-if="modeId === 'daily'" class="daily-state">
+      {{ dailyStateMessage }}
+    </p>
     <p v-if="error" class="results-error" role="alert">{{ error }}</p>
 
     <div class="results-actions">
-      <ArcadeButton
-        variant="primary"
-        size="large"
-        :disabled="loading"
-        @click="$emit('play-again')"
-      >
+      <ArcadeButton variant="primary" size="large" :disabled="loading" @click="$emit('play-again')">
         {{ loading ? 'Loading…' : 'Play Again' }}
       </ArcadeButton>
-      <ArcadeButton
-        href="https://jivaro.net/games"
-        target="_top"
-        variant="secondary"
-        size="large"
-      >
+      <ArcadeButton variant="secondary" size="large" @click="$emit('home')">
+        Home
+      </ArcadeButton>
+      <ArcadeButton href="https://jivaro.net/games" target="_top" variant="ghost" size="large">
         Return to Games
       </ArcadeButton>
     </div>
@@ -49,6 +54,7 @@
 <script>
 import ArcadeButton from '../common/ArcadeButton.vue'
 import ArcadePanel from '../common/ArcadePanel.vue'
+import { getGameMode, getModeMaxScore } from '../../config/gameModes.js'
 import { getRunRank } from '../../utils/scoring.js'
 
 export default {
@@ -58,38 +64,107 @@ export default {
     ArcadePanel
   },
   props: {
-    totalScore: {
-      type: Number,
-      required: true
-    },
-    maxScore: {
-      type: Number,
-      default: 5000
-    },
-    loading: {
-      type: Boolean,
-      default: false
-    },
-    error: {
-      type: String,
-      default: ''
-    }
+    modeId: { type: String, required: true },
+    totalScore: { type: Number, required: true },
+    roundResults: { type: Array, default: () => [] },
+    maxRounds: { type: Number, default: 10 },
+    lives: { type: Number, default: 0 },
+    bestStreak: { type: Number, default: 0 },
+    selectedDecade: { type: Number, default: null },
+    dailyPractice: { type: Boolean, default: false },
+    dailyOfficialRecorded: { type: Boolean, default: false },
+    dailyDateKey: { type: String, default: '' },
+    playerStats: { type: Object, required: true },
+    loading: { type: Boolean, default: false },
+    error: { type: String, default: '' }
   },
-  emits: ['play-again'],
+  emits: ['play-again', 'home'],
   computed: {
-    rank() {
-      return getRunRank(this.totalScore, this.maxScore)
+    mode() {
+      return getGameMode(this.modeId)
     },
-    formattedScore() {
-      return this.totalScore.toLocaleString()
+    maxScore() {
+      return this.modeId === 'timeAttack'
+        ? 0
+        : getModeMaxScore(this.modeId, this.maxRounds)
+    },
+    rank() {
+      return getRunRank(this.totalScore, this.maxScore || 1)
+    },
+    showRank() {
+      return this.modeId !== 'timeAttack'
+    },
+    heading() {
+      if (this.modeId === 'timeAttack') return 'Time Expired'
+      if (this.modeId === 'survival') return this.lives > 0 ? 'Survival Cleared' : 'Run Eliminated'
+      if (this.modeId === 'daily') return 'Daily Complete'
+      return 'Run Complete'
+    },
+    summaryMessage() {
+      if (this.modeId === 'timeAttack') {
+        return `You cleared ${this.roundResults.length} games before the cabinet ran out of clock.`
+      }
+      if (this.modeId === 'survival') {
+        return this.lives > 0
+          ? `All ten rounds survived with ${this.lives} ${this.lives === 1 ? 'life' : 'lives'} left.`
+          : `The timeline claimed the last life after ${this.roundResults.length} rounds.`
+      }
+      if (this.modeId === 'decade') {
+        return `${this.selectedDecade}s complete. ${this.rank.message}`
+      }
+      if (this.modeId === 'daily') {
+        return `${this.dailyDateKey} complete. ${this.rank.message}`
+      }
+      return this.rank.message
+    },
+    averageScore() {
+      return this.roundResults.length ? Math.round(this.totalScore / this.roundResults.length) : 0
+    },
+    averageDistance() {
+      if (!this.roundResults.length) return '0.0 yrs'
+      const total = this.roundResults.reduce((sum, result) => sum + result.difference, 0)
+      return `${(total / this.roundResults.length).toFixed(1)} yrs`
+    },
+    metrics() {
+      const common = [
+        { label: 'Best Streak', value: this.bestStreak },
+        { label: 'Average Miss', value: this.averageDistance }
+      ]
+
+      if (this.modeId === 'timeAttack') {
+        return [
+          { label: 'Games Cleared', value: this.roundResults.length },
+          { label: 'Average Score', value: this.averageScore },
+          ...common
+        ]
+      }
+
+      if (this.modeId === 'survival') {
+        return [
+          { label: 'Rounds Survived', value: this.roundResults.length },
+          { label: 'Lives Left', value: this.lives },
+          ...common
+        ]
+      }
+
+      return [
+        { label: 'Rounds', value: this.roundResults.length },
+        ...common
+      ]
     },
     scorePercent() {
-      return Math.min(100, Math.max(0, (this.totalScore / this.maxScore) * 100))
+      return this.maxScore ? Math.min(100, Math.max(0, (this.totalScore / this.maxScore) * 100)) : 0
     },
     meterStyle() {
-      return {
-        width: `${this.scorePercent}%`
-      }
+      return { width: `${this.scorePercent}%` }
+    },
+    personalBest() {
+      return this.modeId === 'classic' && this.totalScore >= this.playerStats.classicBestScore && this.totalScore > 0
+    },
+    dailyStateMessage() {
+      if (this.dailyPractice) return 'Practice run — today’s official local score remains unchanged.'
+      if (this.dailyOfficialRecorded) return 'Official local result recorded. Come back after the next UTC reset.'
+      return 'Daily result saved locally.'
     }
   }
 }
@@ -97,39 +172,41 @@ export default {
 
 <style scoped>
 .score-summary {
-  width: min(52rem, 100%);
+  width: min(56rem, 100%);
+  max-height: 100%;
   display: grid;
-  gap: clamp(0.9rem, 2.3vh, 1.7rem);
-  padding: clamp(1rem, 3vw, 2.4rem);
+  gap: clamp(0.55rem, 1.5vh, 1rem);
+  padding: clamp(0.8rem, 2.2vw, 1.75rem);
   text-align: center;
+  overflow: hidden;
 }
 
 .results-kicker,
 .rank-card span,
-.total-card span {
+.total-card span,
+.result-metrics span {
   color: var(--color-text-muted);
-  font-size: clamp(0.62rem, 1vw, 0.75rem);
+  font-size: clamp(0.54rem, 0.85vw, 0.68rem);
   font-weight: 800;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
 }
 
 .results-heading h1 {
-  margin: 0.25rem 0 0.55rem;
+  margin: 0.2rem 0 0.35rem;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(2rem, 7vw, 5rem);
+  font-size: clamp(1.75rem, 6vw, 4.2rem);
   line-height: 0.95;
-  letter-spacing: 0.04em;
   text-shadow: var(--shadow-text), 0 0 24px rgba(255, 138, 50, 0.2);
 }
 
 .results-heading p {
-  max-width: 40rem;
+  max-width: 42rem;
   margin: 0 auto;
   color: var(--color-text-muted);
-  font-size: clamp(0.78rem, 1.5vw, 1rem);
-  line-height: 1.5;
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  line-height: 1.45;
 }
 
 .results-score-grid {
@@ -138,46 +215,68 @@ export default {
   gap: var(--space-2);
 }
 
+.results-score-grid:has(.total-card:only-child) {
+  grid-template-columns: 1fr;
+}
+
 .rank-card,
 .total-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: clamp(6rem, 17vh, 9rem);
+  min-height: clamp(4.7rem, 13vh, 7.2rem);
   padding: var(--space-2);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-medium);
   background: rgba(0, 0, 0, 0.24);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.34) inset;
 }
 
 .rank-card strong {
   color: var(--color-accent-bright);
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 8vw, 5.5rem);
+  font-size: clamp(2rem, 6vw, 4rem);
   line-height: 1;
-  text-shadow: 0 0 20px rgba(255, 138, 50, 0.38);
 }
 
 .total-card strong {
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 5vw, 3.3rem);
-  line-height: 1.1;
+  font-size: clamp(1.35rem, 4vw, 2.8rem);
 }
 
 .total-card small {
   color: var(--color-text-muted);
 }
 
+.result-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+}
+
+.result-metrics > div {
+  min-width: 0;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-small);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.result-metrics strong {
+  display: block;
+  margin-top: 0.18rem;
+  color: var(--color-accent-bright);
+  font-family: var(--font-display);
+  font-size: clamp(0.65rem, 1.2vw, 0.9rem);
+}
+
 .score-meter {
-  height: 0.75rem;
+  height: 0.65rem;
   overflow: hidden;
   border: 1px solid #3d4149;
   border-radius: 999px;
   background: #101216;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.68) inset;
 }
 
 .score-meter span {
@@ -189,20 +288,36 @@ export default {
   transition: width 600ms ease;
 }
 
+.personal-best,
+.daily-state,
+.results-error {
+  margin: 0;
+  font-size: 0.68rem;
+}
+
+.personal-best {
+  color: var(--color-success);
+  font-family: var(--font-display);
+  animation: result-glow 1.2s ease-in-out infinite alternate;
+}
+
+.daily-state {
+  color: var(--color-text-muted);
+}
+
+.results-error {
+  color: var(--color-danger);
+}
+
 .results-actions {
   display: flex;
   justify-content: center;
   gap: var(--space-2);
 }
 
-.results-error {
-  margin: 0;
-  color: var(--color-danger);
-}
-
-@media (max-width: 620px) {
-  .results-score-grid {
-    grid-template-columns: 0.7fr 1.3fr;
+@media (max-width: 650px) {
+  .result-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .results-actions {
@@ -212,13 +327,13 @@ export default {
 
 @media (max-height: 620px) {
   .score-summary {
-    gap: 0.55rem;
-    padding: 0.75rem;
+    gap: 0.4rem;
+    padding: 0.65rem;
   }
 
   .rank-card,
   .total-card {
-    min-height: 4.3rem;
+    min-height: 3.8rem;
   }
 }
 </style>

@@ -1,48 +1,42 @@
 <template>
   <section class="home-view" aria-labelledby="home-title">
     <ArcadePanel class="home-card" :accent="true">
-      <div class="home-copy">
-        <span class="home-kicker">Arcade History Challenge</span>
-        <h1 id="home-title">Test Your Game Knowledge</h1>
-        <p class="home-description">
-          Study five mystery screenshots, lock in their release years, and chase a perfect 5,000-point run.
-        </p>
-
-        <div class="rule-grid" aria-label="Game rules">
-          <div class="rule-chip">
-            <strong>5</strong>
-            <span>Rounds</span>
-          </div>
-          <div class="rule-chip">
-            <strong>1960–2030</strong>
-            <span>Timeline</span>
-          </div>
-          <div class="rule-chip">
-            <strong>1,000</strong>
-            <span>Max per round</span>
-          </div>
+      <div class="home-visual">
+        <img :src="startImage" alt="ChronoGame arcade artwork" />
+        <div class="visual-badge">
+          <span>Player One</span>
+          <strong>{{ selectedModeName }}</strong>
         </div>
+      </div>
+
+      <div class="home-copy">
+        <div class="home-intro">
+          <span class="home-kicker">Arcade History Challenge</span>
+          <h1 id="home-title">Test Your Game Knowledge</h1>
+          <p class="home-description">
+            Pick a mode, study the screenshots, and lock in the years before the timeline gets suspicious.
+          </p>
+        </div>
+
+        <ModeSelector
+          v-model="selectedModeId"
+          v-model:selectedDecade="selectedDecade"
+          :decade-availability="decadeAvailability"
+        />
+
+        <PersonalStats :stats="playerStats" />
 
         <div class="home-actions">
           <ArcadeButton
             size="large"
             :block="true"
             :pulse="true"
-            :disabled="loading"
+            :disabled="loading || !canStart"
             @click="startGame"
           >
-            {{ loading ? 'Loading Cabinet…' : 'Start Game' }}
+            {{ loading ? 'Loading Cabinet…' : startButtonLabel }}
           </ArcadeButton>
-          <p class="score-hint">Closer guesses earn dramatically more points.</p>
           <p v-if="error" class="home-error" role="alert">{{ error }}</p>
-        </div>
-      </div>
-
-      <div class="home-visual">
-        <img :src="startImage" alt="ChronoGame arcade artwork" />
-        <div class="visual-badge">
-          <span>Player One</span>
-          <strong>Ready</strong>
         </div>
       </div>
     </ArcadePanel>
@@ -50,32 +44,90 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
 import gameStart from '../assets/images/game_start.png'
 import ArcadeButton from '../components/common/ArcadeButton.vue'
 import ArcadePanel from '../components/common/ArcadePanel.vue'
+import ModeSelector from '../components/home/ModeSelector.vue'
+import PersonalStats from '../components/home/PersonalStats.vue'
+import { GAME_MODES } from '../config/gameModes.js'
 
 export default {
   name: 'HomeView',
   components: {
     ArcadeButton,
-    ArcadePanel
+    ArcadePanel,
+    ModeSelector,
+    PersonalStats
   },
   data() {
     return {
       startImage: gameStart,
+      selectedModeId: 'classic',
+      selectedDecade: null,
       loading: false,
       error: ''
     }
   },
+  computed: {
+    ...mapState(['playerStats']),
+    ...mapGetters(['decadeAvailability', 'eligibleDecades']),
+    selectedMode() {
+      return GAME_MODES[this.selectedModeId] || GAME_MODES.classic
+    },
+    selectedModeName() {
+      return this.selectedMode.name
+    },
+    canStart() {
+      return !this.selectedMode.requiresDecade || Number.isInteger(this.selectedDecade)
+    },
+    startButtonLabel() {
+      return this.selectedModeId === 'daily' ? 'Start Today’s Challenge' : `Start ${this.selectedMode.name}`
+    }
+  },
+  watch: {
+    selectedModeId() {
+      this.error = ''
+      this.ensureDecadeSelection()
+    },
+    eligibleDecades() {
+      this.ensureDecadeSelection()
+    }
+  },
+  async mounted() {
+    this.loading = true
+
+    try {
+      await this.$store.dispatch('loadGames')
+      await this.$store.dispatch('loadPlayerStats')
+      this.ensureDecadeSelection()
+    } catch (error) {
+      this.error = error.message || 'The game database could not be loaded.'
+    } finally {
+      this.loading = false
+    }
+  },
   methods: {
+    ensureDecadeSelection() {
+      if (!this.selectedMode.requiresDecade) return
+
+      const selectedIsEligible = this.eligibleDecades.some((item) => item.decade === this.selectedDecade)
+
+      if (!selectedIsEligible) {
+        this.selectedDecade = this.eligibleDecades[0]?.decade ?? null
+      }
+    },
     async startGame() {
+      if (!this.canStart) return
+
       this.loading = true
       this.error = ''
-      this.$store.commit('resetGame')
 
       try {
-        await this.$store.dispatch('loadGames')
-        await this.$store.dispatch('selectRandomGames')
+        await this.$store.dispatch('startRun', {
+          modeId: this.selectedModeId,
+          decade: this.selectedDecade
+        })
         await this.$router.push('/game')
       } catch (error) {
         this.error = error.message || 'The arcade cabinet could not start. Please try again.'
@@ -94,7 +146,7 @@ export default {
   min-height: 0;
   display: grid;
   place-items: center;
-  padding: clamp(0.65rem, 2.2vw, 2rem);
+  padding: clamp(0.5rem, 1.6vw, 1.35rem);
   overflow: hidden;
 }
 
@@ -103,98 +155,55 @@ export default {
   height: 100%;
   min-height: 0;
   display: grid;
-  grid-template-columns: minmax(17rem, 0.85fr) minmax(0, 1.45fr);
-  gap: clamp(0.8rem, 2.2vw, 2rem);
-  padding: clamp(0.85rem, 2.2vw, 2rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 1fr);
+  gap: clamp(0.65rem, 1.5vw, 1.25rem);
+  padding: clamp(0.65rem, 1.5vw, 1.25rem);
   overflow: hidden;
 }
 
 .home-copy {
+  min-width: 0;
   min-height: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  align-content: center;
+  gap: clamp(0.45rem, 1vh, 0.75rem);
 }
 
 .home-kicker {
   color: var(--color-accent-bright);
-  font-size: clamp(0.62rem, 1vw, 0.78rem);
+  font-size: clamp(0.55rem, 0.9vw, 0.72rem);
   font-weight: 800;
   letter-spacing: 0.17em;
   text-transform: uppercase;
 }
 
 .home-copy h1 {
-  margin: 0.4rem 0 0.7rem;
+  margin: 0.25rem 0 0.35rem;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(1.5rem, 4vw, 3.6rem);
-  line-height: 1.03;
-  letter-spacing: 0.02em;
+  font-size: clamp(1.25rem, 3.2vw, 2.75rem);
+  line-height: 1.02;
   text-shadow: var(--shadow-text), 0 0 18px rgba(255, 138, 50, 0.14);
 }
 
 .home-description {
-  max-width: 34rem;
-  margin-bottom: var(--space-3);
+  margin: 0;
   color: var(--color-text-muted);
-  font-size: clamp(0.78rem, 1.4vw, 1rem);
-  line-height: 1.6;
-}
-
-.rule-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.5rem;
-}
-
-.rule-chip {
-  min-width: 0;
-  padding: clamp(0.5rem, 1.2vw, 0.8rem);
-  text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-small);
-  background: rgba(0, 0, 0, 0.22);
-  box-shadow: 0 5px 13px rgba(0, 0, 0, 0.25) inset;
-}
-
-.rule-chip strong,
-.rule-chip span {
-  display: block;
-}
-
-.rule-chip strong {
-  color: var(--color-accent-bright);
-  font-family: var(--font-display);
-  font-size: clamp(0.72rem, 1.5vw, 1rem);
-}
-
-.rule-chip span {
-  margin-top: 0.2rem;
-  color: var(--color-text-muted);
-  font-size: clamp(0.52rem, 0.85vw, 0.65rem);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: clamp(0.66rem, 1vw, 0.82rem);
+  line-height: 1.45;
 }
 
 .home-actions {
-  margin-top: var(--space-3);
-}
-
-.score-hint,
-.home-error {
-  margin: 0.65rem 0 0;
-  text-align: center;
-  font-size: clamp(0.62rem, 1vw, 0.75rem);
-}
-
-.score-hint {
-  color: var(--color-text-muted);
+  display: grid;
+  gap: 0.35rem;
 }
 
 .home-error {
+  margin: 0;
   color: var(--color-danger);
+  text-align: center;
+  font-size: 0.7rem;
 }
 
 .home-visual {
@@ -232,7 +241,7 @@ export default {
   z-index: 2;
   left: var(--space-3);
   bottom: var(--space-3);
-  padding: 0.55rem 0.8rem;
+  padding: 0.5rem 0.75rem;
   border-left: 3px solid var(--color-accent);
   background: rgba(7, 8, 10, 0.82);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.46);
@@ -247,61 +256,47 @@ export default {
 
 .visual-badge span {
   color: var(--color-text-muted);
-  font-size: 0.58rem;
+  font-size: 0.54rem;
   letter-spacing: 0.14em;
 }
 
 .visual-badge strong {
   color: var(--color-accent-bright);
   font-family: var(--font-display);
-  font-size: 0.92rem;
+  font-size: 0.78rem;
+}
+
+@media (max-width: 900px) {
+  .home-card {
+    grid-template-columns: 0.72fr 1.28fr;
+  }
 }
 
 @media (max-width: 760px) {
   .home-card {
     grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .home-visual {
+    display: none;
   }
 
   .home-copy {
-    justify-content: flex-start;
+    align-content: center;
   }
+}
 
-  .home-description {
-    margin-bottom: 0.65rem;
-  }
-
-  .home-actions {
-    margin-top: 0.7rem;
+@media (max-height: 650px) and (min-width: 761px) {
+  .home-description,
+  .personal-stats {
+    display: none;
   }
 }
 
 @media (max-width: 420px) {
-  .home-view {
+  .home-view,
+  .home-card {
     padding: 0.45rem;
   }
-
-  .home-card {
-    padding: 0.65rem;
-  }
-
-  .rule-chip {
-    padding-inline: 0.25rem;
-  }
 }
-
-@media (max-height: 640px) {
-  .home-description {
-    display: none;
-  }
-
-  .home-copy h1 {
-    margin-bottom: 0.45rem;
-  }
-
-  .score-hint {
-    display: none;
-  }
-}
-
 </style>

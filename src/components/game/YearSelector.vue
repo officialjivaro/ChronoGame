@@ -1,5 +1,5 @@
 <template>
-  <div class="year-selector">
+  <div class="year-selector" :class="{ 'year-selector-disabled': disabled }">
     <div class="year-readout">
       <span>Selected Year</span>
       <output :for="inputId">{{ localYear }}</output>
@@ -9,7 +9,7 @@
       <button
         class="year-step"
         type="button"
-        :disabled="localYear <= min"
+        :disabled="disabled || localYear <= min"
         aria-label="Decrease year by one"
         @click="adjustYear(-1)"
       >
@@ -26,11 +26,13 @@
           :step="step"
           :value="localYear"
           :style="rangeStyle"
+          :disabled="disabled"
           aria-label="Choose a release year"
           @input="handleInput"
         />
         <div class="range-limits" aria-hidden="true">
           <span>{{ min }}</span>
+          <span>Use arrow keys for fine control</span>
           <span>{{ max }}</span>
         </div>
       </div>
@@ -38,7 +40,7 @@
       <button
         class="year-step"
         type="button"
-        :disabled="localYear >= max"
+        :disabled="disabled || localYear >= max"
         aria-label="Increase year by one"
         @click="adjustYear(1)"
       >
@@ -67,6 +69,10 @@ export default {
     step: {
       type: Number,
       default: 1
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   emits: ['update:modelValue'],
@@ -93,6 +99,7 @@ export default {
   },
   methods: {
     emitYear(value) {
+      if (this.disabled) return
       const clamped = Math.min(this.max, Math.max(this.min, value))
       this.localYear = clamped
       this.$emit('update:modelValue', clamped)
@@ -114,18 +121,18 @@ export default {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
+  gap: clamp(0.65rem, 1.5vw, 1.1rem);
 }
 
 .year-readout {
-  min-width: clamp(6rem, 11vw, 8.5rem);
+  min-width: clamp(5.8rem, 10vw, 8rem);
   text-align: center;
 }
 
 .year-readout span {
   display: block;
   color: var(--color-text-muted);
-  font-size: clamp(0.58rem, 0.9vw, 0.7rem);
+  font-size: clamp(0.52rem, 0.8vw, 0.66rem);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -133,10 +140,11 @@ export default {
 
 .year-readout output {
   display: block;
-  margin-top: 0.1rem;
+  min-width: 5ch;
+  margin-top: 0.08rem;
   color: var(--color-accent-bright);
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3.4vw, 2.5rem);
+  font-size: clamp(1.35rem, 3vw, 2.25rem);
   font-weight: 800;
   line-height: 1;
   text-shadow: 0 0 14px rgba(255, 138, 50, 0.32);
@@ -147,12 +155,12 @@ export default {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: clamp(0.55rem, 1.2vw, 0.9rem);
+  gap: clamp(0.45rem, 1vw, 0.75rem);
 }
 
 .year-step {
-  width: clamp(2.3rem, 4vw, 3rem);
-  aspect-ratio: 1;
+  width: clamp(2.75rem, 4vw, 3.2rem);
+  height: clamp(2.75rem, 4vw, 3.2rem);
   color: var(--color-text);
   border: 1px solid #555b65;
   border-radius: var(--radius-small);
@@ -180,17 +188,18 @@ export default {
 
 .year-range {
   width: 100%;
-  height: 0.45rem;
+  height: 0.5rem;
   appearance: none;
   border-radius: 999px;
   outline: none;
   cursor: pointer;
+  touch-action: pan-y;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.62) inset, 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .year-range::-webkit-slider-thumb {
-  width: clamp(1.2rem, 2vw, 1.55rem);
-  aspect-ratio: 1;
+  width: clamp(1.45rem, 2.4vw, 1.8rem);
+  height: clamp(1.45rem, 2.4vw, 1.8rem);
   appearance: none;
   border: 2px solid #ffe0c3;
   border-radius: 50%;
@@ -200,8 +209,8 @@ export default {
 }
 
 .year-range::-moz-range-thumb {
-  width: clamp(1.2rem, 2vw, 1.55rem);
-  height: clamp(1.2rem, 2vw, 1.55rem);
+  width: clamp(1.45rem, 2.4vw, 1.8rem);
+  height: clamp(1.45rem, 2.4vw, 1.8rem);
   border: 2px solid #ffe0c3;
   border-radius: 50%;
   background: linear-gradient(145deg, var(--color-accent-bright), var(--color-accent-dark));
@@ -210,22 +219,45 @@ export default {
 }
 
 .range-limits {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.35rem;
   margin-top: 0.35rem;
   color: var(--color-text-muted);
   font-family: var(--font-display);
-  font-size: clamp(0.55rem, 0.9vw, 0.68rem);
+  font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+}
+
+.range-limits span:nth-child(2) {
+  text-align: center;
+  font-family: var(--font-body);
+  letter-spacing: 0.03em;
+}
+
+.year-selector-disabled {
+  opacity: 0.55;
 }
 
 @media (max-width: 680px) {
   .year-selector {
     grid-template-columns: 1fr;
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
 
   .year-readout {
     min-width: 0;
+  }
+
+  .range-limits span:nth-child(2) {
+    display: none;
+  }
+
+  .range-limits {
+    grid-template-columns: auto 1fr;
+  }
+
+  .range-limits span:last-child {
+    text-align: right;
   }
 }
 
@@ -236,8 +268,7 @@ export default {
   }
 
   .year-readout output {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
 }
-
 </style>
