@@ -1,0 +1,28 @@
+[
+  {
+    "title": "Elden Ring",
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco Entertainment",
+    "year": 2022,
+    "platforms": [
+      "PlayStation 4",
+      "PlayStation 5",
+      "Windows",
+      "Xbox One",
+      "Xbox Series X/S"
+    ],
+    "facts": "Elden Ring opened the gates to the Lands Between in 2022, pairing FromSoftware's combat with worldbuilding contributions from George R. R. Martin. The spectral steed Torrent turns cliffs, ruins, and suspiciously quiet fields into one enormous detour-friendly playground. Sites of Grace point toward major objectives, though players routinely ignore them to investigate a glowing shrub or an elevator that clearly leads somewhere terrible. Its combination of open exploration, strange multiplayer messages, and towering bosses made becoming Elden Lord feel like a group project run by cryptic ghosts.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/14cc8e6b-bbd3-4405-b961-9256f7751229/elden_ring.png"
+  },
+  {
+    "title": "Eternal Sonata",
+    "developer": "tri-Crescendo",
+    "publisher": "Bandai Namco",
+    "year": 2007,
+    "platforms": [
+      "Xbox 360"
+    ],
+    "facts": "Eternal Sonata took the stage in 2007, blending classical music with a dreamlike realm. It imagines composer Frédéric Chopin adventuring in a half-real fantasy world as he drifts off on his deathbed. Each battle is laced with bright piano riffs and color-coded combos. It’s basically a jam session in RPG form, perfect for anyone who’s ever wanted to bash monsters to a Nocturne.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/fd3f2218-6fa3-4493-b7a8-f7bb3e771b8f/eternal_sonatta.png"
+  }
+]

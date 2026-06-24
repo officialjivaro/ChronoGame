@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Undertale",
+    "developer": "Toby Fox",
+    "publisher": "Toby Fox",
+    "year": 2015,
+    "platforms": [
+      "Windows"
+    ],
+    "facts": "Undertale charmed the world in 2015 by asking what would happen if an RPG let mercy be just as powerful as violence. Its bullet-dodging battles, eccentric monster cast, and self-aware humor make every encounter feel like a tiny stage play with trust issues. The soundtrack is absurdly memorable, to the point that hearing certain tracks can summon emotional damage on command. It’s sweet, strange, and surprisingly sharp about the consequences of what players think counts as ‘just a game.’",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/84b36751-1e10-47ea-873d-f99dcb0f157d/undertale.png"
+  },
+  {
+    "title": "Unreal Tournament",
+    "developer": "Epic MegaGames / Digital Extremes",
+    "publisher": "GT Interactive",
+    "year": 1999,
+    "platforms": [
+      "Windows"
+    ],
+    "facts": "Unreal Tournament hit in 1999 and treated multiplayer arena combat like a sport played by caffeinated rockets. Its arsenal is legendary, from the Flak Cannon’s room-clearing brutality to the Redeemer, which solves problems with a small guided apocalypse. Bots were smart enough to keep solo players busy, which was handy when your local internet situation looked like two cans and a string. It’s a glorious monument to fast movement, map control, and the art of being spectacularly eliminated.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/55d8b84f-1093-41f1-9d05-c990c72f4afe/unreal-tournament.png"
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Galaxy Game",
+    "developer": "Bill Pitts & Hugh Tuck",
+    "publisher": "Bill Pitts & Hugh Tuck",
+    "year": 1971,
+    "platforms": [
+      "PDP-11"
+    ],
+    "facts": "Galaxy Game appeared at Stanford University in 1971 and ranks among the first coin-operated video games. Bill Pitts and Hugh Tuck adapted Spacewar! to a PDP-11, charging ten cents per play or three games for a quarter. Two players piloted the Needle and the Wedge around a star whose gravity was determined to ruin otherwise sensible steering. A later version could run several matches at once, impressive engineering for a machine that still had no realistic chance of paying for itself.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/xdQQcAYKXkcEAd4?file=/&fileId=153945&x=3840&y=2160&a=true&etag=53089927cf9f270a98b8aec181aea8a9"
+  },
+  {
+    "title": "Golden Sun",
+    "developer": "Camelot Software Planning",
+    "publisher": "Nintendo",
+    "year": 2001,
+    "platforms": [
+      "Game Boy Advance"
+    ],
+    "facts": "Golden Sun shines as a 2001 RPG that emphasizes puzzle-driven dungeons and elemental powers. It features a silent protagonist named Isaac who masters Psynergy to reshape the terrain. The Djinn system allows quirky combos that boost stats or unleash colossal summons. Originally intended as one large game, it was split in half, fueling endless speculation among series fans.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/iFQwzoZqDSMFqSJ?file=/&fileId=153732&x=3840&y=2160&a=true&etag=d05f52f5127283e2c08198d14d306a71"
+  },
+  {
+    "title": "GoldenEye 007",
+    "developer": "Rare",
+    "publisher": "Nintendo",
+    "year": 1997,
+    "platforms": [
+      "Nintendo 64"
+    ],
+    "facts": "GoldenEye 007 infiltrated the Nintendo 64 in 1997, two years after the film it adapted. Rare built objective-based missions that asked Bond to do more than simply clear rooms, while four-player split-screen turned living rooms into suspiciously competitive spy agencies. The multiplayer mode was added relatively late in development and still became one of the game's defining features. It helped prove first-person shooters could thrive on consoles, even if everyone kept arguing about whether choosing Oddjob was legal.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/1c9cde52-e59e-472a-9751-c4d8983dd0a1/golden_eye_007.png?content-type=image%2Fpng"
+  },
+  {
+    "title": "Gotcha",
+    "developer": "Atari",
+    "publisher": "Atari",
+    "year": 1973,
+    "platforms": [
+      "Arcade"
+    ],
+    "facts": "Gotcha debuted in 1973 as a mischievous arcade oddity from Atari. It earned a reputation for its comical “maze chase” concept and bizarre pink control domes. Some players joked it felt like grabbing two grapefruits while fleeing cartoonish enemies. Yet behind the silliness, Gotcha helped shape early competitive arcade gaming.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/Q3cjo7n9JRyyBxd?file=/&fileId=153972&x=3840&y=2160&a=true&etag=0b4953c9ea56481bbb34dc1ffa7f5095"
+  },
+  {
+    "title": "Grand Theft Auto III",
+    "developer": "DMA Design",
+    "publisher": "Rockstar Games",
+    "year": 2001,
+    "platforms": [
+      "PlayStation 2"
+    ],
+    "facts": "Grand Theft Auto III arrived in 2001 and moved the series into a fully 3D Liberty City. Its silent protagonist, Claude, climbs through the criminal underworld without wasting a single syllable on workplace small talk. Talk-radio stations, traffic jams, and spontaneous police chases make even a routine drive feel like a civic emergency. The game's open-ended city design became a blueprint for countless later sandboxes, proving that one badly parked car can influence an entire genre.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/0cc9a8eb-9b98-4def-9023-ea5c8efc7089/grand_theft_auto_iii.png"
+  }
+]

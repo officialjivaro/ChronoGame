@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Warcraft III: Reign of Chaos",
+    "developer": "Blizzard Entertainment",
+    "publisher": "Blizzard Entertainment",
+    "year": 2002,
+    "platforms": [
+      "Windows",
+      "Mac"
+    ],
+    "facts": "Warcraft III: Reign of Chaos marched onto PCs in 2002 and gave real-time strategy a hero unit with serious main-character energy. Its campaigns juggle humans, orcs, undead, and night elves while casually laying the groundwork for an absurd amount of future Blizzard lore. Custom maps became a phenomenon of their own, eventually spawning entire genres from within its editor like a very productive magical workshop. This is the game where one battlefield could hold epic fantasy tragedy, base management, and somebody inventing the early shape of MOBAs.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/bf25782c-8ab8-4f89-b5a1-629cf99d8267/warcraft-iii-reign-of-chaos.png"
+  },
+  {
+    "title": "Wii Sports",
+    "developer": "Nintendo EAD",
+    "publisher": "Nintendo",
+    "year": 2006,
+    "platforms": [
+      "Wii"
+    ],
+    "facts": "Wii Sports bowled into living rooms in 2006 and somehow convinced an entire planet to swing at televisions with great optimism. Its simple motion controls made tennis, bowling, boxing, baseball, and golf feel instantly approachable, even for people who hadn’t touched a gamepad in years. Mii avatars added just enough personality to make family rivalries feel official and faintly ridiculous. Few pack-in games have ever been this culturally unstoppable, or this responsible for sore shoulders the next morning.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/8081d714-9c6c-4fe3-9931-dc3f72c81052/wii-sports.png"
+  },
+  {
+    "title": "World of Warcraft",
+    "developer": "Blizzard Entertainment",
+    "publisher": "Blizzard Entertainment",
+    "year": 2004,
+    "platforms": [
+      "Windows",
+      "macOS"
+    ],
+    "facts": "World of Warcraft opened Azeroth to players in 2004 and turned Blizzard’s strategy setting into a persistent online world. Heroes choose factions, classes, and professions before discovering that inventory management is the true final boss. Raids ask large groups to coordinate elaborate tactics, usually while one person insists the glowing floor is probably safe. Its expansions, guilds, and social rituals helped make phrases like “pulling aggro” understandable far beyond the walls of an internet café.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/1e6da686-a9c8-4d44-ba7f-47143428be4c/world_of_warcraft.png"
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "title": "A Bug's Life",
+    "developer": "Traveller's Tales / Tiertex Design Studios",
+    "publisher": "Sony Computer Entertainment",
+    "year": 1998,
+    "platforms": [
+      "PlayStation",
+      "Nintendo 64",
+      "Windows",
+      "Game Boy Color"
+    ],
+    "facts": "Released in 1998 alongside the Pixar film, A Bug's Life turns Flik's tiny world into a 3D platforming obstacle course. Traveller's Tales built the main console game, while Tiertex created the separate Game Boy Color version. Flik attacks with berries and grows useful plants from seeds, because botany is apparently the ant version of carrying a utility belt. Completing stages can unlock clips from the movie, a very late-1990s reward for surviving grasshoppers and awkward camera angles.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/3aab7dae-cd41-445c-b793-cf875026544c/a_bugs_life.png"
+  },
+  {
+    "title": "Advance Wars",
+    "developer": "Intelligent Systems",
+    "publisher": "Nintendo",
+    "year": 2001,
+    "platforms": [
+      "Game Boy Advance"
+    ],
+    "facts": "Colorful armies collide in this turn-based battlefield, where commanding tanks feels like orchestrating a toy-box war. Its cartoony generals bicker over territory while you plot the perfect ambush. Each map is a puzzle of terrain and tactics, forcing your brain to do more push-ups than your army recruits. Watching those tiny tanks duke it out is strangely more satisfying than real-world diplomacy.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/YQKHNA3wDt663Dd?file=/&fileId=155895&x=3840&y=2160&a=true&etag=0c8ba55b2b8ec9e31c32f23c07d7cc29"
+  },
+  {
+    "title": "Age of Empires II: The Age of Kings",
+    "developer": "Ensemble Studios",
+    "publisher": "Microsoft",
+    "year": 1999,
+    "platforms": [
+      "Windows",
+      "Mac"
+    ],
+    "facts": "Age of Empires II: The Age of Kings marched onto PCs in 1999 with 13 medieval civilizations and five historical campaigns. Players gather food, wood, gold, and stone, then advance through four ages while turning peaceful villages into alarmingly busy war machines. The idle-villager button became a tiny strategic lifesaver, because one farmer staring at a tree can apparently derail an empire. Its mix of economy, formations, siege weapons, and multiplayer helped it remain active through remasters and expansions for decades.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/08633c53-65da-456f-a168-56412aca77fd/age_of_empires_2.png?content-type=image%2Fpng"
+  },
+  {
+    "title": "Alex Kidd in Miracle World",
+    "developer": "Sega",
+    "publisher": "Sega",
+    "year": 1986,
+    "platforms": [
+      "Master System"
+    ],
+    "facts": "Debuting in 1986, Alex Kidd in Miracle World was Sega’s bright and bouncy take on the platforming craze. Alex can shatter boulders with his bare fists, yet Rock-Paper-Scissors duels are his real downfall. Onigiri snacks, giant fish, and punchable cars are all in a day’s work here. Mixing cartoon whimsy with random hazard chaos, it stays a weirdly charming classic decades later.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/xT4DsA7zpTRxwpX?file=/&fileId=154572&x=1920&y=1200&a=true&etag=a78a373c10673f75de972f54fd35afce"
+  },
+  {
+    "title": "Among Us",
+    "developer": "Innersloth",
+    "publisher": "Innersloth",
+    "year": 2018,
+    "platforms": [
+      "iOS",
+      "Android",
+      "Windows"
+    ],
+    "facts": "Among Us launched in 2018, but its great social-deduction explosion arrived two years later when streamers turned emergency meetings into appointment viewing. Crewmates complete maintenance tasks while one or more Impostors fake productivity and quietly remodel the ship with sabotage. Accusations are usually based on evidence, body language, or the highly scientific principle that red looked suspicious. It transformed the phrase \"pretty sus\" into an international diplomatic incident.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/06fce287-398e-4b3c-900e-35a133b67821/among-us.png"
+  },
+  {
+    "title": "Armored Core VI: Fires of Rubicon",
+    "developer": "FromSoftware",
+    "publisher": "Bandai Namco",
+    "year": 2023,
+    "platforms": [
+      "PlayStation 4",
+      "PlayStation 5",
+      "Windows",
+      "Xbox One",
+      "Xbox Series X/S"
+    ],
+    "facts": "Armored Core VI: Fires of Rubicon arrived in 2023 as the series' first new entry in roughly a decade. Players assemble highly customizable machines from interchangeable frames, weapons, generators, and boosters before taking mercenary jobs on Rubicon 3. Its stagger-focused combat rewards relentless pressure, careful positioning, and knowing when a twelve-meter robot should dodge sideways. The garage is half engineering lab and half fashion runway, except every accessory launches missiles.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/FtaJ9pRxcnZbqLS?file=/&fileId=154992&x=3840&y=2160&a=true&etag=e21fe0a49660b605834eec2c625acba3"
+  }
+]

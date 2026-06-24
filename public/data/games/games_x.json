@@ -1,0 +1,35 @@
+[
+  {
+    "title": "3Xtreme",
+    "developer": "989 Sports",
+    "publisher": "989 Sports",
+    "year": 1999,
+    "platforms": [
+      "PlayStation"
+    ],
+    "facts": "3Xtreme raced onto the PlayStation in 1999 with skateboards, BMX bikes, and inline skates all sharing one very aggressive finish line. Competitors can punch and kick each other mid-race, because fair play apparently took the day off. Its fully polygonal courses replaced the sprite-heavy look of earlier Xtreme games, while tricks and licensed gear supplied late-1990s attitude by the truckload. It is less a sporting event than a rolling argument with ramps.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/c2d4fb87-c591-4c3e-86d8-6c60f878d6ca/3xtreme.png"
+  },
+  {
+    "title": "Xenogears",
+    "developer": "Square",
+    "publisher": "Square",
+    "year": 1998,
+    "platforms": [
+      "PlayStation"
+    ],
+    "facts": "Xenogears launched in 1998 as a Square RPG that mixes on-foot martial arts with battles between towering machines called Gears. Tetsuya Takahashi and Kaori Tanaka first conceived its scenario as a proposal connected to Final Fantasy VII before it became its own project. Its story digs into psychology, religion, identity, and enough symbolism to keep discussion boards employed indefinitely. Production limits pushed much of the second disc toward narrated scenes, creating one of gaming's most famous cases of having more plot than calendar.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/BrMGXEBpQaP3H3y?file=/&fileId=153729&x=3840&y=2160&a=true&etag=5e1268a7388fbb26b5f00ed6b9b84ac5"
+  },
+  {
+    "title": "Xenosaga Episode I: Der Wille zur Macht",
+    "developer": "Monolith Soft",
+    "publisher": "Namco",
+    "year": 2002,
+    "platforms": [
+      "PlayStation 2"
+    ],
+    "facts": "Xenosaga Episode I: Der Wille zur Macht launched in Japan in 2002 and began a space opera where androids, philosophy, and very long conversations all receive premium seating. Shion Uzuki and the battle android KOS-MOS become entangled with the mysterious Gnosis while civilization stretches across the galaxy. Its subtitle borrows from Nietzsche, because ordinary sequel numbering apparently lacked enough existential pressure. Battles mix human fighters with large A.G.W.S. machines, proving every philosophical crisis improves when somebody brings a mech.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/3da0d481-9060-4bcb-8830-7e1a3934f2bf/xenosaga-episode-i-der-wille-zur-macht.png"
+  }
+]

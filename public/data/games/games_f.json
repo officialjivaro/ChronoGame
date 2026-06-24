@@ -1,0 +1,84 @@
+[
+  {
+    "title": "Fantasy Life",
+    "developer": "Level-5",
+    "publisher": "Nintendo",
+    "year": 2012,
+    "platforms": [
+      "Nintendo 3DS"
+    ],
+    "facts": "Fantasy Life launched in 2012, letting you juggle multiple in-game careers like a part-time baker turned dragon slayer. It flaunts a sunny world full of cheeky NPCs who never tire of giving you quests. Level-5 peppered the game with hidden jokes that appear if you snoop around thoroughly. Every profession unlocks unique powers, ensuring you’ll never run out of odd jobs to tackle.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/40c11716-a303-43db-98bd-78c20b3d7c1a/fantasy-life-3ds.png"
+  },
+  {
+    "title": "Fez",
+    "developer": "Polytron Corporation",
+    "publisher": "Trapdoor / Polytron Corporation",
+    "year": 2012,
+    "platforms": [
+      "Xbox 360"
+    ],
+    "facts": "Fez popped into existence in 2012 and immediately asked players to stop thinking in flat, sensible dimensions. Gomez gains the power to rotate the world, turning impossible jumps into clever perspective tricks and making geometry feel mischievous. Hidden codes, secret languages, and puzzle-box design gave completionists enough mysteries to start conspiracy boards. It’s a cute little platformer that secretly moonlights as a brain teaser wearing a very charming hat.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/c454b199-b064-4d5b-b304-34ef8c83eec9/fez.png"
+  },
+  {
+    "title": "Final Fantasy Tactics",
+    "developer": "Square",
+    "publisher": "Square",
+    "year": 1997,
+    "platforms": [
+      "PlayStation"
+    ],
+    "facts": "Final Fantasy Tactics arrived on PlayStation in 1997 and introduced players to Ivalice through the politically tangled Lion War. Battles unfold on rotatable 3D maps where height, facing, jobs, and carefully hoarded ability points can decide everything. The Job System lets a knight borrow monk skills or a calculator weaponize arithmetic, because medieval warfare apparently needed accountants. Beneath the tiny sprites sits a story about class, history, and betrayal that is considerably less cheerful than the adorable battlefield proportions suggest.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/8304327c-1702-4093-a032-305900574469/final_tantasy_tactics.png"
+  },
+  {
+    "title": "Final Fantasy VIII",
+    "developer": "Square",
+    "publisher": "Square",
+    "year": 1999,
+    "platforms": [
+      "PlayStation"
+    ],
+    "facts": "Final Fantasy VIII arrived in 1999 and sent teenage mercenaries to military school, ballroom dances, outer space, and the occasional deeply confusing dream sequence. Its Junction system lets players attach magic to stats, rewarding anyone willing to turn spell collecting into advanced spreadsheet wizardry. Triple Triad became so beloved that many heroes temporarily forgot the world was ending whenever somebody produced a deck of cards. Squall's gunblade remains gloriously impractical, which is exactly why it looks so good during a dramatic pose.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/02dc05e6-eeab-48e5-b54a-755b1a89955b/final-fantasy-viii.png"
+  },
+  {
+    "title": "Firewatch",
+    "developer": "Campo Santo",
+    "publisher": "Panic",
+    "year": 2016,
+    "platforms": [
+      "Windows",
+      "PlayStation 4",
+      "Xbox One"
+    ],
+    "facts": "Firewatch arrived in 2016 and trapped one lonely fire lookout in the Wyoming wilderness with only a radio and a growing sense that something was off. Henry’s conversations with Delilah do the heavy lifting, proving that good banter can carry a whole mountain range on its back. The striking colors make every sunset look like a national park poster trying unusually hard. Beneath the calm scenery sits a mystery that nudges you forward one suspicious rustle at a time.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/f7087bc5-0cb3-47d3-b876-130e7ced4b30/firewatch.png"
+  },
+  {
+    "title": "Fortnite",
+    "developer": "Epic Games",
+    "publisher": "Epic Games",
+    "year": 2017,
+    "platforms": [
+      "Windows",
+      "PlayStation 4",
+      "Xbox One",
+      "Nintendo Switch"
+    ],
+    "facts": "Fortnite exploded in 2017 and turned battle royale into a global habit complete with dances, crossovers, and suspiciously aggressive llamas. Building walls in the middle of a firefight means every encounter can become a shooting match or a surprise architecture contest. Its seasons constantly remix the island, so the map treats stability as an optional lifestyle choice. Few games have made being eliminated feel so immediate, so public, and so likely to end with somebody flossing.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/829710a4-2747-4cfa-9f88-b0eb136c8aa1/fortnite.png"
+  },
+  {
+    "title": "Frogger",
+    "developer": "Konami",
+    "publisher": "Konami / Sega",
+    "year": 1981,
+    "platforms": [
+      "Arcade"
+    ],
+    "facts": "Frogger hopped into arcades in 1981, forcing you to dodge cars, logs, and alligators to ferry frogs home. Its star amphibian has zero fear of highway traffic, which is half the comedic tension. With every near-miss truck, you’re one ribbit away from frog jelly. It remains a timeless reminder that crossing the road can be an epic gaming ordeal.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/XWW4oMoqLXDRb8c?file=/&fileId=154323&x=3840&y=2160&a=true&etag=1c6b281fb982fcdf91325f51432b7adb"
+  }
+]

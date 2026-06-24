@@ -1,0 +1,58 @@
+[
+  {
+    "title": "R-Type",
+    "developer": "Irem",
+    "publisher": "Irem",
+    "year": 1987,
+    "platforms": [
+      "Arcade"
+    ],
+    "facts": "R-Type blasted into arcades in 1987 and immediately announced that side-scrolling shooters could be beautiful, nasty, and deeply rude. The detachable Force pod is the star gadget, letting players block attacks, fire in odd angles, and generally look much smarter than the aliens expected. Every biomechanical stage feels like flying through an HR violation designed by H. R. Giger’s hyper cousin. It’s a shmup with brains, reflexes, and enough boss intimidation to make quarters disappear at a supernatural rate.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/a7120d26-149e-44ca-b818-8bdd26db2a98/r-type.png"
+  },
+  {
+    "title": "Rap Jam: Volume One",
+    "developer": "64WD Creation",
+    "publisher": "Motown Games / Mandingo Entertainment",
+    "year": 1995,
+    "platforms": [
+      "SNES"
+    ],
+    "facts": "Rap Jam: Volume One hit the Super NES in 1995 and replaced anonymous athletes with a roster of hip-hop stars. Its street-basketball matches allow shoving and punching with no foul calls, because the referee appears to have left the neighborhood entirely. Exhibition and tournament modes settle arguments with dunks, elbows, and extremely period-specific celebrity sprites. Despite the title promising a Volume One, no sequel followed, leaving the series with the confidence of a mixtape and the discography of a single.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/7e3135b9-edb6-4e94-b224-4c6693aae6f6/rap_jam_volume_one.png"
+  },
+  {
+    "title": "Resident Evil 4",
+    "developer": "Capcom Production Studio 4",
+    "publisher": "Capcom",
+    "year": 2005,
+    "platforms": [
+      "GameCube",
+      "PlayStation 2"
+    ],
+    "facts": "Resident Evil 4 arrived in 2005 and sent Leon S. Kennedy into rural Spain where everybody seems determined to make village tourism impossible. The over-the-shoulder camera reinvented action-horror aiming, while chainsaw villains made missing a shot feel like a very personal mistake. Merchant encounters bring odd comfort, because few phrases in gaming are as reassuringly shady as ‘What are ya buyin’?’ It’s tense, stylish, and just campy enough to let suplexes coexist with survival horror.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/687cba4a-6f0b-42be-a7c0-bbe7a0ae34cf/resident-evil-4.png"
+  },
+  {
+    "title": "RuneScape 2",
+    "developer": "Jagex",
+    "publisher": "Jagex",
+    "year": 2004,
+    "platforms": [
+      "Web Browser"
+    ],
+    "facts": "RuneScape 2 launched in 2004 as a major overhaul of the original browser-based RuneScape. It introduced a new engine, expanded three-dimensional graphics, and a rebuilt combat system while keeping Gielinor accessible through Java. Players could spend an evening fighting dragons, baking pies, or repeatedly clicking the same tree until woodcutting became a personality trait. After it replaced RuneScape Classic, the number quietly disappeared from the official name, but longtime players kept it alive like a treasured party hat.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/dc1c07a4-452e-4c42-a5b6-84ebde3e00ee/runescape_2.png"
+  },
+  {
+    "title": "RuneScape Classic",
+    "developer": "Jagex",
+    "publisher": "Jagex",
+    "year": 2001,
+    "platforms": [
+      "Web Browser"
+    ],
+    "facts": "RuneScape Classic opened its low-polygon gates in 2001, luring rookies into a world of cluelessness. You might whack goblins for hours only to discover there’s an entire bustling city next door. Everyone’s chat bubble dripped with rumors of obscure quests, or that time they got scammed for 10k gold. Despite its rudimentary look, it lit the spark for a worldwide MMO craze.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/ckSCofsiideTrwJ?file=/&fileId=154494&x=1920&y=1200&a=true&etag=2380bf090cd8424525816c68e2a71560"
+  }
+]

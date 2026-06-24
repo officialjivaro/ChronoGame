@@ -1,0 +1,46 @@
+[
+  {
+    "title": "Katamari Damacy",
+    "developer": "Namco",
+    "publisher": "Namco",
+    "year": 2004,
+    "platforms": [
+      "PlayStation 2"
+    ],
+    "facts": "Katamari Damacy rolled onto PlayStation 2 in 2004 with a premise that sounds like a royal apology written during a fever dream. After the King of All Cosmos destroys the stars, the Prince rebuilds them by rolling an adhesive katamari that collects everything from thumbtacks to people and eventually entire landmarks. Designer Keita Takahashi emphasized novelty, simplicity, humor, and the peculiar joy of making a ball become unreasonably enormous. Its eclectic vocal soundtrack is nearly as famous as the sight of screaming pedestrians becoming celestial building material.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/9266d7bf-997f-4c09-9e36-9356eb1f0a0f/katamary_damacy.png?content-type=image%2Fpng"
+  },
+  {
+    "title": "Killer Instinct",
+    "developer": "Rare",
+    "publisher": "Midway",
+    "year": 1994,
+    "platforms": [
+      "Arcade"
+    ],
+    "facts": "Killer Instinct entered arcades in 1994, developed by Rare and published by Midway on hardware connected to Nintendo’s planned Ultra 64. Its pre-rendered fighters and booming announcer made every combo feel like the cabinet was yelling directly into the future. The combo system encouraged absurdly long attack strings, because apparently one punch was considered poor customer service. A 1995 SNES port even shipped with the Killer Cuts music CD, turning the box into both a fighting game and a tiny techno album.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/579143e0-e075-470a-88ee-6ba7218d9a8a/killer_instinct.png"
+  },
+  {
+    "title": "Kingdom Hearts",
+    "developer": "Square",
+    "publisher": "Square",
+    "year": 2002,
+    "platforms": [
+      "PlayStation 2"
+    ],
+    "facts": "Kingdom Hearts opened its enormous door in 2002 and somehow made Final Fantasy melodrama coexist with Donald Duck shouting battle orders. Sora travels between Disney worlds with a Keyblade, a weapon that is part sword, part key, and entirely unconcerned with normal locksmithing. Tetsuya Nomura's directorial debut produced a story about hearts, darkness, friendship, and enough mysterious cloaks to outfit a convention. Against all reasonable expectations, the crossover works—and then immediately begins constructing a lore maze.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/aaffe0d5-3f03-4f6c-b74b-bddd5051023e/kingdom-hearts.png"
+  },
+  {
+    "title": "Kingdom Hearts 2",
+    "developer": "Square Enix",
+    "publisher": "Square Enix",
+    "year": 2005,
+    "platforms": [
+      "PlayStation 2"
+    ],
+    "facts": "Kingdom Hearts 2 landed in 2005, once again jumbling Disney magic and Final Fantasy theatrics. Sora’s spiky hair pairs surprisingly well with Donald’s quacking rage against Heartless. The flashy combat system introduced reaction commands that felt like theme-park rides made of light shows. It’s a testament to friendship, key-shaped blades, and the wild notion that Goofy can be an armored knight.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/HZPDYqriEeL324W?file=/&fileId=154296&x=3840&y=2160&a=true&etag=af574a8ecf456eb07f32b9ee71a9b077"
+  }
+]

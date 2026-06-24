@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Oni",
+    "developer": "Bungie West",
+    "publisher": "Gathering of Developers / Rockstar Games",
+    "year": 2001,
+    "platforms": [
+      "Windows",
+      "Mac",
+      "PlayStation 2"
+    ],
+    "facts": "Oni launched in 2001 as Bungie West's stylish blend of anime influence, gunplay, and bone-crunching martial arts. Konoko can disarm enemies, chain elaborate combos, and generally make corporate security regret coming to work. The sparse futuristic environments leave plenty of room for acrobatic brawls, though they also make every office building look suspiciously underfurnished. It remains Bungie West's only game, a cyberpunk one-off with enough roundhouse kicks to leave a lasting bruise.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/b1415f62-178f-4765-b8bd-bb4a34ef88c0/oni.png"
+  },
+  {
+    "title": "Only Up!",
+    "developer": "SCKR Games",
+    "publisher": "SCKR Games",
+    "year": 2023,
+    "platforms": [
+      "Windows"
+    ],
+    "facts": "Only Up! climbed onto Steam in 2023 and asked players to scale a surreal tower of objects without the emotional safety net of checkpoints. One bad jump can erase an hour of progress, turning gravity into the game's most committed antagonist. Streamers helped make its spectacular falls viral, because audiences apparently enjoy shared suffering at very high altitude. The developer permanently removed it from Steam later that year, giving the whole phenomenon the lifespan of a particularly stressful dream.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/70954791-4e97-478d-837d-5ba6170d1fe7/only-up.png"
+  },
+  {
+    "title": "Orphen: Scion Of Sorcery",
+    "developer": "Shade",
+    "publisher": "Activision",
+    "year": 2000,
+    "platforms": [
+      "PlayStation 2"
+    ],
+    "facts": "Orphen: Scion Of Sorcery is based on the anime 'Sorcerous Stabber Orphen' and launched in 2000. It blends platforming, puzzles, and constant witty banter from the sarcastic sorcerer himself. Some Western players were baffled by references to anime-only storylines. Despite the confusion, its oddball humor remains a highlight for fans.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/mPdkncgPtkttbaE?file=/&fileId=153720&x=3840&y=2160&a=true&etag=df0d228c15acb24b2c5b9601380d94bd"
+  }
+]

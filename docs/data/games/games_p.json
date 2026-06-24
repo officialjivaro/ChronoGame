@@ -1,0 +1,79 @@
+[
+  {
+    "title": "PaRappa the Rapper",
+    "developer": "NanaOn-Sha",
+    "publisher": "Sony Computer Entertainment",
+    "year": 1996,
+    "platforms": [
+      "PlayStation"
+    ],
+    "facts": "PaRappa the Rapper dropped the mic in 1996 and proved rhythm games could be both catchy and gloriously weird. PaRappa’s paper-thin style, giant beanie, and unwavering optimism carry him through rap lessons involving karate onions and questionable driving instructors. The mantra ‘I gotta believe!’ somehow makes failing musical timing feel emotionally educational. It’s cheerful nonsense with immaculate rhythm, like a Saturday cartoon learning to freestyle.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/1381a757-58b9-4a9f-af94-262fbaa3dcef/parappa-the-rapper.png"
+  },
+  {
+    "title": "Parasite Eve",
+    "developer": "Squaresoft",
+    "publisher": "Squaresoft",
+    "year": 1998,
+    "platforms": [
+      "PlayStation"
+    ],
+    "facts": "Parasite Eve emerged in 1998 as a hybrid of survival horror and JRPG flair. Aya Brea’s mitochondria-fueled powers lit up New York with flaming rats and opera-induced mutations. Between cinematic cutscenes, you micromanage DNA for edgy stat buffs, proving science can be scary. It’s a sweaty, haunting ride that taught us never to trust mitochondria in designer heels.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/dfJdPF43pQT6sid?file=/&fileId=154251&x=1920&y=1200&a=true&etag=15c22ebf72878b74da08a33a228bb46a"
+  },
+  {
+    "title": "Persona 3",
+    "developer": "Atlus",
+    "publisher": "Atlus",
+    "year": 2006,
+    "platforms": [
+      "PlayStation 2"
+    ],
+    "facts": "Persona 3 arrived in 2006 and combined school schedules with a hidden midnight hour full of monsters and ominous architecture. By day, students build friendships and study; by night, they climb Tartarus and discover that extracurricular activities can become alarmingly supernatural. Summoning Personas through Evokers gave the game one of the most unforgettable visual hooks in RPG history. It is a calendar-management simulator where missing a study session and confronting mortality can somehow occupy the same planner.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/fbc70570-6fd7-4851-a8b9-0f1fb94d4ee8/persona-3.png"
+  },
+  {
+    "title": "Phantasy Star",
+    "developer": "Sega",
+    "publisher": "Sega",
+    "year": 1987,
+    "platforms": [
+      "Master System"
+    ],
+    "facts": "Phantasy Star rocketed onto the Master System in 1987, bridging swords and sci-fi in a galaxy at war. Alis leads a ragtag crew across desert planets and bioengineered dungeons. First-person corridor crawls stunned the 8-bit crowd, who gasped at polygon-like turns. This cosmic epic carved a new path for JRPGs, proving star systems are a perfect backdrop for wizardly catpeople.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/LFi8XMTFp9iWxzZ?file=/&fileId=154473&x=1920&y=1200&a=true&etag=da4271e9ebbf08e79fc2e7041bb58d68"
+  },
+  {
+    "title": "Pokémon Colosseum",
+    "developer": "Genius Sonority",
+    "publisher": "The Pokémon Company / Nintendo",
+    "year": 2003,
+    "platforms": [
+      "GameCube"
+    ],
+    "facts": "Pokémon Colosseum arrived in Japan in 2003 and traded the series' grassy routes for the dusty Orre region. Its protagonist Wes is a former Team Snagem member who steals corrupted Shadow Pokémon from criminals, a surprisingly bold career pivot for a Pokémon hero. Most battles use the double-battle format, so pairing abilities matters more than simply sending out the biggest dragon. Purifying Shadow Pokémon takes patience, friendship, and an alarming amount of walking.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/sRKzJxekfc9n8Pz?file=/&fileId=154101&x=3840&y=2160&a=true&etag=643ec0f3815606e07ba7607f23324331"
+  },
+  {
+    "title": "Pokémon Sword and Shield",
+    "developer": "Game Freak",
+    "publisher": "Nintendo / The Pokémon Company",
+    "year": 2019,
+    "platforms": [
+      "Nintendo Switch"
+    ],
+    "facts": "Pokémon Sword and Shield arrived in 2019 and brought the main series to Nintendo Switch with the Britain-inspired Galar region. Dynamax battles turn ordinary Pokémon into stadium-sized celebrities, making every gym match feel like sports television discovered kaiju. The Wild Area introduced broad roaming spaces and visible creatures, reducing the surprise of finding a Pokémon while increasing the surprise of being chased by one. Curry cooking also became a serious team-building activity, because saving the region apparently works better after a very large picnic.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/79bf1012-a6af-410b-81f0-aee9f454eb12/pokemon-sword-shield.png"
+  },
+  {
+    "title": "Punch-Out!!",
+    "developer": "Nintendo R&D3",
+    "publisher": "Nintendo",
+    "year": 1987,
+    "platforms": [
+      "NES"
+    ],
+    "facts": "Punch-Out!! brought Little Mac to the NES in 1987, originally with Mike Tyson waiting at the end of the championship ladder. Every opponent telegraphs attacks through exaggerated poses, turning boxing into a rhythm puzzle wearing very large gloves. Glass Joe became gaming’s favorite professional loser, which is an impressive career achievement in its own peculiar way. Later releases replaced Tyson with Mr. Dream, proving that licensing can punch harder than any uppercut.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/bac7f583-ae00-4028-991c-20b1cdd52664/punch_out.png"
+  }
+]

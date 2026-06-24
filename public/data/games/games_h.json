@@ -1,0 +1,48 @@
+[
+  {
+    "title": "Half-Life",
+    "developer": "Valve",
+    "publisher": "Sierra Studios",
+    "year": 1998,
+    "platforms": [
+      "Windows"
+    ],
+    "facts": "Half-Life blew open Black Mesa in 1998 and made first-person shooters feel smarter, stranger, and much less interested in cutscene hand-holding. Gordon Freeman never says a word, yet somehow survives alien invasions, military cover-ups, and physics disasters while dressed like science fiction workplace safety. Scripted sequences unfold around you in real time, making the facility feel like it’s collapsing on a strict schedule. Also, the crowbar deserves its own employee-of-the-month plaque.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/bd1fc964-1d1d-469a-9ead-1f975ea714aa/half-life.png"
+  },
+  {
+    "title": "Hamurabi",
+    "developer": "Doug Dyment",
+    "publisher": "Doug Dyment",
+    "year": 1968,
+    "platforms": [
+      "PDP-8"
+    ],
+    "facts": "Hamurabi began in 1968 as Doug Dyment's text-based King of Sumeria for the FOCAL programming language. Across ten turns, the player buys land, plants grain, feeds citizens, and hopes rats or plagues do not demolish the royal spreadsheet. The familiar one-m spelling came from tight memory limits and then followed the game into later BASIC versions. It helped establish resource-management games, proving simulated citizens complained about budgets long before graphics were fashionable.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/5oybetzPFeEFz8J?file=/&fileId=153921&x=3840&y=2160&a=true&etag=ac73c6061570ea4448ee609107d81ed8"
+  },
+  {
+    "title": "Hollow Knight",
+    "developer": "Team Cherry",
+    "publisher": "Team Cherry",
+    "year": 2017,
+    "platforms": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "facts": "Hollow Knight burrowed into the scene in 2017, weaving a bug-filled wonderland of hidden horrors. Each tunnel offers hand-drawn gloom punctuated by nail-biting boss fights. With every new charm or weapon, you feel more confident braving chittering minions in the deep. Its eerie soundtrack whispers encouragement as you confront the kingdom’s tragic secrets, one cryptic corridor at a time.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/L5LtE6ek9berLgs?file=/&fileId=154521&x=1920&y=1200&a=true&etag=1bd23fd0e19045490d4a1657a48e2de0"
+  },
+  {
+    "title": "Horizon Zero Dawn",
+    "developer": "Guerrilla Games",
+    "publisher": "Sony Interactive Entertainment",
+    "year": 2017,
+    "platforms": [
+      "PlayStation 4"
+    ],
+    "facts": "Horizon Zero Dawn arrived in 2017 and introduced Aloy to a future where robot dinosaurs roam while humanity argues over bows, tribes, and old-world mysteries. The Focus lets her scan machines for weak points, turning every hunt into tactical homework with significantly more lasers. Guerrilla Games moved from the gray battlefields of Killzone to bright grasslands full of mechanical wildlife, which is quite the career pivot. Few games make dismantling a giant metal bird feel this much like responsible archaeology.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/da3cfab8-90c0-4867-a5b8-3ee0701f8f88/horizon-zero-dawn.png"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "title": "The Elder Scrolls V: Skyrim",
+    "developer": "Bethesda Game Studios",
+    "publisher": "Bethesda Softworks",
+    "year": 2011,
+    "platforms": [
+      "Windows",
+      "PlayStation 3",
+      "Xbox 360"
+    ],
+    "facts": "Skyrim shouted onto the scene in 2011 with epic dragon battles and cheese wheels galore. The freedom to yeet bandits off cliffs using your Thu’um never grows old. Modders have turned this snowy kingdom into everything from Thomas the Tank Engine nightmares to Randy Savage dragons. Even if you’re on your tenth playthrough, there’s always another cave full of trolls to scream at.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/HZqTtFcRFoM9yD8?file=/&fileId=154107&x=1920&y=1200&a=true&etag=758e4f31b2619949ab8b1732774e9e5f"
+  },
+  {
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "developer": "Nintendo EPD",
+    "publisher": "Nintendo",
+    "year": 2017,
+    "platforms": [
+      "Wii U",
+      "Nintendo Switch"
+    ],
+    "facts": "The Legend of Zelda: Breath of the Wild opened Hyrule in 2017 and politely suggested that players climb nearly everything they could see. Link wakes after a century-long nap, immediately receives a tablet, and begins solving an apocalypse with cooking, physics, and questionable shield-surfing decisions. Weapons break frequently, ensuring every treasure chest may contain a heroic tool or tomorrow's splinters. Its systemic world encourages experiments so strange that launching yourself across the map with an explosion can count as legitimate transportation.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/5068507f-f5d2-4be6-aba4-357eabaa0699/the-legend-of-zelda-breath-of-the-wild.png"
+  },
+  {
+    "title": "The Legend of Zelda: Majora's Mask",
+    "developer": "Nintendo EAD",
+    "publisher": "Nintendo",
+    "year": 2000,
+    "platforms": [
+      "Nintendo 64"
+    ],
+    "facts": "Majora’s Mask emerged in 2000, pitting Link against a giant moon with an alarming grin. This time-loop mechanic forces you to relive the same three days, spawning frantic fetch quests before everything resets. Transforming with magical masks is half the thrill, from Deku-scrub flutters to Goron ground pounds. It’s a weirdly charming dance of dread, culminating in an ocarina melody that can stall an apocalypse.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/kb7f9zYZNPFJXiw?file=/&fileId=154548&x=1920&y=1200&a=true&etag=ae5d0ca7e512ba40d64eb578707cdb4d"
+  },
+  {
+    "title": "The Lion King",
+    "developer": "Westwood Studios",
+    "publisher": "Virgin Interactive Entertainment",
+    "year": 1994,
+    "platforms": [
+      "SNES",
+      "Sega Genesis"
+    ],
+    "facts": "The Lion King roared onto consoles in 1994 and transformed Simba's childhood into a surprisingly demanding obstacle course. Disney animators helped shape the visuals, making the characters move beautifully even while the level design plotted their downfall. The monkey-tossing puzzle in ‘I Just Can't Wait to Be King’ became infamous for confusing players with cheerful musical confidence. It is a family game that teaches an important lesson: hakuna matata does not apply to difficult platforming.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/465e9f09-5422-425a-be75-0fefbac38013/the-lion-king.png"
+  },
+  {
+    "title": "The Witcher 3: Wild Hunt",
+    "developer": "CD Projekt Red",
+    "publisher": "CD Projekt",
+    "year": 2015,
+    "platforms": [
+      "Windows",
+      "PlayStation 4",
+      "Xbox One"
+    ],
+    "facts": "The Witcher 3: Wild Hunt released in 2015 and followed Geralt of Rivia across a war-torn open world while he searched for Ciri. Monster contracts require tracking clues, preparing oils, and discovering that the real beast is often somebody's terrible decision-making. The card game Gwent became such a powerful distraction that urgent apocalyptic problems routinely waited while Geralt collected one more card. Its branching quests and consequences helped make even minor village disputes feel capable of ruining an entire weekend.",
+    "imageUrl": "https://images.squarespace-cdn.com/content/62da3e41d166e221ff75f37f/2433dc8b-fd31-449e-8d88-3e5b19bc8208/the_witcher_3.png"
+  },
+  {
+    "title": "Threads of Fate",
+    "developer": "Squaresoft",
+    "publisher": "Squaresoft",
+    "year": 1999,
+    "platforms": [
+      "PlayStation"
+    ],
+    "facts": "Threads of Fate debuted in Japan in 1999 as Dewprism and reached North America the following year. Its two campaigns follow Rue, an earnest amnesiac who can transform into monsters, and Mint, a banished princess whose ambition could fill several kingdoms. Square deliberately gave it a lighter tone after members of the team had worked on the much heavier Xenogears. The result is a compact action RPG where world-saving shares screen time with insults, pastries, and magical sibling drama.",
+    "imageUrl": "https://download.jivaro.net/apps/files_sharing/publicpreview/DMsXrFryZ3iYwma?file=/&fileId=154104&x=3840&y=2160&a=true&etag=fbed0598fd11fa616161660072a3bb98"
+  }
+]
