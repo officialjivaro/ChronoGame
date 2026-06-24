@@ -35,6 +35,53 @@
     <p v-if="modeId === 'daily'" class="daily-state">
       {{ dailyStateMessage }}
     </p>
+
+    <QuantaReward
+      v-if="showQuantaReward"
+      :status="quantaRewardStatus"
+      :amount="quantaRewardAmount"
+      :previous-balance="quantaPreviousBalance"
+      :balance="quantaBalance"
+      :guest="quantaGuest"
+      :message="quantaRewardMessage"
+      :rewarded-runs-today="quantaRewardedRunsToday"
+      @open-store="$emit('open-store')"
+    />
+
+    <div v-if="onlineConfigured" :class="['online-score-card', onlineStatusClass]">
+      <div class="online-score-copy">
+        <span>Online Score</span>
+        <strong>{{ onlineStatusTitle }}</strong>
+        <small>{{ onlineStatusMessage }}</small>
+      </div>
+      <div class="online-score-actions">
+        <ArcadeButton
+          v-if="!isAuthenticated"
+          variant="secondary"
+          size="small"
+          @click="$emit('sign-in')"
+        >
+          Sign In
+        </ArcadeButton>
+        <ArcadeButton
+          v-if="onlineSaveStatus === 'error'"
+          variant="secondary"
+          size="small"
+          @click="$emit('retry-online-save')"
+        >
+          Retry Save
+        </ArcadeButton>
+        <ArcadeButton
+          v-if="onlineSaveStatus === 'saved'"
+          variant="ghost"
+          size="small"
+          @click="$emit('open-leaderboard')"
+        >
+          View Rankings
+        </ArcadeButton>
+      </div>
+    </div>
+
     <p v-if="error" class="results-error" role="alert">{{ error }}</p>
 
     <div class="results-actions">
@@ -54,6 +101,7 @@
 <script>
 import ArcadeButton from '../common/ArcadeButton.vue'
 import ArcadePanel from '../common/ArcadePanel.vue'
+import QuantaReward from './QuantaReward.vue'
 import { getGameMode, getModeMaxScore } from '../../config/gameModes.js'
 import { getRunRank } from '../../utils/scoring.js'
 
@@ -61,7 +109,8 @@ export default {
   name: 'ScoreSummary',
   components: {
     ArcadeButton,
-    ArcadePanel
+    ArcadePanel,
+    QuantaReward
   },
   props: {
     modeId: { type: String, required: true },
@@ -76,9 +125,27 @@ export default {
     dailyDateKey: { type: String, default: '' },
     playerStats: { type: Object, required: true },
     loading: { type: Boolean, default: false },
-    error: { type: String, default: '' }
+    error: { type: String, default: '' },
+    onlineConfigured: { type: Boolean, default: false },
+    isAuthenticated: { type: Boolean, default: false },
+    onlineSaveStatus: { type: String, default: 'idle' },
+    onlineSaveMessage: { type: String, default: '' },
+    quantaRewardStatus: { type: String, default: 'idle' },
+    quantaRewardAmount: { type: Number, default: 0 },
+    quantaPreviousBalance: { type: Number, default: 0 },
+    quantaBalance: { type: Number, default: 0 },
+    quantaGuest: { type: Boolean, default: true },
+    quantaRewardMessage: { type: String, default: '' },
+    quantaRewardedRunsToday: { type: Number, default: 0 }
   },
-  emits: ['play-again', 'home'],
+  emits: [
+    'play-again',
+    'home',
+    'sign-in',
+    'retry-online-save',
+    'open-leaderboard',
+    'open-store'
+  ],
   computed: {
     mode() {
       return getGameMode(this.modeId)
@@ -165,6 +232,24 @@ export default {
       if (this.dailyPractice) return 'Practice run — today’s official local score remains unchanged.'
       if (this.dailyOfficialRecorded) return 'Official local result recorded. Come back after the next UTC reset.'
       return 'Daily result saved locally.'
+    },
+    showQuantaReward() {
+      return this.quantaRewardStatus !== 'idle'
+    },
+    onlineStatusTitle() {
+      if (!this.isAuthenticated) return 'Guest Run'
+      if (this.onlineSaveStatus === 'saving') return 'Saving…'
+      if (this.onlineSaveStatus === 'saved') return 'Saved Online'
+      if (this.onlineSaveStatus === 'error') return 'Save Failed'
+      return 'Account Connected'
+    },
+    onlineStatusMessage() {
+      if (this.onlineSaveMessage) return this.onlineSaveMessage
+      if (!this.isAuthenticated) return 'Sign in to attach this completed run to your account.'
+      return 'Completed runs are saved automatically.'
+    },
+    onlineStatusClass() {
+      return `online-status-${this.onlineSaveStatus}`
     }
   }
 }
@@ -175,10 +260,12 @@ export default {
   width: min(56rem, 100%);
   max-height: 100%;
   display: grid;
-  gap: clamp(0.55rem, 1.5vh, 1rem);
-  padding: clamp(0.8rem, 2.2vw, 1.75rem);
+  gap: clamp(0.5rem, 1.25vh, 0.9rem);
+  padding: clamp(0.75rem, 2vw, 1.55rem);
   text-align: center;
-  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent-dark) #121419;
 }
 
 .results-kicker,
@@ -225,7 +312,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: clamp(4.7rem, 13vh, 7.2rem);
+  min-height: clamp(4.5rem, 12vh, 6.8rem);
   padding: var(--space-2);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-medium);
@@ -309,6 +396,63 @@ export default {
   color: var(--color-danger);
 }
 
+.online-score-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 0.58rem 0.7rem;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-small);
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.online-score-copy {
+  min-width: 0;
+}
+
+.online-score-copy span,
+.online-score-copy strong,
+.online-score-copy small {
+  display: block;
+}
+
+.online-score-copy span {
+  color: var(--color-text-muted);
+  font-size: 0.52rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.online-score-copy strong {
+  margin-top: 0.1rem;
+  color: var(--color-accent-bright);
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+}
+
+.online-score-copy small {
+  margin-top: 0.15rem;
+  color: var(--color-text-muted);
+  font-size: 0.62rem;
+}
+
+.online-score-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.35rem;
+}
+
+.online-status-saved {
+  border-color: rgba(102, 220, 139, 0.35);
+}
+
+.online-status-error {
+  border-color: rgba(255, 93, 93, 0.4);
+}
+
 .results-actions {
   display: flex;
   justify-content: center;
@@ -318,6 +462,16 @@ export default {
 @media (max-width: 650px) {
   .result-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .online-score-card {
+    align-items: stretch;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .online-score-actions {
+    justify-content: center;
   }
 
   .results-actions {

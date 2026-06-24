@@ -3,29 +3,79 @@
     <div class="ambient-grid" aria-hidden="true"></div>
     <div class="ambient-glow ambient-glow-left" aria-hidden="true"></div>
     <div class="ambient-glow ambient-glow-right" aria-hidden="true"></div>
-    <AppHeader :show-home="showHome" :show-score="showScore" :score="totalScore" />
+
+    <AppHeader
+      :show-home="showHome"
+      :show-score="showScore"
+      :score="totalScore"
+      :online-configured="configured"
+      :is-authenticated="isAuthenticated"
+      :display-name="displayName"
+      :quanta-balance="quantaBalance"
+      :quanta-guest="quantaGuest"
+      :quanta-wallet-label="walletLabel"
+      @open-account="openAccount"
+      @open-leaderboard="openLeaderboard"
+      @open-store="openStore"
+    />
+
     <main class="app-content">
       <slot></slot>
     </main>
+
+    <AuthModal />
+    <LeaderboardModal
+      :initial-mode="selectedMode"
+      :daily-date-key="dailyDateKey"
+    />
+    <QuantumBazaarModal />
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
+import AuthModal from '../account/AuthModal.vue'
+import LeaderboardModal from '../leaderboard/LeaderboardModal.vue'
+import QuantumBazaarModal from '../store/QuantumBazaarModal.vue'
 import AppHeader from './AppHeader.vue'
 
 export default {
   name: 'AppShell',
   components: {
-    AppHeader
+    AppHeader,
+    AuthModal,
+    LeaderboardModal,
+    QuantumBazaarModal
   },
   computed: {
-    ...mapState(['totalScore']),
+    ...mapState(['totalScore', 'selectedMode', 'dailyDateKey']),
+    ...mapState('online', ['configured']),
+    ...mapState('economy', {
+      quantaBalance: 'balance',
+      quantaGuest: 'guest'
+    }),
+    ...mapGetters('online', ['isAuthenticated', 'displayName']),
+    ...mapGetters('economy', ['walletLabel']),
     showHome() {
       return this.$route.path === '/game' || this.$route.path === '/results'
     },
     showScore() {
       return this.$route.path === '/game' || this.$route.path === '/results'
+    }
+  },
+  async mounted() {
+    await this.$store.dispatch('online/initialize')
+    await this.$store.dispatch('economy/initialize')
+  },
+  methods: {
+    openAccount() {
+      this.$store.commit('online/setAuthModalOpen', true)
+    },
+    openLeaderboard() {
+      this.$store.commit('online/setLeaderboardOpen', true)
+    },
+    openStore() {
+      this.$store.dispatch('economy/openStore')
     }
   }
 }

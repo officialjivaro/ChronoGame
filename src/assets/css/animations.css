@@ -116,3 +116,75 @@
     text-shadow: 0 0 16px rgba(102, 220, 139, 0.65);
   }
 }
+
+/* Quanta Economy | Adds short wallet, coin, and ChronoBot feedback */
+@keyframes quanta-coin-flip {
+  0% {
+    transform: rotateY(0deg) scale(0.82);
+    opacity: 0.45;
+  }
+  65% {
+    transform: rotateY(540deg) scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(720deg) scale(1);
+  }
+}
+
+@keyframes quanta-reward-glow {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 190, 72, 0);
+  }
+  55% {
+    box-shadow: 0 0 28px rgba(255, 190, 72, 0.28);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 190, 72, 0.12);
+  }
+}
+
+@keyframes chronobot-blink {
+  0%, 45%, 49%, 100% {
+    transform: scaleY(1);
+  }
+  47% {
+    transform: scaleY(0.12);
+  }
+}
+
+/* Quanta Economy | Adds short wallet, coin, and ChronoBot feedback */
+@keyframes quanta-coin-flip {
+  0% {
+    transform: rotateY(0deg) scale(0.82);
+    opacity: 0.45;
+  }
+  65% {
+    transform: rotateY(540deg) scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(720deg) scale(1);
+  }
+}
+
+@keyframes quanta-reward-glow {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 190, 72, 0);
+  }
+  55% {
+    box-shadow: 0 0 28px rgba(255, 190, 72, 0.28);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 190, 72, 0.12);
+  }
+}
+
+@keyframes chronobot-blink {
+  0%, 45%, 49%, 100% {
+    transform: scaleY(1);
+  }
+  47% {
+    transform: scaleY(0.12);
+  }
+}

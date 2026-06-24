@@ -14,14 +14,29 @@
       :player-stats="playerStats"
       :loading="loading"
       :error="error"
+      :online-configured="onlineConfigured"
+      :is-authenticated="isAuthenticated"
+      :online-save-status="scoreSaveStatus"
+      :online-save-message="scoreSaveMessage"
+      :quanta-reward-status="quantaRewardStatus"
+      :quanta-reward-amount="quantaRewardAmount"
+      :quanta-previous-balance="quantaPreviousBalance"
+      :quanta-balance="quantaBalance"
+      :quanta-guest="quantaGuest"
+      :quanta-reward-message="quantaRewardMessage"
+      :quanta-rewarded-runs-today="quantaRewardedRunsToday"
       @play-again="playAgain"
       @home="goHome"
+      @sign-in="openAccount"
+      @retry-online-save="saveOnlineRun"
+      @open-leaderboard="openLeaderboard"
+      @open-store="openStore"
     />
   </section>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import ScoreSummary from '../components/results/ScoreSummary.vue'
 
 export default {
@@ -49,7 +64,29 @@ export default {
       'dailyDateKey',
       'playerStats',
       'runStatus'
-    ])
+    ]),
+    ...mapState('online', {
+      onlineConfigured: 'configured',
+      scoreSaveStatus: 'scoreSaveStatus',
+      scoreSaveMessage: 'scoreSaveMessage'
+    }),
+    ...mapState('economy', {
+      quantaRewardStatus: 'rewardStatus',
+      quantaRewardAmount: 'rewardAmount',
+      quantaPreviousBalance: 'previousBalance',
+      quantaBalance: 'balance',
+      quantaGuest: 'guest',
+      quantaRewardMessage: 'rewardMessage',
+      quantaRewardedRunsToday: 'rewardedRunsToday'
+    }),
+    ...mapGetters('online', ['isAuthenticated'])
+  },
+  watch: {
+    isAuthenticated(authenticated) {
+      if (authenticated && this.runStatus === 'complete') {
+        this.saveOnlineRun()
+      }
+    }
   },
   async mounted() {
     if (this.runStatus !== 'complete') {
@@ -58,8 +95,12 @@ export default {
     }
 
     await this.$store.dispatch('finalizeRun')
+    await this.saveOnlineRun()
   },
   methods: {
+    async saveOnlineRun() {
+      await this.$store.dispatch('online/saveCurrentRun')
+    },
     async playAgain() {
       this.loading = true
       this.error = ''
@@ -75,6 +116,15 @@ export default {
     },
     goHome() {
       this.$router.push('/')
+    },
+    openAccount() {
+      this.$store.commit('online/setAuthModalOpen', true)
+    },
+    openLeaderboard() {
+      this.$store.commit('online/setLeaderboardOpen', true)
+    },
+    openStore() {
+      this.$store.dispatch('economy/openStore')
     }
   }
 }

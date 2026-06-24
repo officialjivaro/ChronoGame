@@ -24,7 +24,15 @@
           :decade-availability="decadeAvailability"
         />
 
-        <PersonalStats :stats="playerStats" />
+        <div class="home-secondary">
+          <PersonalStats :stats="playerStats" />
+          <QuantumBazaarCard
+            :balance="quantaBalance"
+            :wallet-label="walletLabel"
+            :guest="quantaGuest"
+            @open-store="openStore"
+          />
+        </div>
 
         <div class="home-actions">
           <ArcadeButton
@@ -50,6 +58,7 @@ import ArcadeButton from '../components/common/ArcadeButton.vue'
 import ArcadePanel from '../components/common/ArcadePanel.vue'
 import ModeSelector from '../components/home/ModeSelector.vue'
 import PersonalStats from '../components/home/PersonalStats.vue'
+import QuantumBazaarCard from '../components/home/QuantumBazaarCard.vue'
 import { GAME_MODES } from '../config/gameModes.js'
 
 export default {
@@ -58,7 +67,8 @@ export default {
     ArcadeButton,
     ArcadePanel,
     ModeSelector,
-    PersonalStats
+    PersonalStats,
+    QuantumBazaarCard
   },
   data() {
     return {
@@ -71,7 +81,12 @@ export default {
   },
   computed: {
     ...mapState(['playerStats']),
+    ...mapState('economy', {
+      quantaBalance: 'balance',
+      quantaGuest: 'guest'
+    }),
     ...mapGetters(['decadeAvailability', 'eligibleDecades']),
+    ...mapGetters('economy', ['walletLabel']),
     selectedMode() {
       return GAME_MODES[this.selectedModeId] || GAME_MODES.classic
     },
@@ -134,6 +149,9 @@ export default {
       } finally {
         this.loading = false
       }
+    },
+    openStore() {
+      this.$store.dispatch('economy/openStore')
     }
   }
 }
@@ -167,7 +185,7 @@ export default {
   display: grid;
   grid-template-rows: auto auto auto auto;
   align-content: center;
-  gap: clamp(0.45rem, 1vh, 0.75rem);
+  gap: clamp(0.42rem, 0.85vh, 0.68rem);
 }
 
 .home-kicker {
@@ -192,6 +210,14 @@ export default {
   color: var(--color-text-muted);
   font-size: clamp(0.66rem, 1vw, 0.82rem);
   line-height: 1.45;
+}
+
+.home-secondary {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(12rem, 0.9fr);
+  align-items: stretch;
+  gap: 0.45rem;
 }
 
 .home-actions {
@@ -266,9 +292,13 @@ export default {
   font-size: 0.78rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1050px) {
   .home-card {
     grid-template-columns: 0.72fr 1.28fr;
+  }
+
+  .home-secondary {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -284,11 +314,15 @@ export default {
   .home-copy {
     align-content: center;
   }
+
+  .home-secondary {
+    grid-template-columns: 1fr;
+  }
 }
 
-@media (max-height: 650px) and (min-width: 761px) {
+@media (max-height: 700px) and (min-width: 761px) {
   .home-description,
-  .personal-stats {
+  .home-secondary .personal-stats {
     display: none;
   }
 }

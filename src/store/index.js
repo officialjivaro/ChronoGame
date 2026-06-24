@@ -1,4 +1,6 @@
 import { createStore } from 'vuex'
+import economy from './modules/economy.js'
+import online from './modules/online.js'
 import { GAME_MODES, getGameMode } from '../config/gameModes.js'
 import { getUtcDateKey, getPreviousUtcDateKey } from '../utils/dailyChallenge.js'
 import {
@@ -12,14 +14,44 @@ import {
   getAccuracyFeedback,
   getHintScoreCeiling
 } from '../utils/scoring.js'
+import { createClientRunId } from '../utils/onlineRunPayload.js'
 import {
   getDailyResult,
   loadPlayerStats,
   recordCompletedRun
 } from '../utils/storage.js'
 
+const GAME_DATA_LETTERS = 'abcdefghijklmnopqrstuvwxyz'.split('')
+
+async function loadGameDataFile(letter) {
+  const filePath = `./data/games/games_${letter}.json`
+  const response = await fetch(filePath)
+
+  if (!response.ok) {
+    throw new Error(`Unable to load ${filePath} (${response.status}).`)
+  }
+
+  const games = await response.json()
+
+  if (!Array.isArray(games)) {
+    throw new Error(`${filePath} must contain a JSON array.`)
+  }
+
+  const misplacedGame = games.find((game) => {
+    const firstLetter = game?.title?.trim().match(/[a-z]/i)?.[0]?.toLowerCase()
+    return firstLetter !== letter
+  })
+
+  if (misplacedGame) {
+    throw new Error(`${misplacedGame.title || 'A game'} is stored in the wrong letter file.`)
+  }
+
+  return games
+}
+
 function getInitialRunState() {
   return {
+    clientRunId: '',
     selectedMode: 'classic',
     selectedDecade: null,
     currentRound: 0,
@@ -44,6 +76,10 @@ function getInitialRunState() {
 }
 
 export default createStore({
+  modules: {
+    economy,
+    online
+  },
   state: {
     games: [],
     previousGameKeys: [],
@@ -140,24 +176,44 @@ export default createStore({
         return state.games
       }
 
-      const response = await fetch('./data/games.json')
+      const gameGroups = await Promise.all(GAME_DATA_LETTERS.map(loadGameDataFile))
+      const data = gameGroups
+        .flat()
+        .sort((first, second) => first.title.localeCompare(second.title, undefined, { sensitivity: 'base' }))
 
-      if (!response.ok) {
-        throw new Error(`Unable to load game data (${response.status}).`)
-      }
-
-      const data = await response.json()
-
-      if (!Array.isArray(data) || data.length < 10) {
-        throw new Error('The game list must contain at least ten entries.')
+      if (data.length < 10) {
+        throw new Error('The combined game files must contain at least ten entries.')
       }
 
       const invalidGame = data.find((game) => {
-        return !game?.title || !Number.isInteger(game?.year) || !Array.isArray(game?.platforms) || !game.platforms.length
+        return !game?.title ||
+          !game?.developer ||
+          !game?.publisher ||
+          !Number.isInteger(game?.year) ||
+          !Array.isArray(game?.platforms) ||
+          !game.platforms.length ||
+          !game?.facts ||
+          !game?.imageUrl
       })
 
       if (invalidGame) {
         throw new Error(`Game data is incomplete for ${invalidGame.title || 'an unknown entry'}.`)
+      }
+
+      const gameKeys = new Set()
+      const duplicateGame = data.find((game) => {
+        const key = `${game.title.trim().toLowerCase()}::${game.year}`
+
+        if (gameKeys.has(key)) {
+          return true
+        }
+
+        gameKeys.add(key)
+        return false
+      })
+
+      if (duplicateGame) {
+        throw new Error(`Duplicate game data found for ${duplicateGame.title} (${duplicateGame.year}).`)
       }
 
       commit('setGames', data)
@@ -170,6 +226,7 @@ export default createStore({
     },
     async startRun({ state, dispatch, commit }, { modeId = 'classic', decade = null } = {}) {
       await dispatch('loadGames')
+      await dispatch('online/resetScoreSaveStatus')
       const stats = await dispatch('loadPlayerStats')
       const mode = GAME_MODES[modeId]
 
@@ -214,6 +271,7 @@ export default createStore({
       }
 
       commit('configureRun', {
+        clientRunId: createClientRunId(),
         selectedMode: modeId,
         selectedDecade: mode.requiresDecade ? Number(decade) : null,
         maxRounds: mode.roundLimit || selection.selected.length,
