@@ -41,8 +41,9 @@ export default {
   padding: var(--space-3);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-large);
+  clip-path: polygon(0.7rem 0, 100% 0, 100% calc(100% - 0.7rem), calc(100% - 0.7rem) 100%, 0 100%, 0 0.7rem);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 32%),
+    var(--panel-texture),
     linear-gradient(145deg, var(--color-panel) 0%, var(--color-panel-deep) 100%);
   box-shadow: var(--shadow-panel);
 }
@@ -57,7 +58,7 @@ export default {
 }
 
 .arcade-panel-accent {
-  border-color: rgba(255, 138, 50, 0.52);
+  border-color: var(--color-border-accent);
   box-shadow: var(--shadow-panel), var(--shadow-accent);
 }
 

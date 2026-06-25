@@ -107,7 +107,7 @@ export default {
 .decade-label {
   display: block;
   color: var(--color-text-muted);
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -167,7 +167,7 @@ export default {
 .mode-card strong {
   overflow: hidden;
   font-family: var(--font-display);
-  font-size: clamp(0.52rem, 0.9vw, 0.68rem);
+  font-size: clamp(0.66rem, 0.9vw, 0.74rem);
   line-height: 1.2;
   text-overflow: ellipsis;
 }
@@ -176,7 +176,7 @@ export default {
 .decade-button small {
   margin-top: 0.25rem;
   color: var(--color-text-muted);
-  font-size: clamp(0.48rem, 0.7vw, 0.58rem);
+  font-size: clamp(0.62rem, 0.75vw, 0.68rem);
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -212,7 +212,7 @@ export default {
   color: var(--color-accent-bright);
   border: 1px solid rgba(255, 138, 50, 0.22);
   border-radius: 999px;
-  font-size: 0.5rem;
+  font-size: 0.62rem;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -235,7 +235,7 @@ export default {
 
 .decade-button strong {
   font-family: var(--font-display);
-  font-size: clamp(0.55rem, 0.9vw, 0.68rem);
+  font-size: clamp(0.65rem, 0.9vw, 0.72rem);
 }
 
 .decade-button:disabled {

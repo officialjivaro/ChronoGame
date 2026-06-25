@@ -124,7 +124,7 @@ export default {
       this.$store.commit('online/setLeaderboardOpen', true)
     },
     openStore() {
-      this.$store.dispatch('economy/openStore')
+      this.$store.dispatch('cosmetics/openBazaar')
     }
   }
 }

@@ -6,6 +6,10 @@ import {
   updateProfileDisplayName
 } from '../../services/onlineScores.js'
 import { buildOnlineRunPayload } from '../../utils/onlineRunPayload.js'
+import {
+  CHRONOGAME_GAME_KEY,
+  JIVARO_GAMES_PLATFORM_KEY
+} from '../../config/platform.js'
 
 let authSubscription = null
 
@@ -51,8 +55,14 @@ export default {
       state.error = value || ''
     },
     setSession(state, session) {
+      const previousUserId = state.user?.id || ''
+      const nextUser = session?.user || null
       state.session = session || null
-      state.user = session?.user || null
+      state.user = nextUser
+
+      if (previousUserId !== (nextUser?.id || '')) {
+        state.profile = null
+      }
     },
     setProfile(state, profile) {
       state.profile = profile || null
@@ -87,6 +97,7 @@ export default {
       if (!state.configured || !supabase) {
         commit('setInitialized', true)
         await dispatch('economy/handleAuthState', null, { root: true })
+        await dispatch('cosmetics/handleAuthState', null, { root: true })
         return
       }
 
@@ -104,6 +115,7 @@ export default {
         }
 
         await dispatch('economy/handleAuthState', data.session?.user || null, { root: true })
+        await dispatch('cosmetics/handleAuthState', data.session?.user || null, { root: true })
 
         if (!authSubscription) {
           const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -117,32 +129,44 @@ export default {
               }
 
               await dispatch('economy/handleAuthState', session?.user || null, { root: true })
+              await dispatch('cosmetics/handleAuthState', session?.user || null, { root: true })
             }, 0)
           })
 
           authSubscription = listener.subscription
         }
       } catch (error) {
-        commit('setError', error.message || 'Unable to restore the online account session.')
+        commit('setError', error.message || 'Unable to restore the Jivaro Games account session.')
         await dispatch('economy/handleAuthState', null, { root: true })
+        await dispatch('cosmetics/handleAuthState', null, { root: true })
       } finally {
         commit('setLoading', false)
         commit('setInitialized', true)
       }
     },
     async loadProfile({ state, commit }) {
-      if (!state.user) {
+      const userId = state.user?.id
+      if (!userId) {
         commit('setProfile', null)
         return null
       }
 
-      const profile = await fetchProfile(state.user.id)
-      commit('setProfile', profile)
-      return profile
+      try {
+        const profile = await fetchProfile(userId)
+        if (state.user?.id !== userId) return null
+        commit('setProfile', profile)
+        return profile
+      } catch (error) {
+        if (state.user?.id === userId) {
+          commit('setProfile', null)
+          commit('setError', error.message || 'The Jivaro Games profile could not be loaded.')
+        }
+        return null
+      }
     },
     async requestOtp({ state, commit }, email) {
       if (!state.configured || !supabase) {
-        commit('setError', 'Online accounts are not configured yet.')
+        commit('setError', 'Jivaro Games accounts are not configured yet.')
         return false
       }
 
@@ -161,7 +185,8 @@ export default {
           options: {
             shouldCreateUser: true,
             data: {
-              source: 'chronogame'
+              source: CHRONOGAME_GAME_KEY,
+              platform: JIVARO_GAMES_PLATFORM_KEY
             }
           }
         })
@@ -199,6 +224,7 @@ export default {
         commit('setSession', data.session)
         await dispatch('loadProfile')
         await dispatch('economy/handleAuthState', data.session?.user || null, { root: true })
+        await dispatch('cosmetics/handleAuthState', data.session?.user || null, { root: true })
         return true
       } catch (error) {
         commit('setError', error.message || 'The sign-in code is invalid or expired.')
@@ -235,6 +261,7 @@ export default {
         if (error) throw error
         commit('clearAccount')
         await dispatch('economy/handleAuthState', null, { root: true })
+        await dispatch('cosmetics/handleAuthState', null, { root: true })
       } catch (error) {
         commit('setError', error.message || 'Unable to sign out.')
       } finally {
@@ -289,7 +316,7 @@ export default {
           ? saved.dailyOfficial
             ? 'Official Daily Challenge score saved.'
             : 'Practice Daily Challenge score saved.'
-          : 'Score saved to your online account.'
+          : 'ChronoGame score saved to your Jivaro Games account.'
 
         commit('setScoreSaveState', {
           status: 'saved',

@@ -1,5 +1,6 @@
 // Online Scores | Keeps Supabase queries out of Vue components and Vuex modules
 import { requireSupabase } from '../lib/supabase.js'
+import { CHRONOGAME_RPCS } from '../config/platform.js'
 
 const DISPLAY_NAME_PATTERN = /^[\p{L}\p{N} _.-]+$/u
 
@@ -62,7 +63,7 @@ function normalizeScoreSubmission(result) {
 
 export async function submitOnlineScore(payload) {
   const client = requireSupabase()
-  const { data, error } = await client.rpc('submit_score_run_v2', {
+  const { data, error } = await client.rpc(CHRONOGAME_RPCS.submitScoreRun, {
     p_client_run_id: payload.clientRunId,
     p_mode: payload.mode,
     p_score: payload.score,
@@ -83,12 +84,17 @@ export async function submitOnlineScore(payload) {
 
 export async function fetchLeaderboard({ modeId = 'classic', dailyDate = null, limit = 25 } = {}) {
   const client = requireSupabase()
-  const { data, error } = await client.rpc('get_leaderboard', {
+  const { data, error } = await client.rpc(CHRONOGAME_RPCS.getLeaderboard, {
     p_mode: modeId,
     p_daily_date: modeId === 'daily' ? dailyDate : null,
     p_limit: limit
   })
 
   if (error) throw error
-  return Array.isArray(data) ? data : []
+
+  const entries = Array.isArray(data) ? data : []
+  return entries.map((entry, index) => ({
+    ...entry,
+    rank: Number(entry?.rank ?? entry?.leaderboard_rank ?? index + 1)
+  }))
 }

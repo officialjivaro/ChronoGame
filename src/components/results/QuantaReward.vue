@@ -22,7 +22,7 @@
     <div class="reward-side">
       <ChronoBotMessage :message="botMessage" :mood="botMood" :compact="true" />
       <ArcadeButton variant="ghost" size="small" @click="$emit('open-store')">
-        Quantum Bazaar
+        Open Bazaar
       </ArcadeButton>
     </div>
   </section>
@@ -77,7 +77,7 @@ export default {
       return ['rewarded', 'guest_rewarded'].includes(this.status) && this.amount > 0
     },
     walletLabel() {
-      return this.guest ? 'Guest Quanta' : 'Temporal Wallet'
+      return this.guest ? 'Guest Quanta' : 'Shared Quanta Wallet'
     },
     kicker() {
       if (this.status === 'saving') return 'Checking Timeline'
@@ -94,7 +94,7 @@ export default {
       if (this.status === 'daily_cap_reached') return 'Reward Cap Reached'
       if (this.status === 'duplicate') return 'Already Processed'
       if (this.status === 'not_cleared') return 'No Quanta Awarded'
-      return 'Temporal Wallet'
+      return 'Shared Quanta Wallet'
     },
     showBalanceChange() {
       return this.earned && this.balance !== this.previousBalance
@@ -157,7 +157,7 @@ export default {
 
 .reward-kicker {
   color: var(--color-text-muted);
-  font-size: 0.5rem;
+  font-size: 0.65rem;
   font-weight: 900;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -173,13 +173,13 @@ export default {
 .reward-copy p {
   margin: 0.18rem 0 0.22rem;
   color: var(--color-text-muted);
-  font-size: clamp(0.58rem, 0.9vw, 0.72rem);
+  font-size: clamp(0.7rem, 0.95vw, 0.78rem);
   line-height: 1.35;
 }
 
 .reward-copy small {
   color: var(--color-text);
-  font-size: 0.58rem;
+  font-size: 0.68rem;
 }
 
 .daily-progress {

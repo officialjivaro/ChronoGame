@@ -6,18 +6,18 @@
         <span>{{ walletLabel }}</span>
         <strong>{{ formattedBalance }} Quanta</strong>
       </div>
-      <span class="coming-soon">Coming Soon</span>
+      <span class="bazaar-live">Open</span>
     </div>
 
     <div class="preview-copy">
       <h2 id="bazaar-preview-title">Quantum Bazaar</h2>
-      <p>Future cabinet skins, frames, effects, badges, and ChronoBot accessories.</p>
+      <p>Retro backgrounds, UI skins, and temporal pets for your ChronoGame cabinet.</p>
     </div>
 
     <ChronoBotMessage :message="message" :compact="true" />
 
     <ArcadeButton variant="ghost" size="small" :block="true" @click="$emit('open-store')">
-      Browse Preview
+      Open Bazaar
     </ArcadeButton>
   </section>
 </template>
@@ -55,7 +55,9 @@ export default {
       return Number(this.balance || 0).toLocaleString()
     },
     message() {
-      return this.guest ? CHRONOBOT_MESSAGES.guest : CHRONOBOT_MESSAGES.signedIn
+      return this.guest
+        ? 'Preview every cosmetic now. Sign in when you are ready to buy.'
+        : CHRONOBOT_MESSAGES.store
     }
   }
 }
@@ -65,14 +67,14 @@ export default {
 .bazaar-preview {
   min-width: 0;
   display: grid;
-  gap: 0.45rem;
-  padding: 0.55rem;
-  border: 1px solid rgba(255, 190, 72, 0.26);
-  border-radius: var(--radius-small);
+  gap: 0.48rem;
+  padding: 0.6rem;
+  border: 1px solid rgba(255, 190, 72, 0.3);
+  clip-path: polygon(0.45rem 0, 100% 0, 100% calc(100% - 0.45rem), calc(100% - 0.45rem) 100%, 0 100%, 0 0.45rem);
   background:
     radial-gradient(circle at 10% 0%, rgba(255, 190, 72, 0.12), transparent 42%),
-    rgba(0, 0, 0, 0.22);
-  box-shadow: 0 0 16px rgba(255, 190, 72, 0.06);
+    rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 16px rgba(255, 190, 72, 0.07);
 }
 
 .preview-heading {
@@ -89,7 +91,7 @@ export default {
 
 .preview-heading > div span {
   color: var(--color-text-muted);
-  font-size: 0.48rem;
+  font-size: 0.65rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -98,32 +100,31 @@ export default {
 .preview-heading strong {
   color: var(--color-quanta-highlight);
   font-family: var(--font-display);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 
-.coming-soon {
-  padding: 0.28rem 0.4rem;
-  color: #2d1c03;
-  font-size: 0.46rem;
+.bazaar-live {
+  padding: 0.28rem 0.42rem;
+  color: #102014;
+  font-size: 0.62rem;
   font-weight: 900;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  border-radius: 999px;
-  background: var(--color-quanta);
+  border: 1px solid var(--color-success-soft);
+  background: var(--color-success);
 }
 
 .preview-copy h2 {
   margin: 0;
-  color: var(--color-text);
   font-family: var(--font-display);
-  font-size: 0.76rem;
+  font-size: 0.82rem;
 }
 
 .preview-copy p {
   margin: 0.2rem 0 0;
   color: var(--color-text-muted);
-  font-size: 0.57rem;
-  line-height: 1.35;
+  font-size: 0.68rem;
+  line-height: 1.4;
 }
 
 @media (max-height: 680px) {

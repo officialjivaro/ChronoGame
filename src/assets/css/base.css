@@ -21,8 +21,11 @@ html {
 }
 
 body {
+  min-width: 20rem;
   font-family: var(--font-body);
   color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.4;
   background:
     radial-gradient(circle at 14% 12%, rgba(255, 138, 50, 0.13), transparent 27%),
     radial-gradient(circle at 88% 82%, rgba(110, 117, 132, 0.17), transparent 30%),

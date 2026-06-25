@@ -10,10 +10,10 @@
         <button class="modal-close" type="button" aria-label="Close account panel" @click="close">×</button>
 
         <div class="account-heading">
-          <span>Online Player Account</span>
-          <h2 id="account-title">{{ isAuthenticated ? 'Player Profile' : 'Save Your Scores' }}</h2>
+          <span>{{ platformName }} Account</span>
+          <h2 id="account-title">{{ isAuthenticated ? `${platformName} Profile` : `Sign In to ${platformName}` }}</h2>
           <p v-if="!isAuthenticated">
-            Sign in with a one-time email code. Guests can still play, but only signed-in players save online scores.
+            Use one Jivaro Games account for permanent Quanta and ChronoGame scores. Guests can still play without signing in.
           </p>
         </div>
 
@@ -61,7 +61,7 @@
               placeholder="player@example.com"
               required
             />
-            <small>New emails automatically create a ChronoGame account.</small>
+            <small>New emails automatically create a Jivaro Games account.</small>
             <ArcadeButton type="submit" :block="true" :disabled="loading">
               {{ loading ? 'Sending…' : 'Email Me a Code' }}
             </ArcadeButton>
@@ -103,6 +103,7 @@
 import { mapGetters, mapState } from 'vuex'
 import ArcadeButton from '../common/ArcadeButton.vue'
 import ArcadePanel from '../common/ArcadePanel.vue'
+import { JIVARO_GAMES_NAME } from '../../config/platform.js'
 
 export default {
   name: 'AuthModal',
@@ -112,6 +113,7 @@ export default {
   },
   data() {
     return {
+      platformName: JIVARO_GAMES_NAME,
       step: 'email',
       emailInput: '',
       tokenInput: '',
@@ -166,7 +168,7 @@ export default {
 
       if (sent) {
         this.step = 'code'
-        this.successMessage = 'Check your inbox for the ChronoGame sign-in code.'
+        this.successMessage = `Check your inbox for the ${this.platformName} sign-in code.`
       }
     },
     async verifyCode() {
@@ -178,7 +180,7 @@ export default {
 
       if (signedIn) {
         this.step = 'account'
-        this.successMessage = 'Signed in. Future completed runs can now be saved online.'
+        this.successMessage = `Signed in to ${this.platformName}. Future ChronoGame runs can now be saved online.`
       }
     },
     async saveDisplayName() {

@@ -88,7 +88,7 @@ export function recordCompletedRun(stats, run) {
   const next = {
     ...getDefaults(),
     ...stats,
-    dailyResultsByDate: { ...(stats?.dailyResultsByDate || {}) }
+    dailyResultsByDate: { ...stats?.dailyResultsByDate }
   }
 
   const results = Array.isArray(run.roundResults) ? run.roundResults : []

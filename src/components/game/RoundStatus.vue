@@ -144,7 +144,7 @@ export default {
 
 .hud-label {
   color: var(--color-text-muted);
-  font-size: clamp(0.5rem, 0.8vw, 0.64rem);
+  font-size: clamp(0.64rem, 0.85vw, 0.7rem);
   font-weight: 800;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -165,7 +165,7 @@ export default {
 .score-block small {
   overflow: hidden;
   color: var(--color-text-muted);
-  font-size: 0.52rem;
+  font-size: 0.64rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

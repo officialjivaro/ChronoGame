@@ -1,6 +1,7 @@
 // Quanta Service | Reads the authenticated wallet and current UTC reward limits
 import { requireSupabase } from '../lib/supabase.js'
 import { getUtcDateKey } from '../config/economy.js'
+import { CHRONOGAME_GAME_KEY } from '../config/platform.js'
 
 function emptyWallet(userId = '') {
   return {
@@ -38,7 +39,7 @@ export async function fetchQuantaDayStatus(userId, dateKey = getUtcDateKey()) {
   const client = requireSupabase()
   const { data, error } = await client
     .from('quanta_transactions')
-    .select('mode, reward_date')
+    .select('source_game_key, source_mode, is_daily_reward, reward_date')
     .eq('user_id', userId)
     .eq('transaction_type', 'run_reward')
     .eq('reward_date', dateKey)
@@ -48,8 +49,12 @@ export async function fetchQuantaDayStatus(userId, dateKey = getUtcDateKey()) {
   const transactions = Array.isArray(data) ? data : []
 
   return {
-    rewardedRunsToday: transactions.filter((transaction) => transaction.mode !== 'daily').length,
-    dailyRewardClaimed: transactions.some((transaction) => transaction.mode === 'daily')
+    // The non-daily cap is shared across Jivaro Games. Daily rewards are per game.
+    rewardedRunsToday: transactions.filter((transaction) => !transaction.is_daily_reward).length,
+    dailyRewardClaimed: transactions.some((transaction) => (
+      transaction.source_game_key === CHRONOGAME_GAME_KEY
+      && transaction.is_daily_reward
+    ))
   }
 }
 

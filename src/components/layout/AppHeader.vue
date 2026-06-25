@@ -63,7 +63,7 @@
         v-if="onlineConfigured"
         class="header-tool-button account-button"
         type="button"
-        :aria-label="isAuthenticated ? `Open account for ${displayName}` : 'Sign in to ChronoGame'"
+        :aria-label="accountAriaLabel"
         @click="$emit('open-account')"
       >
         <span class="tool-icon" aria-hidden="true">●</span>
@@ -75,6 +75,7 @@
 
 <script>
 import QuantaCoin from '../common/QuantaCoin.vue'
+import { JIVARO_GAMES_NAME } from '../../config/platform.js'
 
 export default {
   name: 'AppHeader',
@@ -126,6 +127,11 @@ export default {
     },
     formattedQuanta() {
       return this.quantaBalance.toLocaleString()
+    },
+    accountAriaLabel() {
+      return this.isAuthenticated
+        ? `Open ${JIVARO_GAMES_NAME} account for ${this.displayName}`
+        : `Sign in to ${JIVARO_GAMES_NAME}`
     }
   }
 }
@@ -141,10 +147,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid rgba(255, 138, 50, 0.75);
+  border-bottom: 1px solid rgba(var(--color-accent-rgb), 0.75);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 35%),
-    linear-gradient(135deg, #111318 0%, #24272e 55%, #111318 100%);
+    linear-gradient(135deg, var(--color-panel-deep) 0%, var(--color-panel-soft) 55%, var(--color-panel-deep) 100%);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.48), 0 -1px 0 rgba(255, 255, 255, 0.04) inset;
 }
 
@@ -154,7 +160,7 @@ export default {
   inset: auto 0 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
-  box-shadow: 0 0 15px rgba(255, 138, 50, 0.72);
+  box-shadow: 0 0 15px rgba(var(--color-accent-rgb), 0.72);
 }
 
 .header-navigation,
@@ -189,8 +195,8 @@ export default {
   color: var(--color-text);
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-small);
-  background: linear-gradient(180deg, #343840, #1e2127);
+  clip-path: polygon(0.35rem 0, 100% 0, 100% calc(100% - 0.35rem), calc(100% - 0.35rem) 100%, 0 100%, 0 0.35rem);
+  background: var(--gradient-button-secondary);
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.38), 0 1px 0 rgba(255, 255, 255, 0.09) inset;
   cursor: pointer;
   transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
@@ -199,9 +205,9 @@ export default {
 .header-link:hover,
 .header-tool-button:hover {
   color: #fff;
-  border-color: rgba(255, 138, 50, 0.72);
+  border-color: rgba(var(--color-accent-rgb), 0.72);
   transform: translateY(-2px);
-  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.48), 0 0 16px rgba(255, 138, 50, 0.2);
+  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.48), 0 0 16px rgba(var(--color-accent-rgb), 0.2);
 }
 
 .header-link-icon,
@@ -214,7 +220,7 @@ export default {
 .header-link-label,
 .tool-label,
 .score-label {
-  font-size: clamp(0.58rem, 0.9vw, 0.78rem);
+  font-size: clamp(0.64rem, 0.9vw, 0.8rem);
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -261,7 +267,7 @@ export default {
   line-height: 1;
   letter-spacing: 0.045em;
   color: var(--color-text);
-  text-shadow: var(--shadow-text), 0 0 17px rgba(255, 138, 50, 0.16);
+  text-shadow: var(--shadow-text), 0 0 17px rgba(var(--color-accent-rgb), 0.16);
 }
 
 .brand-accent {
@@ -271,7 +277,7 @@ export default {
 .brand-subtitle {
   margin-top: clamp(0.15rem, 0.55vh, 0.35rem);
   color: var(--color-text-muted);
-  font-size: clamp(0.5rem, 1vw, 0.7rem);
+  font-size: clamp(0.6rem, 1vw, 0.72rem);
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;

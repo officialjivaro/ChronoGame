@@ -1,177 +1,504 @@
-# ChronoGame Supabase Setup
+# ChronoGame on Jivaro Games — Supabase Setup
 
-This package adds email-code accounts, display names, online score saving, and public mode leaderboards. Guests can still play, but guest runs are not saved online.
+ChronoGame now uses the shared **Jivaro Games** account and Quanta platform while keeping ChronoGame score data, game rules, and leaderboard RPCs game-specific.
 
-## 1. Apply the project files
+## Production status
 
-Extract the changed-files ZIP into the ChronoGame root folder and allow existing files to be overwritten.
-
-Run:
-
-```powershell
-npm.cmd install
-```
-
-## 2. Create the Supabase database objects
-
-Open the ChronoGame project:
+The shared-account restructuring and canonical ChronoGame score cutover are already applied to production:
 
 ```text
-https://supabase.com/dashboard/project/dsjntffwqludoxrcykoi
+Production project: Jivaro Games
+Production ref:     dsjntffwqludoxrcykoi
 ```
 
-Then open:
+The cosmetic-store migration was applied and rollback-tested on **Jivaro Games Staging** on **June 25, 2026**:
 
 ```text
-SQL Editor → New query
+Staging project: Jivaro Games Staging
+Staging ref:     mblzagvadwoadrsembps
+Migration:       chronogame_cosmetics_store
 ```
 
-Open this local project file:
+The cosmetic migration is **not applied to production yet**. Apply the included additive migration to production only after the updated frontend has passed local and staging testing.
+
+Remaining production actions:
 
 ```text
-supabase/migrations/202606200001_online_scores.sql
+1. Test the updated frontend against Jivaro Games Staging.
+2. Apply 20260625020000_chronogame_cosmetics_store.sql to Jivaro Games production.
+3. Change the Supabase Auth email template to Jivaro Games branding if still required.
+4. Build and deploy ChronoGame.
+5. Leave score compatibility objects active until the new build has been stable for several days.
 ```
 
-Copy the entire file into the SQL Editor and press **Run** once.
+## Canonical backend objects
 
-After it succeeds, Table Editor should show:
+Shared Jivaro Games objects:
 
 ```text
 profiles
-score_runs
 external_account_links
+games_catalog
+quanta_wallets
+quanta_transactions
 ```
 
-The third table is intentionally unused for now. It reserves a safe place for a future verified Squarespace link.
+ChronoGame-specific objects:
 
-## 3. Configure email one-time codes
+```text
+chronogame_score_runs
+chronogame_submit_score_run
+chronogame_submit_score_run_v2
+chronogame_get_leaderboard
+chronogame_quanta_mode_reward
+chronogame_quanta_reward_text
+chronogame_quanta_status_for_run
+chronogame_shop_items
+chronogame_purchase_orders
+chronogame_user_inventory
+chronogame_equipped_items
+chronogame_purchase_item
+chronogame_set_equipped_item
+```
+
+Temporary compatibility objects retained during rollout:
+
+```text
+score_runs                     compatibility view
+submit_score_run               compatibility RPC
+submit_score_run_v2            compatibility RPC
+get_leaderboard                compatibility RPC
+quanta_mode_reward             private compatibility helper
+quanta_reward_text             private compatibility helper
+quanta_status_for_run          private compatibility helper
+```
+
+The updated frontend calls these canonical ChronoGame RPCs:
+
+```text
+chronogame_submit_score_run_v2
+chronogame_get_leaderboard
+chronogame_purchase_item
+chronogame_set_equipped_item
+```
+
+## Included SQL files
+
+### Exact production cutover migration
+
+```text
+supabase/migrations/20260625012256_chronogame_frontend_cutover_hardening.sql
+```
+
+This is the exact migration already recorded in production as:
+
+```text
+20260625012256 | chronogame_frontend_cutover_hardening
+```
+
+It hardens the compatibility view, indexes generalized reward lookups, and makes the canonical score-and-Quanta submission function write explicit multi-game source fields.
+
+
+### Cosmetic store migration
+
+```text
+supabase/migrations/20260625020000_chronogame_cosmetics_store.sql
+```
+
+This additive migration is already present on **Jivaro Games Staging** and must be applied once to production before deploying the live store. It adds:
+
+```text
+chronogame_shop_items
+chronogame_purchase_orders
+chronogame_user_inventory
+chronogame_equipped_items
+chronogame_purchase_item
+chronogame_set_equipped_item
+```
+
+The purchase RPC accepts only an item key and client purchase UUID. The database reads the authoritative price, locks the shared wallet, debits Quanta, writes the shared ledger transaction, and grants inventory ownership atomically.
+
+### Fresh-environment baseline
+
+```text
+supabase/baselines/20260625_jivaro_games_multigame_chronogame.sql
+```
+
+This consolidated baseline is for a **new or disposable environment only**. It catches a fresh database up from the two original ChronoGame migrations to the current multi-game structure.
+
+Do not run this baseline on the existing production project. Production already contains the same work as granular, recorded migrations.
+
+For a fresh environment, use this order:
+
+```text
+supabase/migrations/202606200001_online_scores.sql
+supabase/migrations/202606230001_quanta_currency.sql
+supabase/baselines/20260625_jivaro_games_multigame_chronogame.sql
+supabase/migrations/20260625012256_chronogame_frontend_cutover_hardening.sql
+supabase/migrations/20260625020000_chronogame_cosmetics_store.sql
+```
+
+The baseline, cutover, and cosmetic migration are additive together. The final timestamped migration is repeated so a fresh environment ends on the same cutover definition as production.
+
+> This local folder does not contain every granular migration that was applied remotely during the restructuring. Do not use migration-history repair, database reset, or an unreviewed `supabase db push` against production from this folder.
+
+## Install the frontend update
+
+Extract the update ZIP into the ChronoGame project root and overwrite matching files. Before extraction, remove the existing generated `docs/` directory so obsolete hashed JavaScript and CSS files are not left behind:
+
+```powershell
+if (Test-Path .\docs) { Remove-Item .\docs -Recurse -Force }
+```
+
+The changed-files package intentionally excludes local secrets and dependency caches. It includes the complete regenerated `docs/` deployment directory. Do not add:
+
+```text
+.env.local
+node_modules/
+dist/
+```
+
+Install the locked dependencies:
+
+```powershell
+npm.cmd ci
+```
+
+Your existing `.env.local` remains valid because the Supabase project URL and publishable key did not change.
+
+## Shared Jivaro Games login storage
+
+The browser session key is now platform-wide:
+
+```text
+jivaro-games-supabase-auth
+```
+
+On the first load of the updated ChronoGame build, the client automatically copies an existing session from the former key:
+
+```text
+chronogame-supabase-auth
+```
+
+It then removes the stale game-specific copy. This preserves the current ChronoGame login while allowing future Jivaro games on the **same browser origin** to reuse the same session when they adopt the same platform key.
+
+Browser storage is origin-scoped. Apps on different domains or subdomains will still need a central sign-in flow or separate authentication unless the hosting architecture is changed.
+
+## Configure Jivaro Games email codes
+
+This dashboard setting cannot be changed by the SQL migration.
 
 Open:
 
 ```text
-Authentication → Email Templates → Magic Link
+Supabase Dashboard
+→ Jivaro Games
+→ Authentication
+→ Email Templates
+→ Magic Link
 ```
 
 Set the subject to:
 
 ```text
-Your ChronoGame sign-in code
+Your Jivaro Games sign-in code
 ```
 
-Replace the email body with:
+Use this body:
 
 ```html
-<h2>Your ChronoGame sign-in code</h2>
-<p>Enter this sign-in code in ChronoGame:</p>
+<h2>Your Jivaro Games sign-in code</h2>
+<p>Enter this sign-in code in Jivaro Games:</p>
 <p style="font-size: 32px; font-weight: 700; letter-spacing: 8px;">{{ .Token }}</p>
 <p>This code expires shortly and can only be used once.</p>
 <p>If you did not request this code, you can ignore this email.</p>
 ```
 
-The `{{ .Token }}` field is required. Without it, Supabase sends a clickable magic link instead of the code expected by the app.
-
-## 4. Confirm email authentication settings
-
-Open:
+Keep `{{ .Token }}` exactly as shown. A suitable sender is:
 
 ```text
-Authentication → Providers → Email
+Jivaro Games <noreply@jivaro.net>
 ```
 
-Confirm that:
+Confirm under **Authentication → Providers → Email**:
 
 ```text
 Enable Email provider: On
 Allow new users to sign up: On
 ```
 
-## 5. Configure allowed URLs
+Confirm under **Authentication → URL Configuration** that the current production URL and required redirects remain allowed, including local development and the deployed ChronoGame path.
 
-Open:
+## Browser-safe environment
 
-```text
-Authentication → URL Configuration
-```
-
-Use this Site URL:
-
-```text
-https://officialjivaro.github.io/ChronoGame/
-```
-
-Add these Redirect URLs:
-
-```text
-http://localhost:5173/**
-https://officialjivaro.github.io/ChronoGame/**
-https://jivaro.net/**
-```
-
-The current OTP flow does not leave the app, but these values keep later magic-link or Squarespace work compatible.
-
-## 6. Create the local Vite environment file
-
-Open:
-
-```text
-Project Settings → API Keys
-```
-
-Copy the **Publishable key** named `default`. Do not copy a secret key or service-role key.
-
-At the ChronoGame root, copy `.env.example` to `.env.local`:
+Copy `.env.example` to `.env.local` only when the local file does not already exist:
 
 ```powershell
 Copy-Item .env.example .env.local
 ```
 
-Open `.env.local` and replace the key placeholder:
+Use the Jivaro Games URL and an enabled publishable key:
 
 ```text
 VITE_SUPABASE_URL=https://dsjntffwqludoxrcykoi.supabase.co
 VITE_SUPABASE_PUBLISHABLE_KEY=sb_publishable_your_real_publishable_key
 ```
 
-`.env.local` is ignored by Git. Vite will expose the publishable key in the browser by design. Database security comes from the supplied Row Level Security policies. Never put a secret key or service-role key in a `VITE_` variable.
+Never put a secret key or service-role key in a `VITE_` variable. Keep `.env.local` uncommitted.
 
-Restart Vite whenever `.env.local` changes:
+## Run locally
 
 ```powershell
 npm.cmd run dev
 ```
 
-## 7. Test account creation
+Restart Vite after changing environment variables.
 
-1. Open ChronoGame locally.
-2. Press **Sign In** in the header.
-3. Enter an email address.
-4. Enter the sign-in code from the email.
-5. Set a leaderboard display name.
-6. Complete a game run.
-7. Confirm the results screen says the score was saved online.
-8. Press **Ranks** in the header and confirm the score appears.
+## Database verification
 
-In Supabase, verify:
+Run these read-only checks in the production SQL Editor.
 
-```text
-Authentication → Users
-Table Editor → profiles
-Table Editor → score_runs
+### Canonical tables and compatibility view
+
+```sql
+select table_name, table_type
+from information_schema.tables
+where table_schema = 'public'
+  and table_name in (
+    'games_catalog',
+    'profiles',
+    'chronogame_score_runs',
+    'score_runs',
+    'quanta_wallets',
+    'quanta_transactions'
+  )
+order by table_name;
 ```
 
-## 8. Configure production email delivery
-
-Supabase's built-in mail service is intended only for limited testing. Before inviting real users, configure a custom SMTP provider:
+Expected object types:
 
 ```text
-Project Settings → Authentication → SMTP Settings
+chronogame_score_runs  BASE TABLE
+games_catalog          BASE TABLE
+profiles               BASE TABLE
+quanta_transactions    BASE TABLE
+quanta_wallets         BASE TABLE
+score_runs             VIEW
 ```
 
-Use a transactional email provider such as Resend, Postmark, Amazon SES, Brevo, or SendGrid. Create the provider account, verify your sending domain, then enter its SMTP host, port, username, password, sender email, and sender name in Supabase.
+### Game registry
 
-Do not place SMTP credentials in Vue files or `.env.local`.
+```sql
+select game_key, display_name, active
+from public.games_catalog
+order by game_key;
+```
 
-## 9. Build and deploy
+ChronoGame should appear as:
+
+```text
+chronogame | ChronoGame | true
+```
+
+### Canonical RPC signatures
+
+```sql
+select
+  p.oid::regprocedure::text as signature,
+  pg_get_function_result(p.oid) as result_type
+from pg_proc p
+join pg_namespace n on n.oid = p.pronamespace
+where n.nspname = 'public'
+  and p.proname in (
+    'chronogame_submit_score_run_v2',
+    'chronogame_get_leaderboard'
+  )
+order by p.proname;
+```
+
+The leaderboard result must begin with:
+
+```text
+TABLE(rank bigint, ...)
+```
+
+### Generalized Quanta source fields
+
+```sql
+select
+  source_game_key,
+  source_mode,
+  is_daily_reward,
+  transaction_type,
+  reward_date,
+  count(*)
+from public.quanta_transactions
+group by 1, 2, 3, 4, 5
+order by reward_date desc, source_game_key, source_mode;
+```
+
+ChronoGame rewards should use:
+
+```text
+source_game_key = chronogame
+source_event_id = ChronoGame run UUID
+source_mode = ChronoGame mode
+is_daily_reward = true only for Daily rewards
+```
+
+## Cosmetic database verification
+
+Run these checks in **Jivaro Games Staging** after applying the migration, then repeat them in production after the production rollout.
+
+```sql
+select item_key, category, equipment_slot, display_name, price, active, sort_order
+from public.chronogame_shop_items
+order by sort_order;
+```
+
+Expected: ten active items covering four backgrounds, three UI skins, and three pets.
+
+```sql
+select
+  p.oid::regprocedure::text as signature,
+  pg_get_function_result(p.oid) as result_type
+from pg_proc p
+join pg_namespace n on n.oid = p.pronamespace
+where n.nspname = 'public'
+  and p.proname in (
+    'chronogame_purchase_item',
+    'chronogame_set_equipped_item'
+  )
+order by signature;
+```
+
+A successful cosmetic purchase creates exactly one row in each of:
+
+```text
+chronogame_purchase_orders
+chronogame_user_inventory
+quanta_transactions
+```
+
+The shared ledger row must use:
+
+```text
+transaction_type = purchase
+amount = negative server price
+source_game_key = chronogame
+source_mode = cosmetic_purchase
+source_event_id = purchase order UUID
+mode = null
+score_run_id = null
+is_daily_reward = false
+```
+
+## Functional test checklist
+
+### Account branding and session migration
+
+1. Open the existing deployed game while signed in before replacing the build.
+2. Run the updated build on the same origin or deploy it.
+3. Confirm the session remains signed in after the one-time storage-key migration.
+4. Open the account modal and confirm it says **Jivaro Games Account**.
+5. Request a code and confirm the UI says **Jivaro Games sign-in code**.
+6. Confirm the email subject and body use Jivaro Games.
+7. Confirm the permanent balance is labeled **Shared Quanta Wallet**.
+
+### Score saving and idempotency
+
+1. Sign in.
+2. Complete Classic mode.
+3. Confirm the result says the ChronoGame score was saved to the Jivaro Games account.
+4. Confirm `chronogame_score_runs` received one row.
+5. Confirm `quanta_transactions` received one `run_reward` row with:
+
+```text
+source_game_key = chronogame
+source_event_id = the ChronoGame run UUID
+source_mode = classic
+is_daily_reward = false
+```
+
+6. Retry the same save and confirm no duplicate run, wallet credit, or transaction is created.
+
+### Quanta rewards
+
+Verify the existing ChronoGame rules remain unchanged:
+
+```text
+Classic      1 Quanta after 10 completed rounds
+Time Attack  2 Quanta after at least 5 completed rounds
+Survival     3 Quanta after 10 rounds with fewer than 3 life losses
+Decade       2 Quanta after 10 completed rounds
+Daily        4 Quanta for the official run
+```
+
+The non-Daily cap remains ten rewarded runs per user per UTC date across all Jivaro games.
+
+### Daily reward isolation
+
+1. Complete the official ChronoGame Daily Challenge.
+2. Confirm one Daily transaction exists with:
+
+```text
+source_game_key = chronogame
+is_daily_reward = true
+```
+
+3. Complete another Daily run on the same UTC date.
+4. Confirm it is stored as practice and receives no second ChronoGame Daily reward.
+
+Daily uniqueness is per user, per game, per UTC date. A future Daily reward from another Jivaro game is not blocked by ChronoGame.
+
+### Leaderboards
+
+1. Open **Ranks**.
+2. Test Classic, Time Attack, Survival, Decade, and Daily tabs.
+3. Confirm each row displays `rank`, player name, score, rounds, and average miss.
+4. Confirm only the best saved score per player appears for each mode.
+5. Confirm Daily shows only official results for the selected UTC date.
+
+### Cosmetic store and inventory
+
+1. Open Quantum Bazaar while signed out and confirm all ten items can be previewed.
+2. Confirm a guest purchase action opens the existing Jivaro Games sign-in flow and never spends Guest Quanta.
+3. Sign in to a staging account with enough Quanta.
+4. Purchase one background and confirm the wallet falls by exactly the server price.
+5. Confirm one purchase order, one inventory row, and one negative shared-ledger row were created.
+6. Retry the same client purchase UUID and confirm no second charge or row is created.
+7. Attempt to buy the same item again with a different client purchase UUID and confirm the balance is unchanged.
+8. Equip the background, reload, and confirm it remains equipped.
+9. Equip a UI skin and pet, then confirm one item per slot is stored.
+10. Restore each default and confirm the corresponding equipment row is removed.
+11. Sign out and confirm default visuals return immediately.
+12. Confirm pets appear only on Home and Results, remain docked, and never appear during gameplay.
+
+### Signed-out behavior
+
+1. Sign out.
+2. Complete a run.
+3. Confirm guest Quanta remain session-only.
+4. Confirm no authenticated score row or permanent Quanta transaction is created.
+
+## Data-preservation check
+
+Compare these counts before and after frontend deployment:
+
+```sql
+select
+  (select count(*) from auth.users) as users,
+  (select count(*) from public.profiles) as profiles,
+  (select count(*) from public.chronogame_score_runs) as chronogame_runs,
+  (select count(*) from public.quanta_wallets) as wallets,
+  (select count(*) from public.quanta_transactions) as quanta_transactions,
+  (select count(*) from public.chronogame_purchase_orders) as cosmetic_orders,
+  (select count(*) from public.chronogame_user_inventory) as cosmetic_inventory;
+```
+
+Deploying the frontend does not migrate or delete any data.
+
+## Build and deploy
 
 After local testing:
 
@@ -179,7 +506,7 @@ After local testing:
 npm.cmd run build
 ```
 
-Confirm the generated `docs` folder still contains:
+The current Vite configuration writes the deployable site to `docs/`. Confirm at least:
 
 ```text
 docs/index.html
@@ -188,176 +515,57 @@ docs/data/games/
 docs/ChronoGame/assets/
 ```
 
-Commit the editable source plus regenerated `docs`, then publish through the existing GitHub Pages setup.
+Deploy the regenerated `docs` folder using the existing publishing workflow.
 
-## 10. What the security currently guarantees
-
-The supplied setup guarantees that:
-
-- Guests cannot save scores.
-- A user can save only under their own Supabase account.
-- Users can read only their own raw score rows.
-- Leaderboards expose display names and score summaries, not emails or user IDs.
-- Repeated submissions of the same client run do not create duplicates.
-- Only one official Daily Challenge score is accepted per user per UTC date.
-
-This is a casual leaderboard. A player with technical knowledge can still modify the frontend before submission. A later server-verified phase should move score calculation into a Supabase Edge Function and eventually keep correct years out of public JSON.
-
-## 11. Future Squarespace linking
-
-Do not replace Supabase Auth later. Keep the Supabase user UUID as the permanent player identity.
-
-A future Edge Function can:
-
-1. Verify the signed-in Supabase user.
-2. Read the user's verified Supabase email.
-3. Query the Squarespace Contacts API with a server-side Squarespace key.
-4. Save the verified Squarespace contact ID in `external_account_links`.
-5. Mark the Supabase account as linked.
-
-The Squarespace API key must be stored as an Edge Function secret and must never be included in the Vue application.
-
-
-## 12. Add the Quanta currency system
-
-Apply the Quanta migration only after the original online-score migration has succeeded.
-
-Open:
+Recommended rollout order:
 
 ```text
-SQL Editor → New query
+1. Test the frontend against Jivaro Games Staging while signed in and signed out.
+2. Verify purchase idempotency, inventory, equipment, and shared-ledger rows in staging.
+3. Apply 20260625020000_chronogame_cosmetics_store.sql to Jivaro Games production.
+4. Update the Supabase email template to Jivaro Games if still required.
+5. Build with the production `.env.local` and deploy the regenerated `docs/` directory.
+6. Verify scores, Quanta rewards, purchases, equipment, Daily logic, and leaderboards in production.
+7. Keep compatibility objects for several days.
+8. Remove compatibility objects only in a separate, reviewed cleanup migration.
 ```
 
-Open this local project file:
+## Compatibility cleanup later
+
+Do not remove these during this rollout:
 
 ```text
-supabase/migrations/202606230001_quanta_currency.sql
-```
-
-Copy the entire file into the SQL Editor and press **Run** once.
-
-A successful schema migration normally reports:
-
-```text
-Success. No rows returned
-```
-
-After it succeeds, Table Editor should also show:
-
-```text
-quanta_wallets
-quanta_transactions
-```
-
-The migration also creates:
-
-```text
+score_runs
+submit_score_run
 submit_score_run_v2
+get_leaderboard
+quanta_mode_reward
+quanta_reward_text
+quanta_status_for_run
 ```
 
-Do not delete the original `submit_score_run` function yet. Keeping both versions allows the currently published build to keep saving scores while the new frontend is being tested.
+After the updated production build has operated correctly for several days, remove them in a dedicated migration. Keep the canonical ChronoGame objects.
 
-## 13. Confirm existing users received wallets
-
-Run this query in the SQL Editor:
-
-```sql
-select
-  (select count(*) from auth.users) as auth_users,
-  (select count(*) from public.quanta_wallets) as wallets;
-```
-
-The two counts should match. Existing score rows intentionally receive no Quanta.
-
-You can inspect wallets with:
-
-```sql
-select user_id, balance, lifetime_earned, lifetime_spent, created_at
-from public.quanta_wallets
-order by created_at desc;
-```
-
-## 14. Test one permanent Quanta reward
-
-1. Restart ChronoGame locally.
-2. Sign in.
-3. Complete all ten rounds of Classic mode.
-4. Confirm the Results screen shows `+1 Quanta`.
-5. Open the header wallet and confirm the balance increased.
-6. In Supabase, open `quanta_wallets` and confirm the balance is `1`.
-7. Open `quanta_transactions` and confirm one `run_reward` row references the completed score run.
-8. Press **Retry Save** or refresh the Results screen if possible and confirm no second reward appears.
-
-The expected reward table is:
+The legacy Quanta columns can be retired later only after every game uses the generalized fields:
 
 ```text
-Classic: 1 Quanta
-Time Attack with at least 5 guesses: 2 Quanta
-Successful Survival: 3 Quanta
-Decade Challenge: 2 Quanta
-Official Daily Challenge: 4 Quanta
+mode
+score_run_id
 ```
 
-Daily Challenge pays once per UTC date. Classic, Time Attack, Survival, and Decade Challenge share a cap of ten rewarded clears per UTC date.
+## Security notes
 
-## 15. Test guest Quanta
+The browser receives only the Supabase project URL and publishable key. Row Level Security and server-side functions remain the security boundary:
 
-1. Sign out.
-2. Complete Classic mode.
-3. Confirm the header shows `Guest Q 1`.
-4. Refresh the same tab and confirm the balance remains.
-5. Close the browser session and open a new one.
-6. Confirm the guest balance resets.
-7. Sign in and confirm the permanent wallet replaces the guest wallet without merging balances.
+- Users can read only their own raw ChronoGame runs, wallet, and transaction rows.
+- Direct browser inserts into score and Quanta tables remain disabled.
+- The compatibility `score_runs` view uses invoker security and respects the underlying row policy.
+- `chronogame_submit_score_run_v2` is callable only by authenticated users and atomically saves the run and reward.
+- Leaderboard RPCs expose only display names and score summaries, not emails or user UUIDs.
+- Reusing a client run ID cannot create a duplicate run or reward.
+- Cosmetic prices are authoritative in `chronogame_shop_items`; the browser never submits a trusted price.
+- Reusing a client purchase UUID returns the existing order and cannot create a duplicate debit.
+- Direct authenticated writes to cosmetic ownership, equipment, and purchase-order tables are disabled.
+- Security-definer RPCs use a fixed `search_path`; public execution is intentional only for read-only catalog and leaderboard access, while score submission, purchases, and equipment changes require authentication.
 
-Guest Quanta is stored only in `sessionStorage` and is never written to Supabase.
-
-## 16. Test the Quantum Bazaar preview
-
-Open the store from:
-
-```text
-Header wallet
-Home screen Quantum Bazaar card
-Results reward card
-```
-
-Confirm that:
-
-- All six categories appear.
-- Preview prices appear in Quanta.
-- Every purchase button says `Coming Soon` and is disabled.
-- Opening the store never changes the wallet balance.
-- The modal closes with Escape and by clicking outside it.
-
-## 17. Review Supabase security after the migration
-
-Open:
-
-```text
-Advisor Center → Security
-```
-
-The Quanta tables should have Row Level Security enabled. Browser users should have read-only access to their own wallet and transaction rows. The frontend must never receive a Supabase secret or service-role key.
-
-For an additional SQL check, run:
-
-```sql
-select tablename, policyname, roles, cmd
-from pg_policies
-where schemaname = 'public'
-  and tablename in ('quanta_wallets', 'quanta_transactions')
-order by tablename, policyname;
-```
-
-## 18. Quanta rollout order
-
-Use this deployment order:
-
-1. Apply `202606230001_quanta_currency.sql` in Supabase.
-2. Confirm `submit_score_run_v2` exists.
-3. Test locally while signed in and signed out.
-4. Run `npm.cmd run build`.
-5. Deploy the regenerated `docs` folder.
-
-Do not deploy the new frontend before the v2 score function exists, or signed-in score saving will fail.
+ChronoGame remains a casual client-scored leaderboard. Strong anti-cheat protection would require server-verifiable rounds or server-side score calculation from trusted game data.

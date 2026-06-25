@@ -14,49 +14,8 @@ export const MODE_QUANTA_REWARDS = Object.freeze({
   daily: 4
 })
 
-export const STORE_CATEGORIES = Object.freeze([
-  Object.freeze({ id: 'cabinet', label: 'Cabinet Skins' }),
-  Object.freeze({ id: 'frames', label: 'Profile Frames' }),
-  Object.freeze({ id: 'effects', label: 'Result Effects' }),
-  Object.freeze({ id: 'titles', label: 'Titles & Badges' }),
-  Object.freeze({ id: 'chronobot', label: 'ChronoBot Accessories' }),
-  Object.freeze({ id: 'sounds', label: 'Sound Packs' })
-])
-
-export const STORE_ITEMS = Object.freeze([
-  Object.freeze({ id: 'amber-reactor', category: 'cabinet', name: 'Amber Reactor', price: 40, description: 'A warm reactor glow for the cabinet shell.' }),
-  Object.freeze({ id: 'midnight-vector', category: 'cabinet', name: 'Midnight Vector', price: 55, description: 'Black glass, thin grid lines, suspicious confidence.' }),
-  Object.freeze({ id: 'radioactive-lime', category: 'cabinet', name: 'Radioactive Lime', price: 65, description: 'A cabinet color approved by absolutely no safety board.' }),
-  Object.freeze({ id: 'deep-space-violet', category: 'cabinet', name: 'Deep-Space Violet', price: 75, description: 'A purple finish recovered from the far edge of 1999.' }),
-
-  Object.freeze({ id: 'pixel-pilot', category: 'frames', name: 'Pixel Pilot', price: 20, description: 'A crisp pixel border for leaderboard identities.' }),
-  Object.freeze({ id: 'time-archivist', category: 'frames', name: 'Time Archivist', price: 25, description: 'A brass-edged frame for serious calendar detectives.' }),
-  Object.freeze({ id: 'arcade-royalty', category: 'frames', name: 'Arcade Royalty', price: 35, description: 'Gold trim with exactly the right amount of showing off.' }),
-  Object.freeze({ id: 'glitch-survivor', category: 'frames', name: 'Glitch Survivor', price: 30, description: 'A fractured frame that somehow still passes inspection.' }),
-
-  Object.freeze({ id: 'coin-burst', category: 'effects', name: 'Coin Burst', price: 30, description: 'A shower of tiny Quanta after a cleared run.' }),
-  Object.freeze({ id: 'timeline-fracture', category: 'effects', name: 'Timeline Fracture', price: 45, description: 'Crack the results screen without cracking the score.' }),
-  Object.freeze({ id: 'perfect-guess-nova', category: 'effects', name: 'Perfect Guess Nova', price: 50, description: 'A restrained explosion for exact-year brilliance.' }),
-  Object.freeze({ id: 'crt-collapse', category: 'effects', name: 'CRT Collapse', price: 38, description: 'The screen powers down like it knows something you do not.' }),
-
-  Object.freeze({ id: 'calendar-criminal', category: 'titles', name: 'Calendar Criminal', price: 10, description: 'For players wanted across several decades.' }),
-  Object.freeze({ id: 'decade-detective', category: 'titles', name: 'Decade Detective', price: 14, description: 'A badge for identifying suspiciously specific eras.' }),
-  Object.freeze({ id: 'temporal-menace', category: 'titles', name: 'Temporal Menace', price: 18, description: 'The timeline has filed a formal complaint.' }),
-  Object.freeze({ id: 'certified-time-traveler', category: 'titles', name: 'Certified Time Traveler', price: 20, description: 'Certification not recognized by conventional physics.' }),
-
-  Object.freeze({ id: 'tiny-top-hat', category: 'chronobot', name: 'Tiny Top Hat', price: 15, description: 'ChronoBot insists this improves historical accuracy.' }),
-  Object.freeze({ id: 'space-helmet', category: 'chronobot', name: 'Space Helmet', price: 22, description: 'Useful for years containing unusually low oxygen.' }),
-  Object.freeze({ id: 'questionable-mustache', category: 'chronobot', name: 'Questionable Mustache', price: 18, description: 'Raises charisma and several important questions.' }),
-  Object.freeze({ id: 'gold-antenna', category: 'chronobot', name: 'Gold Antenna', price: 30, description: 'Receives premium signals from abandoned arcades.' }),
-
-  Object.freeze({ id: 'eight-bit-cabinet', category: 'sounds', name: '8-Bit Cabinet', price: 50, description: 'Friendly bleeps from a less complicated century.' }),
-  Object.freeze({ id: 'dreamcast-lounge', category: 'sounds', name: 'Dreamcast Lounge', price: 65, description: 'Airy menu tones and extremely optimistic technology.' }),
-  Object.freeze({ id: 'haunted-cartridge', category: 'sounds', name: 'Haunted Cartridge', price: 60, description: 'Crackles, whispers, and one save file named HELP.' }),
-  Object.freeze({ id: 'future-mall', category: 'sounds', name: 'Future Mall', price: 80, description: 'Soft synths from a food court that never existed.' })
-])
-
 export const CHRONOBOT_MESSAGES = Object.freeze({
-  store: 'The Quantum Bazaar is still under construction. Someone misplaced 1987.',
+  store: 'Quantum Bazaar online. ChronoBot accepts Quanta and suspiciously exact change.',
   guest: 'Guest Quanta survive this tab, but not the next temporal departure.',
   signedIn: 'Permanent Quanta secured. ChronoBot has counted them twice.',
   rewarded: 'Timeline stabilized. Payment approved with minimal robot paperwork.',

@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import cosmetics from './modules/cosmetics.js'
 import economy from './modules/economy.js'
 import online from './modules/online.js'
 import { GAME_MODES, getGameMode } from '../config/gameModes.js'
@@ -77,6 +78,7 @@ function getInitialRunState() {
 
 export default createStore({
   modules: {
+    cosmetics,
     economy,
     online
   },

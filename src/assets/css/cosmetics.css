@@ -1,0 +1,83 @@
+/* Cosmetic Skins | Applies equipped ChronoGame panel, accent, and texture tokens */
+[data-ui-skin='amber-reactor'] {
+  --color-panel: rgba(37, 25, 15, 0.96);
+  --color-panel-deep: rgba(16, 10, 7, 0.98);
+  --color-panel-soft: rgba(61, 38, 22, 0.84);
+  --color-border: #705038;
+  --color-border-soft: rgba(255, 218, 166, 0.12);
+  --color-border-accent: rgba(255, 156, 53, 0.62);
+  --color-accent: #ff8d2b;
+  --color-accent-bright: #ffc06e;
+  --color-accent-dark: #b94308;
+  --color-accent-rgb: 255, 141, 43;
+  --color-accent-glow: rgba(255, 141, 43, 0.32);
+  --color-secondary-glow: #8d4b22;
+  --color-store-surface: rgba(37, 25, 15, 0.97);
+  --gradient-button-primary: linear-gradient(180deg, #ffc678 0%, #ff8d2b 50%, #bb4508 100%);
+  --gradient-button-primary-hover: linear-gradient(180deg, #ffd99a 0%, #ffa243 50%, #cf5310 100%);
+  --gradient-button-secondary: linear-gradient(180deg, #513824 0%, #281b12 100%);
+  --gradient-button-secondary-hover: linear-gradient(180deg, #66482f 0%, #342318 100%);
+  --panel-texture:
+    linear-gradient(145deg, rgba(255, 214, 157, 0.05), transparent 35%),
+    repeating-linear-gradient(0deg, rgba(255, 141, 43, 0.024) 0 1px, transparent 1px 5px);
+}
+
+[data-ui-skin='phosphor-grid'] {
+  --color-panel: rgba(8, 31, 22, 0.96);
+  --color-panel-deep: rgba(3, 14, 10, 0.98);
+  --color-panel-soft: rgba(16, 53, 37, 0.84);
+  --color-border: #35674c;
+  --color-border-soft: rgba(188, 255, 211, 0.13);
+  --color-border-accent: rgba(90, 255, 154, 0.58);
+  --color-accent: #4bec8c;
+  --color-accent-bright: #a5ffc4;
+  --color-accent-dark: #169550;
+  --color-accent-rgb: 75, 236, 140;
+  --color-accent-glow: rgba(75, 236, 140, 0.27);
+  --color-secondary-glow: #1f8d61;
+  --color-store-surface: rgba(8, 31, 22, 0.97);
+  --gradient-button-primary: linear-gradient(180deg, #b9ffd0 0%, #4bec8c 52%, #169550 100%);
+  --gradient-button-primary-hover: linear-gradient(180deg, #d3ffe0 0%, #65f5a1 52%, #20aa61 100%);
+  --gradient-button-secondary: linear-gradient(180deg, #224f38 0%, #10291d 100%);
+  --gradient-button-secondary-hover: linear-gradient(180deg, #2c6749 0%, #153725 100%);
+  --color-button-primary-text: #06170d;
+  --panel-texture:
+    linear-gradient(145deg, rgba(191, 255, 214, 0.05), transparent 32%),
+    linear-gradient(rgba(75, 236, 140, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(75, 236, 140, 0.025) 1px, transparent 1px);
+}
+
+[data-ui-skin='violet-vector'] {
+  --color-panel: rgba(31, 15, 51, 0.96);
+  --color-panel-deep: rgba(12, 6, 22, 0.98);
+  --color-panel-soft: rgba(51, 25, 77, 0.84);
+  --color-border: #664278;
+  --color-border-soft: rgba(235, 206, 255, 0.13);
+  --color-border-accent: rgba(200, 92, 255, 0.6);
+  --color-accent: #bd4ff4;
+  --color-accent-bright: #e398ff;
+  --color-accent-dark: #7421a2;
+  --color-accent-rgb: 189, 79, 244;
+  --color-accent-glow: rgba(189, 79, 244, 0.3);
+  --color-secondary-glow: #39cde0;
+  --color-store-surface: rgba(31, 15, 51, 0.97);
+  --gradient-button-primary: linear-gradient(180deg, #efb3ff 0%, #bd4ff4 52%, #7421a2 100%);
+  --gradient-button-primary-hover: linear-gradient(180deg, #f5c9ff 0%, #cc68f8 52%, #882db8 100%);
+  --gradient-button-secondary: linear-gradient(180deg, #4d2d63 0%, #25142f 100%);
+  --gradient-button-secondary-hover: linear-gradient(180deg, #62407b 0%, #321b40 100%);
+  --color-button-primary-text: #170720;
+  --panel-texture:
+    linear-gradient(145deg, rgba(239, 199, 255, 0.05), transparent 34%),
+    repeating-linear-gradient(135deg, rgba(111, 230, 255, 0.025) 0 1px, transparent 1px 7px);
+}
+
+/* Retro Surface Details | Adds restrained terminal framing without changing layouts */
+[data-ui-skin] .app-content::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background: repeating-linear-gradient(to bottom, transparent 0 5px, rgba(0, 0, 0, 0.12) 5px 6px);
+}

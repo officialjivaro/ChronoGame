@@ -151,7 +151,7 @@ export default {
       }
     },
     openStore() {
-      this.$store.dispatch('economy/openStore')
+      this.$store.dispatch('cosmetics/openBazaar')
     }
   }
 }

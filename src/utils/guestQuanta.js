@@ -30,7 +30,7 @@ function getStorage() {
     window.sessionStorage.setItem(testKey, '1')
     window.sessionStorage.removeItem(testKey)
     return window.sessionStorage
-  } catch (_error) {
+  } catch {
     return null
   }
 }
@@ -65,7 +65,7 @@ function saveWallet(wallet) {
   if (storage) {
     try {
       storage.setItem(STORAGE_KEY, JSON.stringify(normalized))
-    } catch (_error) {
+    } catch {
       fallbackWallet = normalized
     }
   }
@@ -80,7 +80,7 @@ export function loadGuestQuantaWallet() {
     try {
       const raw = storage.getItem(STORAGE_KEY)
       if (raw) return saveWallet(JSON.parse(raw))
-    } catch (_error) {
+    } catch {
       storage.removeItem(STORAGE_KEY)
     }
   }

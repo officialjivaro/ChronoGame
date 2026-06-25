@@ -12,6 +12,7 @@ import {
 function initialState() {
   return {
     initialized: false,
+    accountUserId: '',
     balance: 0,
     previousBalance: 0,
     lifetimeEarned: 0,
@@ -19,7 +20,6 @@ function initialState() {
     guest: true,
     loading: false,
     error: '',
-    storeOpen: false,
     rewardStatus: 'idle',
     rewardAmount: 0,
     rewardMessage: '',
@@ -36,7 +36,7 @@ export default {
       return Number(state.balance || 0).toLocaleString()
     },
     walletLabel(state) {
-      return state.guest ? 'Guest Quanta' : 'Temporal Wallet'
+      return state.guest ? 'Guest Quanta' : 'Shared Quanta Wallet'
     },
     isGuestWallet(state) {
       return state.guest
@@ -45,6 +45,9 @@ export default {
   mutations: {
     setInitialized(state, value) {
       state.initialized = Boolean(value)
+    },
+    setAccountUserId(state, userId) {
+      state.accountUserId = userId || ''
     },
     setLoading(state, value) {
       state.loading = Boolean(value)
@@ -61,9 +64,6 @@ export default {
     setDayStatus(state, payload) {
       state.rewardedRunsToday = Math.max(0, Number(payload?.rewardedRunsToday) || 0)
       state.dailyRewardClaimed = Boolean(payload?.dailyRewardClaimed)
-    },
-    setStoreOpen(state, value) {
-      state.storeOpen = Boolean(value)
     },
     setRewardState(state, payload) {
       state.rewardStatus = payload?.status || 'idle'
@@ -83,6 +83,19 @@ export default {
         state.dailyRewardClaimed = Boolean(payload.dailyRewardClaimed)
       }
     },
+    applyPurchaseBalance(state, payload) {
+      const pricePaid = Math.max(0, Number(payload?.pricePaid) || 0)
+      const previousBalance = payload?.previousBalance === undefined
+        ? state.balance
+        : Number(payload.previousBalance)
+      const newBalance = payload?.newBalance === undefined
+        ? state.balance
+        : Number(payload.newBalance)
+      state.previousBalance = Math.max(0, Number.isFinite(previousBalance) ? previousBalance : state.balance)
+      state.balance = Math.max(0, Number.isFinite(newBalance) ? newBalance : state.balance)
+      state.lifetimeSpent = Math.max(0, state.lifetimeSpent + pricePaid)
+      state.guest = false
+    },
     resetRewardState(state) {
       state.rewardStatus = 'idle'
       state.rewardAmount = 0
@@ -100,14 +113,25 @@ export default {
         commit('setInitialized', true)
       }
     },
-    async handleAuthState({ dispatch }, user) {
+    async handleAuthState({ state, dispatch, commit }, user) {
       if (user?.id) {
+        if (state.accountUserId !== user.id) {
+          commit('setAccountUserId', user.id)
+          commit('setWallet', {
+            balance: 0,
+            lifetimeEarned: 0,
+            lifetimeSpent: 0,
+            guest: false
+          })
+          commit('setDayStatus', { rewardedRunsToday: 0, dailyRewardClaimed: false })
+          commit('setError', '')
+        }
         return dispatch('loadPermanentWallet', user)
       }
 
       return dispatch('loadGuestWallet')
     },
-    async loadPermanentWallet({ commit }, user) {
+    async loadPermanentWallet({ state, rootState, commit }, user) {
       if (!user?.id) return null
 
       commit('setLoading', true)
@@ -115,6 +139,8 @@ export default {
 
       try {
         const overview = await fetchQuantaOverview(user.id)
+        if (state.accountUserId !== user.id || rootState.online?.user?.id !== user.id) return null
+
         commit('setWallet', {
           balance: overview.wallet.balance,
           lifetimeEarned: overview.wallet.lifetime_earned,
@@ -124,13 +150,18 @@ export default {
         commit('setDayStatus', overview)
         return overview
       } catch (error) {
-        commit('setError', error.message || 'The Temporal Wallet could not be loaded.')
+        if (state.accountUserId === user.id && rootState.online?.user?.id === user.id) {
+          commit('setError', error.message || 'The shared Quanta wallet could not be loaded.')
+        }
         return null
       } finally {
-        commit('setLoading', false)
+        if (state.accountUserId === user.id) commit('setLoading', false)
       }
     },
     loadGuestWallet({ commit }) {
+      commit('setAccountUserId', '')
+      commit('setLoading', false)
+      commit('setError', '')
       const overview = getGuestRewardOverview()
       commit('setWallet', {
         balance: overview.balance,
@@ -190,14 +221,17 @@ export default {
         message: CHRONOBOT_MESSAGES.saveFailed
       })
     },
+    async applyPurchaseResult({ rootState, commit, dispatch }, result) {
+      commit('applyPurchaseBalance', result)
+
+      if (rootState.online?.user?.id) {
+        await dispatch('loadPermanentWallet', rootState.online.user)
+      }
+
+      return result
+    },
     resetReward({ commit }) {
       commit('resetRewardState')
-    },
-    openStore({ commit }) {
-      commit('setStoreOpen', true)
-    },
-    closeStore({ commit }) {
-      commit('setStoreOpen', false)
     }
   }
 }

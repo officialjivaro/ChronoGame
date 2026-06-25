@@ -258,7 +258,7 @@ export default {
 .performance-copy span,
 .hint-summary span {
   color: var(--color-text-muted);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -305,7 +305,7 @@ export default {
 .score-orb span {
   margin-top: 0.2rem;
   color: var(--color-text-muted);
-  font-size: 0.6rem;
+  font-size: 0.67rem;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -322,7 +322,7 @@ export default {
   display: block;
   margin-top: 0.25rem;
   color: var(--color-warning);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
 }
 
 .score-perfect { color: var(--color-success); }
@@ -364,7 +364,7 @@ export default {
 .guess-details dt,
 .game-details dt {
   color: var(--color-text-muted);
-  font-size: 0.56rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -432,7 +432,7 @@ export default {
   margin: 0;
   color: var(--color-text-muted);
   text-align: center;
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   letter-spacing: 0.05em;
 }
 

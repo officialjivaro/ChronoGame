@@ -123,25 +123,25 @@ export default {
 }
 
 .arcade-button-primary {
-  color: #18100b;
-  border-color: #ffba7d;
-  background: linear-gradient(180deg, #ffb56f 0%, #ff8a32 52%, #d95a14 100%);
+  color: var(--color-button-primary-text);
+  border-color: var(--color-accent-bright);
+  background: var(--gradient-button-primary);
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .arcade-button-primary:hover {
-  background: linear-gradient(180deg, #ffc58f 0%, #ff9949 52%, #e4641b 100%);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42), 0 0 20px rgba(255, 138, 50, 0.28);
+  background: var(--gradient-button-primary-hover);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42), 0 0 20px var(--color-accent-glow);
 }
 
 .arcade-button-secondary {
-  border-color: #555b65;
-  background: linear-gradient(180deg, #3c414a 0%, #23262c 100%);
+  border-color: var(--color-border);
+  background: var(--gradient-button-secondary);
 }
 
 .arcade-button-secondary:hover {
-  border-color: rgba(255, 138, 50, 0.64);
-  background: linear-gradient(180deg, #484e59 0%, #292d34 100%);
+  border-color: var(--color-border-accent);
+  background: var(--gradient-button-secondary-hover);
 }
 
 .arcade-button-ghost {
@@ -151,14 +151,14 @@ export default {
 }
 
 .arcade-button-ghost:hover {
-  border-color: rgba(255, 138, 50, 0.65);
-  background: rgba(255, 138, 50, 0.08);
+  border-color: var(--color-border-accent);
+  background: rgba(var(--color-accent-rgb), 0.08);
 }
 
 .arcade-button-small {
   min-height: 2.2rem;
   padding: 0.45rem 0.8rem;
-  font-size: 0.68rem;
+  font-size: 0.72rem;
 }
 
 .arcade-button-medium {

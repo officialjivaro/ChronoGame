@@ -132,7 +132,7 @@ export default {
 .year-readout span {
   display: block;
   color: var(--color-text-muted);
-  font-size: clamp(0.52rem, 0.8vw, 0.66rem);
+  font-size: clamp(0.65rem, 0.85vw, 0.72rem);
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -225,7 +225,7 @@ export default {
   margin-top: 0.35rem;
   color: var(--color-text-muted);
   font-family: var(--font-display);
-  font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+  font-size: clamp(0.63rem, 0.8vw, 0.69rem);
 }
 
 .range-limits span:nth-child(2) {

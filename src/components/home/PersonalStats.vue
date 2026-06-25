@@ -61,7 +61,7 @@ export default {
 
 .stat-item span {
   color: var(--color-text-muted);
-  font-size: clamp(0.45rem, 0.7vw, 0.58rem);
+  font-size: clamp(0.62rem, 0.75vw, 0.68rem);
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -71,6 +71,6 @@ export default {
   margin-top: 0.15rem;
   color: var(--color-accent-bright);
   font-family: var(--font-display);
-  font-size: clamp(0.65rem, 1.1vw, 0.86rem);
+  font-size: clamp(0.72rem, 1.1vw, 0.9rem);
 }
 </style>

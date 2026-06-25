@@ -241,11 +241,11 @@ export default {
       if (this.onlineSaveStatus === 'saving') return 'Saving…'
       if (this.onlineSaveStatus === 'saved') return 'Saved Online'
       if (this.onlineSaveStatus === 'error') return 'Save Failed'
-      return 'Account Connected'
+      return 'Jivaro Games Connected'
     },
     onlineStatusMessage() {
       if (this.onlineSaveMessage) return this.onlineSaveMessage
-      if (!this.isAuthenticated) return 'Sign in to attach this completed run to your account.'
+      if (!this.isAuthenticated) return 'Sign in to attach this completed run to your Jivaro Games account.'
       return 'Completed runs are saved automatically.'
     },
     onlineStatusClass() {
@@ -273,7 +273,7 @@ export default {
 .total-card span,
 .result-metrics span {
   color: var(--color-text-muted);
-  font-size: clamp(0.54rem, 0.85vw, 0.68rem);
+  font-size: clamp(0.65rem, 0.9vw, 0.72rem);
   font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -420,7 +420,7 @@ export default {
 
 .online-score-copy span {
   color: var(--color-text-muted);
-  font-size: 0.52rem;
+  font-size: 0.65rem;
   font-weight: 800;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -436,7 +436,7 @@ export default {
 .online-score-copy small {
   margin-top: 0.15rem;
   color: var(--color-text-muted);
-  font-size: 0.62rem;
+  font-size: 0.68rem;
 }
 
 .online-score-actions {

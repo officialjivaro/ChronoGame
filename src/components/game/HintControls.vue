@@ -83,7 +83,7 @@ export default {
 
 .hint-heading span {
   color: var(--color-text-muted);
-  font-size: 0.56rem;
+  font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -124,7 +124,7 @@ export default {
 }
 
 .hint-button span {
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -132,13 +132,13 @@ export default {
 .hint-button small {
   margin-top: 0.18rem;
   color: var(--color-text-muted);
-  font-size: 0.5rem;
+  font-size: 0.62rem;
 }
 
 .hint-button strong {
   margin-top: 0.18rem;
   color: var(--color-accent-bright);
-  font-size: clamp(0.5rem, 0.85vw, 0.65rem);
+  font-size: clamp(0.64rem, 0.85vw, 0.7rem);
 }
 
 .hint-button:hover:not(:disabled) {
